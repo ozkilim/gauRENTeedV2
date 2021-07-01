@@ -2,6 +2,7 @@ import pandas as pd
 import django
 import sys
 import os
+from django.core.mail import send_mail
 from beta.models import Property, Review
 import stripe
 from jinja2 import *
@@ -238,8 +239,23 @@ def checkout(request):
                    backend='django.contrib.auth.backends.ModelBackend')
 
         # Sed email back to this email automatically with their deails so they do not forget
+        try:
+            send_mail(
+                subject="Thaks for signing up to gauRENTeed!",
+                message="We hope you will benefit from some inside information during your housing hunt! For your safekeeping: Your username is: {} and passowrd is: {}".format(
+                    username, password),
+                recipient_list=[email],
+                from_email="ozsamkilim@gmail.com"
+            )
+        except Exception as err:
+            exception_type = type(err).__name__
+            print(exception_type)
+            print("failed to send email")
         # Return to the page the user wanted....
-        return redirect('landing')  # TO THE LOACTION THE USER WANTED
+        # TO THE LOACTION THE USER WANTED
+        return JsonResponse({
+            'sucess': "sucess"
+        })
 
 
 class FormWizardView(SessionWizardView):

@@ -203,8 +203,8 @@ STATIC_URL = '/static/'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'fridgeflipapp@gmail.com'
-EMAIL_HOST_PASSWORD = 'fridgeflipadmin'
+EMAIL_HOST_USER = 'ozsamkilim@gmail.com'
+EMAIL_HOST_PASSWORD = 'monkey/218'
 EMAIL_USE_TLS = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 # LOGIN_REDIRECT_URL = 'landing'

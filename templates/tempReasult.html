@@ -216,6 +216,7 @@ button:disabled {
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 var stripe = Stripe("pk_test_51IVE74GfxvWHpljQiugUY1xG2FvOnO8l6W64sVuSofMJ5SHsVVlZ5E81bLsC1BwIWptV8BL2U4ZHhesrXOyOKcRH00SdJXIHfx");
 document.querySelector("button").disabled = true;
+ 
 fetch("{% url 'create-checkout-session' %}", {
     method: "POST",
     headers: {
@@ -258,14 +259,17 @@ fetch("{% url 'create-checkout-session' %}", {
         event.preventDefault();
         // Complete payment when the submit button is clicked
         payWithCard(stripe, card, data.client_secret);
+
+
         // Send for data back to the server
         var formElement = document.querySelector("#payment-form");
         var request = new XMLHttpRequest();
         request.open("POST", "{% url 'checkout' %}");
         console.log(formElement)
         request.send(new FormData(formElement));
+        // Show a sucess message
+        closeAllModals()
 
-        // Navigate to new view with data...
     });
 
 });
@@ -276,21 +280,26 @@ fetch("{% url 'create-checkout-session' %}", {
 // prompt the user to enter authentication details without leaving your page.
 var payWithCard = function(stripe, card, clientSecret) {
     loading(true);
-    stripe
-    .confirmCardPayment(clientSecret, {
-        payment_method: {
+  stripe
+  .confirmCardPayment(clientSecret, {
+      payment_method: {
         card: card
-        }
+      }
     })
-    .then(function(result) {
-        if (result.error) {
-        // Show error to your customer
-        showError(result.error.message);
-        } else {
-        // The payment succeeded!
-        orderComplete(result.paymentIntent.id);
-        }
-    });
+
+    // console.log(result)
+    // .then(function(result) {
+    //     if (result.error) {
+    //     // Show error to your customer
+    //     showError(result.error.message);
+    //     } else {
+    //     // The payment succeeded!
+    //     console.log("order made")
+    //     orderComplete(result.paymentIntent.id);
+    //     //  If payment and login was sucessfull remove the modal
+
+    //     }
+    // });
 };
 /* ------- UI helpers ------- */
 // Shows a success message when the payment is complete
@@ -327,6 +336,26 @@ var loading = function(isLoading) {
     document.querySelector("#button-text").classList.remove("hidden");
     }
 };
+
+function closeAllModals() {
+    // get modals
+    const modals = document.getElementsByClassName('modal');
+
+    // on every modal change state like in hidden modal
+    for(let i=0; i<modals.length; i++) {
+    modals[i].classList.remove('show');
+    modals[i].setAttribute('aria-hidden', 'true');
+    modals[i].setAttribute('style', 'display: none');
+    }
+
+    // get modal backdrops
+    const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
+
+    // remove every modal backdrop
+    for(let i=0; i<modalsBackdrops.length; i++) {
+    document.body.removeChild(modalsBackdrops[i]);
+ }
+}
             
               </script>
 
