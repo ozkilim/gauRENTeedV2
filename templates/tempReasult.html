@@ -185,18 +185,14 @@ button:disabled {
                     <strong>username or password not correct</strong>
                 </div>
                 {% endif %}
-              <div class="modal-footer">
-                <div class="options text-center text-md-right mt-1">
-                  <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-                </div>
-              </div>
+              
             </div>
         </div>
  
- 
-
             <div class="tab-pane fade" id="panel8" role="tabpanel">
-  
+                <h2>What you get</h2>
+                <h3>-Over 200 properties in redland bristols most current reviewsfrom last year</h3>
+                <h3>-A way to make see what its really like to live in  your next place!</h3>
 
               <form id="payment-form" class="form-control">{% csrf_token %}
                 <input name = "email" type="text" id="email" placeholder="Email address" class="form-control"/>
@@ -206,7 +202,7 @@ button:disabled {
                 <div id="card-element"></div>
                 <button id="submit">
                   <div class="spinner hidden" id="spinner"></div>
-                  <span id="button-text">Pay now</span>
+                  <span id="button-text">Unlock all the reviews</span>
                 </button>
                 <p id="card-error" role="alert"></p>
                 <p class="result-message hidden">

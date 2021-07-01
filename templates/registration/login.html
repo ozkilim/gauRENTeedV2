@@ -23,12 +23,12 @@
 
 
                 <div>
-                    <h1>login with google</h1>
+                    <!-- <h1>login with google</h1> -->
                     <h1>gauRENTeed login</h1>
                     {% if user.is_authenticated %}
                     <p>Welcome, You are logged in as {{ user.username }}</p>
                     {% else %}
-                    <a href="{% provider_login_url 'google' %}">Login With Google</a>
+                    <!-- <a href="{% provider_login_url 'google' %}">Login With Google</a> -->
                     {% endif %}
                 </div>
 
@@ -54,11 +54,11 @@
                 </div>
                 {% endif %}
 
-                <br>
+                <!-- <br>
                 <h2 class="notausertag">Not a user?</h2>
 
-                <br>
-                <div class="signupbuttondiv">
+                <br> -->
+                <!-- <div class="signupbuttondiv">
                     <div class="button">
                         <a href="{% url 'signup' %}">Signup through google facebook or us with just a few
                             clicks!</a>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
             </div>
             <div class="col-xs-6 col-md-4">
             </div>
