@@ -11,8 +11,10 @@
 }
 
 body {
-  font-family: "Lucida Sans" !important;
+  font-family: "Gill Sans" !important;
   font-style: initial;
+  background-color: #a8a8f5 !important;
+  font-weight: 310;
 }
 
 .img {
@@ -29,7 +31,7 @@ body {
   color: black !important;
 }
 .nav-link {
-  color: black !important;
+  color: white !important;
   border-radius: 10px;
 }
 
