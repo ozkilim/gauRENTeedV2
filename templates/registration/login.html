@@ -11,37 +11,38 @@
 {% block content %}
 
 <br>
-
+<br>
 
 <div class="login">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-6 col-md-4">
             </div>
-            <div class="col-xs-6 col-md-4">
+            <div class="col-xs-6 col-md-4" id="loginBox">
 
 
 
                 <div>
                     <!-- <h1>login with google</h1> -->
-                    <h1>gauRENTeed login</h1>
+                    <h1> Login to access all Redland reviews</h1>
                     {% if user.is_authenticated %}
                     <p>Welcome, You are logged in as {{ user.username }}</p>
                     {% else %}
                     <!-- <a href="{% provider_login_url 'google' %}">Login With Google</a> -->
                     {% endif %}
                 </div>
-
+                <br>
                 <form role="form" class="form-horizontal" method="post" action="">{% csrf_token %}
                     <div class="form-group">
-
+                    <div class = "usernameInput">  
                         <label for="id_username" class="usernametag">USERNAME</label>
                         <input id="id_username" name="username" type="text" class="username-control-login">
-
+                    </div>  
+                    <div class="passwordInput">
                         <label for="id_password" class="passwordtag">PASSWORD</label>
-                        <input id="id_password" name="password" type="text" class="password-control-login">
+                        <input id="id_password" name="password" type="password" class="password-control-login">
                         <br>
-
+                    </div>
                         <input type="submit" class="signup_button" value="login" />
                         <input type="hidden" name="next" value="{{ next }}" />
                     </div>
