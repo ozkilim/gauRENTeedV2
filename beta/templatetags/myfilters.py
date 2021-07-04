@@ -25,3 +25,20 @@ def times(number):
         return None
     else:
         return (number/5)*100
+
+
+@register.filter(name='exists')
+def times(number):
+    if number == None:
+        return False
+    else:
+        return True
+
+
+@register.filter(name='true2yes')
+def times(number):
+    if number == True:
+        print("HEREEE")
+        return "Yes"
+    else:
+        return "No"
