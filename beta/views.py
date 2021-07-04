@@ -93,7 +93,6 @@ def reasult(request, hashId):
         allReviewList = [
             property["overallRating"] for property in propertyReviews]
         aggregateReview = sum(allReviewList)/len(allReviewList)
-
     context = {'property': property, 'reviews': propertyReviews,
                'aggregateReview': aggregateReview, "stripe_key": settings.STRIPE_PUBLIC_KEY, "urlsString": urlsString}
     return render(request, 'tempReasult.html', context)

@@ -238,7 +238,9 @@ align-items: center;
 }
 .card-container, .front, .back {
 	width: 100%;
-	height: 420px;
+	/* height: 600px; */
+  height: auto;
+  min-height: 500px !important;
 	border-radius: 4px;
 
 }
@@ -823,27 +825,100 @@ function closeAllModals() {
 </div>
 </div>  
         <hr> -->
-<!-- 
-<div class="tab-content" id="pills-tabContent">
+<div>
     {% for review in reviews %}
+        <!-- review. -->
+<!-- 
+        verified 
+        property 
+        reviewDate 
+        timeStamp 
+        livingConfirmation 
+        moveIn
+        moveOut
+        bedroomNumber 
+        employmentStatus
+        reviewerName 
 
 
-    {% endfor %}
+        buildingQuality !!!
+        buildigComment !!!
+        moveInHygene 
+        moveInHygeneComment 
+        utilities !!!
+        utilitiesComment !!!
+        bedroomQuality !!
+        bedroomQualityComment !!
 
-</div>
-</div>   -->
+        furnishings 
+        furnishingsComment 
+
+        manageResponsivenes  !!!
+        manageResponsivenesComment !!!
+        repairQuality  !!!
+        repairQualityComment !!!
+        hiddenExpenses !!!
+
+        wantedToKnowBefore
+        rentMonthly !!!
+        rentGoodDeal !!!
+
+        neighbourhoodDescription !!!
+        neighbourhoodEnjoyment !!!
+
+        neighbourhoodSafety ???
+        neighbourhoodSafetyComment ???
+
+
+        goodPlaceForFriends 
+        goodPlaceForDinnerParties 
+        enjoyedCooking 
+        feltLikeAHome
+        cosyInWinter 
+        windowView 
+        neighboursRelationship 
+        study 
+        easyToSleepAtNight
+        feltSafe 
+        landlordRelationship 
+        hotShower 
+
+        likedMost 
+        likedLeast 
+
+        overallRating !!!
+
+        maintenanceMoveIn 
+        whiteGoods 
+        qualityComments 
+        landlordRating 
+        landlordComments
+        areaBenefits 
+        areaPerks 
+        wouldRecommendProperty  -->
+
+
+
 <div class="row" id="RatingsRow">
   <h6>Overall review</h6>
 </div>
 <br>
 <div class="row" id="titleRow">
   <div class="col-6">
-    <h1>Title</h1>
-    <h3>5 bedrooms</h3>
+
+    <div class="stardiv">
+      {% for i in aggregateReview|times %}
+      <span class="fa fa-star checked"></span>
+      {% endfor %}
+      {% for i in aggregateReview|leftover %}
+      <span class="fa fa-star"></span>
+      {% endfor %}
+    </div>
+    <h1>{{property.fullAddress}} {{property.postcode}}</h1>
+    <h3>{{ review.bedroomNumber }} bedrooms</h3>
     </div>
     <div class="col-6">
       <h3>What this property offers</h3>
-
     </div>
 </div>
 
@@ -856,11 +931,12 @@ function closeAllModals() {
                     <h3 class="CardTitle">Property Condition</h3>
                     <h4 class = "CardTitle2">Find out how well the property was maintained</h4>
                     <div class="stardiv">
+                      {% for i in aggregateReview|times %}
                       <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
+                      {% endfor %}
+                      {% for i in aggregateReview|leftover %}
                       <span class="fa fa-star"></span>
-                      <span class="fa fa-star"></span>
+                      {% endfor %}
                     </div>
                     <button class="btn btn-simple" id = "moreInfoButton" onclick="rotateCard(this)">
                        See full review
@@ -875,36 +951,61 @@ function closeAllModals() {
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                  Accordion Item #1
+                  <h5>Building Quality </h5><h6>(mould, pests cleanliness, damp)</h6>
+                  <div class="stardiv">
+                    {% for i in review.buildingQuality|times %}
+                    <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    {% for i in review.buildingQuality|leftover %}
+                    <span class="fa fa-star"></span>
+                    {% endfor %}
+                  </div>
+                  
                 </button>
               </h2>
               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                <div class="accordion-body">{{ review.buildigComment }}</div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                  Accordion Item #2
+                  <h5>Utilities </h5><h6>(water pressure, heating, insulation)</h6>
+                  <div class="stardiv">
+                    {% for i in review.utilities|times %}
+                    <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    {% for i in review.utilities|leftover %}
+                    <span class="fa fa-star"></span>
+                    {% endfor %}
+                  </div>                
                 </button>
               </h2>
               <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                <div class="accordion-body"> {{ review.utilitiesComment }}</div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                  Accordion Item #3
+                  <h5>Quality of the bedrooms </h5><h6>(size, comfort, privacy) </h6>
+                  <div class="stardiv"> 
+                    {% for i in review.bedroomQuality|times %}
+                    <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    {% for i in review.bedroomQuality|leftover %}
+                    <span class="fa fa-star"></span>
+                    {% endfor %}
+                  </div>                   
                 </button>
               </h2>
               <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                <div class="accordion-body">{{ review.bedroomQualityComment }}</div>
               </div>
             </div>
           </div>
           <div class="imdiv1">
-            <img class="firstIm" src={% static "images/search_results/Saly-11.png" %} />
+            <img class="firstIm" src={% static "images/search_results/Saly-6.png" %} />
           </div>
             <div class="footer">
                 <button class="btn btn-simple" rel="tooltip" title="" onclick="rotateCard(this)">
@@ -933,7 +1034,7 @@ function closeAllModals() {
                       See full review
                  </button>
                  <div class="imdiv2">
-                 <img class="firstIm" src={% static "images/search_results/Saly-16.png" %} />
+                 <img class="firstIm" src={% static "images/search_results/Saly-11.png" %} />
                </div>
                    
        </div> <!-- end front panel -->
@@ -942,36 +1043,54 @@ function closeAllModals() {
            <div class="accordion-item">
              <h2 class="accordion-header" id="flush-headingOne">
                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                 Accordion Item #1
-               </button>
+                <h5> Responsiveness of property manager </h5>
+                <div class="stardiv">
+
+                  {% for i in review.manageResponsivenes|times %}
+                  <span class="fa fa-star checked"></span>
+                  {% endfor %}
+                  {% for i in review.manageResponsivenes|leftover %}
+                  <span class="fa fa-star"></span>
+                  {% endfor %}
+                </div>               
+              </button>
              </h2>
              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-               <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+               <div class="accordion-body">{{ review.manageResponsivenesComment}}</div>
              </div>
            </div>
            <div class="accordion-item">
              <h2 class="accordion-header" id="flush-headingTwo">
                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                 Accordion Item #2
-               </button>
+                <h5>Quality of repairs</h5>
+                <div class="stardiv">
+
+                  {% for i in review.repairQuality|times %}
+                  <span class="fa fa-star checked"></span>
+                  {% endfor %}
+                  {% for i in review.repairQuality|leftover %}
+                  <span class="fa fa-star"></span>
+                  {% endfor %}
+                </div>           
+              </button>
              </h2>
              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-               <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+               <div class="accordion-body">{{review.repairQualityComment}}</div>
              </div>
            </div>
            <div class="accordion-item">
              <h2 class="accordion-header" id="flush-headingThree">
                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                 Accordion Item #3
-               </button>
+                Hidden Expenses               
+              </button>
              </h2>
              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-               <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+               <div class="accordion-body">{{ review.hiddenExpenses }}</div>
              </div>
            </div>
          </div>
          <div class="imdiv3">
-           <img class="firstIm" src={% static "images/search_results/saly-28.png" %} />
+           <img class="firstIm" src={% static "images/search_results/saly-11.png" %} />
          </div>
            <div class="footer">
                <button class="btn btn-simple" rel="tooltip" title="" onclick="rotateCard(this)">
@@ -1002,7 +1121,7 @@ function closeAllModals() {
                        See full review
                   </button>
                   <div class="imdiv3">
-                  <img class="firstIm" src={% static "images/search_results/Saly-6.png" %} />
+                  <img class="firstIm" src={% static "images/search_results/Saly-16.png" %} />
                 </div>
                     
         </div> <!-- end front panel -->
@@ -1011,11 +1130,23 @@ function closeAllModals() {
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                  Accordion Item #1
-                </button>
+                  <!-- {{review.neighbourhoodSafety}} None 
+                  {{review.neighbourhoodSafetyComment}} None -->
+
+                  <h5>How much did you enjoy living in the area?</h5>
+                  <div class="stardiv">
+                    {% for i in review.neighbourhoodEnjoyment|times %}
+                    <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    {% for i in review.neighbourhoodEnjoyment|leftover %}
+                    <span class="fa fa-star"></span>
+                    {% endfor %}
+                  </div>  
+                  </button>
               </h2>
               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                <div class="accordion-body">{{review.neighbourhoodDescription}}
+                </div>
               </div>
             </div>
             <div class="accordion-item">
@@ -1040,7 +1171,7 @@ function closeAllModals() {
             </div>
           </div>
           <div class="imdiv1">
-            <img class="firstIm" src={% static "images/search_results/Saly-6.png" %} />
+            <img class="firstIm" src={% static "images/search_results/Saly-16.png" %} />
           </div>
             <div class="footer">
                 <button class="btn btn-simple" rel="tooltip" title="" onclick="rotateCard(this)">
@@ -1056,8 +1187,8 @@ function closeAllModals() {
     <div class="card-container manual-flip">
    <div class="card">
        <div class="front">
-                   <h3 class="CardTitle">Property condition</h3>
-                   <h4 class = "CardTitle2">Find out how well the property was maintained</h4>
+                   <h3 class="CardTitle">Value for money</h3>
+                   <h4 class = "CardTitle2">Find out how much previous tenants paid</h4>
                    <div class="stardiv">
                      <span class="fa fa-star checked"></span>
                      <span class="fa fa-star checked"></span>
@@ -1069,7 +1200,7 @@ function closeAllModals() {
                       See full review
                  </button>
                  <div class="imdiv4">
-                 <img class="firstIm" src={% static "images/search_results/Saly-6.png" %} />
+                 <img class="firstIm" src={% static "images/search_results/saly-28.png" %} />
                </div>
                    
        </div> <!-- end front panel -->
@@ -1078,14 +1209,14 @@ function closeAllModals() {
            <div class="accordion-item">
              <h2 class="accordion-header" id="flush-headingOne">
                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                 Accordion Item #1
+                 Previous tennants paid: £{{review.rentMonthly}} /week
                </button>
              </h2>
              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-               <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+               <div class="accordion-body">Did previous tenants feel this was good value for money? {{review.rentGoodDeal}}</div>
              </div>
            </div>
-           <div class="accordion-item">
+           <!-- <div class="accordion-item">
              <h2 class="accordion-header" id="flush-headingTwo">
                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                  Accordion Item #2
@@ -1104,10 +1235,10 @@ function closeAllModals() {
              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
              </div>
-           </div>
+           </div> -->
          </div>
          <div class="imdiv1">
-           <img class="firstIm" src={% static "images/search_results/Saly-6.png" %} />
+           <img class="firstIm" src={% static "images/search_results/saly-28.png" %} />
          </div>
            <div class="footer">
                <button class="btn btn-simple" rel="tooltip" title="" onclick="rotateCard(this)">
@@ -1123,7 +1254,8 @@ function closeAllModals() {
 
 
 
-
+{% endfor %}
+</div>
 <script>
     jQuery(function(){
        jQuery('.nav-link').click();
