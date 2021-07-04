@@ -18,3 +18,10 @@ def times(number):
     else:
         return range(5 - int(number))
 
+
+@register.filter(name='percent')
+def times(number):
+    if number == None:
+        return None
+    else:
+        return (number/5)*100

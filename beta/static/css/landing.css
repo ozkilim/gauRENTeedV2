@@ -4,6 +4,11 @@ body {
   background-color: #a8a8f5 !important;
   font-weight: 310;
 }
+.topnav {
+  overflow: hidden;
+  /* color: black !important; */
+  background-color: #a8a8f5 !important;
+}
 .u83_img {
   display: block;
   margin-left: auto;
@@ -78,4 +83,9 @@ body {
 }
 .logo {
   max-width: 2% !important;
+  /* padding-left: 30px; */
+}
+#gaurenteedTab {
+  padding-left: 5px !important;
+  /* padding-right: 200px; */
 }

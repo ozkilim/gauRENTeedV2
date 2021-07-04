@@ -24,21 +24,21 @@ body {
 
 .topnav {
   overflow: hidden;
-  /* color: black !important; */
-  background-color: #a8a8f5 !important;
+  background-color: #4464f6;
+  font-size: 30px;
 }
 .nav-item {
   display: inline-block;
-  color: white !important;
+  color: white;
 }
 .nav-link {
-  color: white !important;
+  color: white;
   border-radius: 10px;
 }
 
 .nav-link:hover {
   background-color: #2c3c63;
-  color: white !important;
+  color: white;
 }
 
 .logo {
@@ -60,8 +60,10 @@ body {
   border-radius: 20px;
 }
 
-.usernameInput {
+.floatRight {
+  float: right;
+  padding-right: 100px;
 }
-
-.passwordInput {
+#gaurenteedWord {
+  /* font-size: 30px; */
 }

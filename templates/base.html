@@ -1,89 +1,96 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}"> -->
     <title>search</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
-    {% block styles %}
-    {% endblock %}
+    {% block styles %} {% endblock %}
     <script type="text/javascript">
-        $axure.utils.getTransparentGifPath = function () { return 'resources/images/transparent.gif'; };
-        $axure.utils.getOtherPath = function () { return 'resources/Other.html'; };
-        $axure.utils.getReloadPath = function () { return 'resources/reload.html'; };
+      $axure.utils.getTransparentGifPath = function () {
+        return "resources/images/transparent.gif";
+      };
+      $axure.utils.getOtherPath = function () {
+        return "resources/Other.html";
+      };
+      $axure.utils.getReloadPath = function () {
+        return "resources/reload.html";
+      };
     </script>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/sharedStyles.css' %}">
-</head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/sharedStyles.css' %}"
+    />
+  </head>
 
-<body>
-<!-- </div>
-<div class = "gauRENTeedBlock" >
-<a href="{% url 'landing' %}">
-<img id="u83_img" class="img" src={% static "images/search/u8.png" %} />
-</a> -->
-<!-- </div> -->
+  <body>
     <div class="topnav">
-            <a href="{% url 'landing' %}">
-                <img class="logo" src={% static "images/landing/house.png" %} />
-            </a>
-            <h6 class="nav-item">
-                <a class="nav-link" href="{% url 'landing' %}">Guarenteed</a>
-            </h6>
-                <h6 class="nav-item">
-                    <a class="nav-link" href="{% url 'landing' %}">Find a property</a>
-                </h6>
-                <h6 class="nav-item">
-                    <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfEMVLlGoX0YkhiqItTKH_xA2Cqj0jH4XVqLFE_duOY_C3bXA/viewform">Leave a review</a>
-                </h6>
+      <!-- <a href="{% url 'landing' %}">
+        <img class="logo" src={% static "images/landing/house.png" %} />
+      </a> -->
+      <h6 class="nav-item" id="gaurenteedTab">
+        <a class="nav-link" href="{% url 'landing' %}" id="gaurenteedWord"
+          >Guarenteed</a
+        >
+      </h6>
+      <div class="floatRight">
+        <h6 class="nav-item">
+          <a class="nav-link" href="{% url 'landing' %}">Find a property</a>
+        </h6>
+        <h6 class="nav-item">
+          <a
+            class="nav-link"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfEMVLlGoX0YkhiqItTKH_xA2Cqj0jH4XVqLFE_duOY_C3bXA/viewform"
+            >Leave a review</a
+          >
+        </h6>
 
-                {% if user.is_authenticated %}
-                <h6 class="nav-item">
-                    logged in as: {{request.user.username}}
-                </h6>
-                <h6 class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                </h6>
-                {% else %}
-                <h6 class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
-                </h6>
-
-                {% endif %}
-                <h6 class="nav-item">
-                    <a class="nav-link" href="{% url 'aboutUs' %}">About us</a>
-                </h6>
-
+        {% if user.is_authenticated %}
+        <h6 class="nav-item">logged in as: {{request.user.username}}</h6>
+        <h6 class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </h6>
+        {% else %}
+        <h6 class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </h6>
+        {% endif %}
+      </div>
     </div>
 
-    <br>
+    <br />
     <!-- paage rendered here -->
     <div class="row">
-        <div class="col">
-        </div>
-        <div class="col-10">
-            {% block content %}
-            {% endblock %}
-        </div>
-        <div class="col">
-        </div>
+      <div class="col"></div>
+      <div class="col-10">{% block content %} {% endblock %}</div>
+      <div class="col"></div>
     </div>
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
     <!-- make this sent to bottom of page.. -->
-</body>
-
+  </body>
 </html>

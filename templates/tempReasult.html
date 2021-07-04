@@ -3,6 +3,7 @@
 {% load socialaccount %}
 {% load static %}
 {% block styles %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{% static 'css/searchreasult.css' %}">
@@ -141,9 +142,8 @@ border-radius: 15px;
 }
 @import url('https://fonts.googleapis.com/css?family=Arima+Madurai:100,200,300,400,500,700,800,900');
 body {
-	margin-top: 60px;
 	font-size: 14px;
-	font-family: 'Arima Madurai', cursive;
+	font-family: "Gill Sans" !important;
 	background-color: #E5E9ED;
 }
 .btn:hover,
@@ -522,6 +522,10 @@ align-items: center;
 .stardiv{
   text-align: center;
 }
+.stardivleft{
+  text-align: left;
+
+}
 
 
 #moreInfoButton{
@@ -543,7 +547,32 @@ align-items: center;
   background-color: white;
 
 }
+.howItwas{
+  background-color:#FAFAFA ;
+  padding-block: 10px;
+  padding-top: 10px;
+  font-size: 12px;
+}
+.nav-item{
+  /* background-color: black; */
+}
+.nav-link{
+  /* background-color: yellow; */
+  color: black;
+
+}
+.nav-link:hover {
+  background-color: white;
+  color: black;
+}
+.reviewListTitiles{
+  background-color: yellow;
+}
+.bedim{
+  
+}
 </style>
+
 {% endblock %}
 {% block content %}
 
@@ -765,8 +794,6 @@ function closeAllModals() {
     document.body.removeChild(modalsBackdrops[i]);
  }
 }
-
-            
               </script>
 
                 </div>
@@ -776,60 +803,14 @@ function closeAllModals() {
         </div>
 </div>
 </div>
-</div>
+<!-- </div> -->
 
 
 {% endif %}
 
- <!-- <div class="row">
-<div class="col-4">
-<h1>Review Timeline</h1>
-<img id="u251_img" class="u251_img" src={% static "images/onereasult/u250.png" %} />
-<h4>Click on a review year to see what past tennants thought</h4>
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    {% for review in reviews %}
-     make newest tab show first..so make sure it comes through in correct order from db 
-    <li class="nav-item">
-        find way to make newest tab active at start.. -->
-        <!-- <a class="nav-link" id={{review}} data-toggle="pill" href=#{{review.id}} role="tab"
-            aria-controls={{review.id}} aria-selected="true">{{review.moveIn}} - {{review.moveOut}}</a>
-    </li>
-    {% endfor %} -->
-<!-- </ul>   -->
 
-<!-- <iframe
-    width="400"
-    height="450"
-    style="border:0"
-    loading="lazy"
-    allowfullscreen
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDlVTN-szxnm6ZMM8yWxZuuBIREfD8snjk
-        &q={{property.address}}">
-</iframe>
-</div>
-<div class="col-8">
-<div class ="aggregateValueDiv"><h4>Review timeline for {{property.address}}</h4>
-        <h6>
-    Average overall rating over all reviews of this property:
-    <div class="keyBox">
-    {% for i in aggregateReview|times %}
-                <img src="{% static "images/search_results/u53.png" %}" class="Rating--Star">
 
-                {% endfor %}
-
-                {% for i in aggregateReview|leftover %}
-                    <img src="{% static "images/search_results/u52.png" %}" class="Rating--Star">
-                {% endfor %}
-    </div>
-    </h6>
-</div>
-</div>  
-        <hr> -->
-<div>
-    {% for review in reviews %}
-        <!-- review. -->
-<!-- 
-        verified 
+        <!-- verified 
         property 
         reviewDate 
         timeStamp 
@@ -876,6 +857,7 @@ function closeAllModals() {
         feltLikeAHome
         cosyInWinter 
         windowView 
+
         neighboursRelationship 
         study 
         easyToSleepAtNight
@@ -895,18 +877,27 @@ function closeAllModals() {
         landlordComments
         areaBenefits 
         areaPerks 
-        wouldRecommendProperty  -->
+        wouldRecommendProperty -->
 
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  {% for review in reviews %}
+  <li class="nav-item" id = "reviewListTitiles">
+    <a class="nav-link" id={{review}} data-toggle="tab" href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
+  </li>
+{% endfor %}
+</ul>
 
-
-<div class="row" id="RatingsRow">
+<div class="tab-content" id="nav-tabContent">
+{% for review in reviews %}
+<div class="tab-pane" id={{review.id}} role="tabpanel" aria-labelledby={{review.id}}>
+<!-- <div class="row" id="RatingsRow">
   <h6>Overall review</h6>
-</div>
+</div> -->
 <br>
 <div class="row" id="titleRow">
   <div class="col-6">
 
-    <div class="stardiv">
+    <div class="stardivleft">
       {% for i in aggregateReview|times %}
       <span class="fa fa-star checked"></span>
       {% endfor %}
@@ -915,11 +906,24 @@ function closeAllModals() {
       {% endfor %}
     </div>
     <h1>{{property.fullAddress}} {{property.postcode}}</h1>
+    <div>
+      <img class="bedim" src={% static "images/search_results/OccupiedBed.png" %} />
     <h3>{{ review.bedroomNumber }} bedrooms</h3>
+  </div>
     </div>
     <div class="col-6">
-      <h3>What this property offers</h3>
+      <h3>About the review</h3>
+      <div>
+        {{review.verified}}
+      </div>
+      <div>
+        {{review.livingConfirmation}}
+      </div>
+      <div>
+        <h5>The last tennants stayed from {{review.moveIn}} to  {{review.moveOut}}</h5>
+      </div>
     </div>
+
 </div>
 
 <br>
@@ -967,6 +971,7 @@ function closeAllModals() {
                 <div class="accordion-body">{{ review.buildigComment }}</div>
               </div>
             </div>
+
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -985,6 +990,7 @@ function closeAllModals() {
                 <div class="accordion-body"> {{ review.utilitiesComment }}</div>
               </div>
             </div>
+
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
@@ -1003,6 +1009,45 @@ function closeAllModals() {
                 <div class="accordion-body">{{ review.bedroomQualityComment }}</div>
               </div>
             </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  <h5>Move in hygene </h5>
+                  <div class="stardiv">
+                    {% for i in review.moveInHygene|times %}
+                    <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    {% for i in review.moveInHygene|leftover %}
+                    <span class="fa fa-star"></span>
+                    {% endfor %}
+                  </div>                
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body"> {{ review.moveInHygeneComment }}</div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  <h5>Furnishings quality</h5>
+                  <div class="stardiv">
+                    {% for i in review.furnishings|times %}
+                    <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    {% for i in review.furnishings|leftover %}
+                    <span class="fa fa-star"></span>
+                    {% endfor %}
+                  </div>                
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body"> {{ review.furnishingsComment }}</div>
+              </div>
+            </div>
+
           </div>
           <div class="imdiv1">
             <img class="firstIm" src={% static "images/search_results/Saly-6.png" %} />
@@ -1149,26 +1194,28 @@ function closeAllModals() {
                 </div>
               </div>
             </div>
+            
             <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                  Accordion Item #2
-                </button>
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+ 
+                  <h5>How safe did you feel living in the area?</h5>
+                  <div class="stardiv">
+                    {% for i in review.neighbourhoodSafety|times %}
+                    <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    {% for i in review.neighbourhoodSafety|leftover %}
+                    <span class="fa fa-star"></span>
+                    {% endfor %}
+                  </div>  
+                  </button>
               </h2>
-              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">{{review.neighbourhoodSafetyComment}}
+                </div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                  Accordion Item #3
-                </button>
-              </h2>
-              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-              </div>
-            </div>
+
           </div>
           <div class="imdiv1">
             <img class="firstIm" src={% static "images/search_results/Saly-16.png" %} />
@@ -1202,7 +1249,7 @@ function closeAllModals() {
                  <div class="imdiv4">
                  <img class="firstIm" src={% static "images/search_results/saly-28.png" %} />
                </div>
-                   
+                    
        </div> <!-- end front panel -->
        <div class="back">
          <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -1252,15 +1299,117 @@ function closeAllModals() {
  </div>
 </div>
 
+<div class ="row">
+  <h2>What was the house like to live in ?</h2>
+  <div class = "col-6">
+    <div class="howItwas"> 
+      <h6>My house was a good place to have friends over</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.goodPlaceForFriends|percent }}%">{{ review.goodPlaceForFriends|percent }}%
+        </div>
+    </div>
+    </div>
+    <div class="howItwas">
+      <h6>My house was a good place to have dinner parties</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.goodPlaceForDinnerParties|percent }}%">{{ review.goodPlaceForDinnerParties|percent }}% 
+        </div>
+        </div> 
+      </div>
+    <div class="howItwas"> 
+      <h6>I enjoyed cooking in the kitchen</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.enjoyedCooking|percent }}%">{{ review.enjoyedCooking|percent }}%
+        </div>
+        </div>   
+    </div>
+    <div class="howItwas">
+      <h6>It felt like a home</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.feltLikeAHome|percent }}%">{{ review.feltLikeAHome|percent }}%
+        </div>
+        </div>   
+    </div>
+    <div class="howItwas"> 
+      <h6>It was cosy in the winter</h6>      
+       <div class="w3-light-grey w3-round">
+      <div class="w3-container w3-blue w3-round" style="width:{{ review.cosyInWinter|percent }}%">{{ review.cosyInWinter|percent }}%
+      </div>
+      </div>    
+    </div>
+    <div class="howItwas">
+      <h6>I enjoyed the view out of the windows</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.windowView|percent }}%">{{ review.windowView|percent }}%
+        </div>
+        </div>      
+    </div>
+<br><br>
+    <div><h2>Best feature of the property:</h2>" {{ review.likedMost }} "</div>
+  </div>
+  <div class = "col-6">
+    <div class="howItwas">
+      <h6>I had a good relationship with my neighbours</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.neighboursRelationship|percent }}%">{{ review.neighboursRelationship|percent }}%
+        </div>
+        </div>      
+    </div>
+    <div class="howItwas"> 
+      <h6>It was good for studying and focus</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.study|percent }}%">{{ review.study|percent }}%
+        </div>
+        </div>   
+    </div>
+    <div class="howItwas">
+      <h6>It was easy to sleep at night</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.easyToSleepAtNight|percent }}%">{{ review.easyToSleepAtNight|percent }}%
+        </div>
+        </div>       
+    </div>
+    <div class="howItwas">
+      <h6>I felt safe in my house</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.feltSafe|percent }}%">{{ review.feltSafe|percent }}%
+        </div>   
+    </div>
+  </div>
+    <div class="howItwas"> 
+      <h6>I had a good relationship with my landlord / estate agent</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.landlordRelationship|percent }}%">{{ review.landlordRelationship|percent }}%
+        </div>
+        </div>    
+    </div>
+    <div class="howItwas">
+      <h6>I was able to have a hot shower whenever I wanted</h6>
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-blue w3-round" style="width:{{ review.hotShower|percent }}%">{{ review.hotShower|percent }}%
+        </div>
+        </div>       
+    </div>
+    <br><br>
 
+    <div><h2>Worst feature of the property: </h2> " {{ review.likedLeast }} "</div>
+
+  </div>
+  </div>
+</div>
 
 {% endfor %}
-</div>
+
+</div>        
+
 <script>
     jQuery(function(){
        jQuery('.nav-link').click();
     });
 </script>
+
+
+
 <script>
     $(document).ready(function(){
         $("#loginPayModal").modal('show');
