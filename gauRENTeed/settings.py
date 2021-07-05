@@ -176,7 +176,6 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-SITE_ID = 2
 # send to payment page...
 LOGIN_REDIRECT_URL = '/beta'
 LOGOUT_REDIRECT_URL = '/beta'
@@ -196,6 +195,7 @@ DATABASES['default'].update(db_from_env)
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+SITE_ID = 2
 
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
