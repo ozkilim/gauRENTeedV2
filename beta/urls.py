@@ -4,7 +4,6 @@ from . import views
 from django.conf.urls import url
 from beta.views import (
     CreateCheckoutSessionView,
-
 )
 
 urlpatterns = [
