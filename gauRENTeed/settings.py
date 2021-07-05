@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['shrouded-plateau-92946.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'beta',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,13 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'formtools',
     # 'django_seed',
     # 'allauth',
     # 'allauth.account',
     # 'allauth.socialaccount',
     # 'allauth.socialaccount.providers.google',
-    'django.contrib.sites',
-    'formtools',
 ]
 
 MIDDLEWARE = [
@@ -176,7 +176,7 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-SITE_ID = 1
+SITE_ID = 2
 # send to payment page...
 LOGIN_REDIRECT_URL = '/beta'
 LOGOUT_REDIRECT_URL = '/beta'
