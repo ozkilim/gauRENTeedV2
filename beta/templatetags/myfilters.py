@@ -38,7 +38,6 @@ def times(number):
 @register.filter(name='true2yes')
 def times(number):
     if number == True:
-        print("HEREEE")
         return "Yes"
     else:
         return "No"

@@ -277,7 +277,7 @@ align-items: center;
     /* height: 215px; */
 }
 .card .name {
-		font-family: 'Arima Madurai', cursive;
+		font-family: "Gill Sans";
     font-size: 22px;
     line-height: 28px;
     margin: 10px 0 0;
@@ -315,7 +315,7 @@ align-items: center;
     height: 90px;
 }
 .card .motto{
-		font-family: 'Arima Madurai', cursive;
+		font-family: "Gill Sans";
     /* border-bottom: 1px solid #EEEEEE; */
     color: #999999;
     font-size: 14px;
@@ -342,7 +342,7 @@ align-items: center;
 	/* border-left: 1px solid #EEEEEE; */
 }
 .card .stats h4{
-		font-family: 'Arima Madurai', cursive;
+		font-family: "Gill Sans";
 	font-weight: 300;
 	/* margin-bottom: 5px; */
 }
@@ -483,6 +483,7 @@ align-items: center;
   bottom:0;
   text-align: center;
   width: 100%;
+  height:180px
 
 
 ;
@@ -493,6 +494,7 @@ align-items: center;
   bottom:0;
   text-align: center;
   width: 100%;
+  height:180px
 }
 .imdiv3{
   background-color:#F7E1D3;
@@ -500,6 +502,8 @@ align-items: center;
   bottom:0;
   text-align: center;
   width: 100%;
+  height:180px
+
 }
 .imdiv4{
   background-color:#DFCCF1;
@@ -507,6 +511,8 @@ align-items: center;
   bottom:0;
   text-align: center;
   width: 100%;
+  height:180px
+
 }
 
 .CardTitle{
@@ -557,10 +563,24 @@ align-items: center;
   /* background-color: black; */
 }
 .nav-link{
-  /* background-color: yellow; */
+  /* color: black; */
+}
+#popupButtonsTab{
+  background-color: white;
   color: black;
+  border-radius: 0px;
+}
+
+#popupButtonsTab:hover{
+  background-color: black;
+  color: white;
 
 }
+
+/* #popupButtonsTab.active{
+  background-color: blue;
+} */
+
 .nav-link:hover {
   background-color: white;
   color: black;
@@ -571,33 +591,52 @@ align-items: center;
 .bedim{
 
 }
+.firstIm{
+  width: 160px;
+  /* height: 100%; */
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+  /* vertical-align: middle; */
+}
+
+
 </style>
 
 {% endblock %}
 {% block content %}
-
-{% if not user.is_authenticated %}
+<!-- leave the space at the end of the name! -->
+{% if not user.is_authenticated and property.fullAddress != "11 Highbury Villas " %}
 
 <!--Modal: Login / Register Form-->
-<div class="modal fade" id="loginPayModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog" role="document" style="max-width:50%;" >
+<!-- <div id="modal" class="modal hide fade in" data-keyboard="false" data-backdrop="static"> -->
+
+<div class="modal hide fade in" id="loginPayModal"  data-keyboard="false" data-backdrop="static">
+
+<!-- <div class="modal fade in" id="loginPayModal" data-target="loginPayModal" data-toggle="modal" data-backdrop="static" data-keyboard="false"> -->
+    <div class="modal-dialog" role="document" style="max-width:80%;" >
       <!--Content-->
       <div class="modal-content" id="loginPayModalblock">
         <!--Modal cascading tabs-->
         <div class="modal-c-tabs">
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist" id="popupTabs">
+          <ul class="nav nav-tabs" role="tablist" id="popupTabs">
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+              <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="#panel7" role="tab">
                 Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="#panel8" role="tab">
                 Register</a>
             </li>
             <li class="nav-item">
-                <a type="button" class="nav-link" href="{% url 'landing' %}">Back home</a>
-              </li>
+              <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="{% url 'landing' %}" role="tab">
+                Look for a different property</a>
+            </li>
           </ul>
   
           <!-- Tab panels -->
@@ -607,6 +646,7 @@ align-items: center;
   
               <!--Body-->
               <div class="modal-body mb-1">
+                <h2>Login as existing user</h2>
                 <form role="form" class="form-horizontal" method="post" action="{% url 'login' %}">{% csrf_token %}
                     <div class="form-group">
 
@@ -631,11 +671,20 @@ align-items: center;
         </div>
  
             <div class="tab-pane fade" id="panel8" role="tabpanel">
-                <div class="sellingProduct">
-                <h2>What you get</h2>
-                <h3>-Over 200 properties in redland bristols most current reviewsfrom last year</h3>
-                <h3>-A way to make see what its really like to live in  your next place!</h3>
-                </div>
+                  <div class = "row">
+                    <h3>Register</h3>
+                    <div class = "col-6"> <h3>What do you get?</h3>
+                      <h5>Over 200 properties in redland bristols most current reviewsfrom last year</h5>
+                      <h5>A way to make see what its really like to live in  your next place!</h5></div>
+                    <div class = "col-6">
+                      <h3>What dos it cost?</h3>
+                      <h5>One off 5 payment</h5>
+                    </div>
+              </div>
+
+              <a class="btn" id="sampleReviewButton" type="button" href="http://127.0.0.1:8000/beta/reasult/f7f02f3b-7644-4d31-8c19-a85d2cfb2434/"  role="button">Check out an example review</a>
+
+           
               <form id="payment-form" class="form-control">{% csrf_token %}
                 <input name = "email" type="text" id="email" placeholder="Email address" class="form-control"/>
                 <input name = "username" type="text" id="username" placeholder="username" class="form-control"/>
@@ -794,6 +843,8 @@ function closeAllModals() {
     document.body.removeChild(modalsBackdrops[i]);
  }
 }
+
+
               </script>
 
                 </div>
@@ -927,6 +978,7 @@ function closeAllModals() {
 </div>
 
 <br>
+
  <div class="row" >
   <div class="col-6"> 
      <div class="card-container manual-flip">
@@ -935,10 +987,10 @@ function closeAllModals() {
                     <h3 class="CardTitle">Property Condition</h3>
                     <h4 class = "CardTitle2">Find out how well the property was maintained</h4>
                     <div class="stardiv">
-                      {% for i in aggregateReview|times %}
+                      {% for i in propertyConditionAverage|times %}
                       <span class="fa fa-star checked"></span>
                       {% endfor %}
-                      {% for i in aggregateReview|leftover %}
+                      {% for i in propertyConditionAverage|leftover %}
                       <span class="fa fa-star"></span>
                       {% endfor %}
                     </div>
@@ -1092,12 +1144,13 @@ function closeAllModals() {
                    <h3 class="CardTitle">Property Manager</h3>
                    <h4 class = "CardTitle2">Find out how the property manager was rated by tenants</h4>
                    <div class="stardiv">
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star"></span>
-                     <span class="fa fa-star"></span>
-                   </div>
+                    {% for i in propertyManagerAverage|times %}
+                    <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    {% for i in propertyManagerAverage|leftover %}
+                    <span class="fa fa-star"></span>
+                    {% endfor %}
+                  </div>
                    <button class="btn btn-simple" id = "moreInfoButton" onclick="rotateCard(this)">
                       See full review
                  </button>
@@ -1193,11 +1246,12 @@ function closeAllModals() {
                     <h3 class="CardTitle">Neiborhood</h3>
                     <h4 class = "CardTitle2">Find out what people thought about living in the area</h4>
                     <div class="stardiv">
+                      {% for i in neiborhoodAverage|times %}
                       <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
+                      {% endfor %}
+                      {% for i in neiborhoodAverage|leftover %}
                       <span class="fa fa-star"></span>
-                      <span class="fa fa-star"></span>
+                      {% endfor %}
                     </div>
                     <button class="btn btn-simple" id = "moreInfoButton" onclick="rotateCard(this)">
                        See full review
@@ -1468,6 +1522,7 @@ function closeAllModals() {
 
 <script>
     $(document).ready(function(){
+      $('#loginPayModal').modal({backdrop: 'static', keyboard: false})  
         $("#loginPayModal").modal('show');
     });
 
@@ -1480,6 +1535,11 @@ function closeAllModals() {
   $('[rel="tooltip"]').tooltip();
 
 });
+
+// $('#loginPayModal').modal({
+//     backdrop: 'static',
+//     keyboard: false  // to prevent closing with Esc button (if you want this too)
+// })
 
 function rotateCard(btn){
   var $card = $(btn).closest('.card-container');

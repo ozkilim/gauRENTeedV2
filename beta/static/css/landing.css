@@ -23,9 +23,10 @@ body {
   border-color: white;
   color: black;
 }
+
 .ui-autocomplete-input {
   border-radius: 15px;
-  background-color: white;
+  background-color: white !important;
   width: 530px;
   height: 80px;
   font-size: 25px;
@@ -82,10 +83,33 @@ body {
   width: 685px;
 }
 .logo {
-  max-width: 2% !important;
-  /* padding-left: 30px; */
+  padding-left: 30px;
+  max-width: 5% !important;
 }
 #gaurenteedTab {
   padding-left: 5px !important;
   /* padding-right: 200px; */
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #4464f6;
+  font-size: 40px;
+}
+.nav-item {
+  display: inline-block;
+  color: white;
+}
+.nav-link {
+  color: white;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  background-color: #2c3c63;
+  color: white;
+}
+.floatRight {
+  float: right;
+  padding-right: 100px;
 }

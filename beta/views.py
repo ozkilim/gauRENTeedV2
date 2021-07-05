@@ -1,4 +1,5 @@
 import pandas as pd
+from statistics import mean
 import django
 import sys
 import os
@@ -93,8 +94,16 @@ def reasult(request, hashId):
         allReviewList = [
             property["overallRating"] for property in propertyReviews]
         aggregateReview = sum(allReviewList)/len(allReviewList)
+
+        # Calcualate averages for front of cards.
+
+        propertyConditionAverage = (
+            propertyReviews[0].get("buildingQuality") + propertyReviews[0].get("utilities"))/2
+        propertyManagerAverage = (
+            propertyReviews[0].get("manageResponsivenes") + propertyReviews[0].get("repairQuality"))/2
+        neiborhoodAverage = propertyReviews[0].get("neighbourhoodEnjoyment")
     context = {'property': property, 'reviews': propertyReviews,
-               'aggregateReview': aggregateReview, "stripe_key": settings.STRIPE_PUBLIC_KEY, "urlsString": urlsString}
+               'aggregateReview': aggregateReview, "stripe_key": settings.STRIPE_PUBLIC_KEY, "urlsString": urlsString, "propertyConditionAverage": propertyConditionAverage, "propertyManagerAverage": propertyManagerAverage, "neiborhoodAverage": neiborhoodAverage}
     return render(request, 'tempReasult.html', context)
 
 

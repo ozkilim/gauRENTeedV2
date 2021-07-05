@@ -42,7 +42,8 @@ body {
 }
 
 .logo {
-  max-width: 50px;
+  max-width: 60px;
+  padding-left: 30px;
 }
 .loginbutton {
   background-color: orange;

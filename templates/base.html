@@ -42,15 +42,16 @@
     <link
       rel="stylesheet"
       type="text/css"
+      
       href="{% static 'css/sharedStyles.css' %}"
     />
   </head>
 
   <body>
     <div class="topnav">
-      <!-- <a href="{% url 'landing' %}">
-        <img class="logo" src={% static "images/landing/house.png" %} />
-      </a> -->
+      <a href="{% url 'landing' %}">
+        <img class="logo" src={% static "images/landing/logoBlue.png" %} />
+      </a>
       <h6 class="nav-item" id="gaurenteedTab">
         <a class="nav-link" href="{% url 'landing' %}" id="gaurenteedWord"
           >Guarenteed</a
