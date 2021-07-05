@@ -281,7 +281,7 @@ def aboutUs(request):
 
 
 def seeder(request):
-    path = "/Users/ozkilim/Documents/gauRENTeed/sourceData/Cleaned Redland Renting Experience  (Responses,cleaned) - Form responses 1.csv"
+    path = "sourceData/Cleaned Redland Renting Experience  (Responses,cleaned) - Form responses 1.csv"
     df = pd.read_csv(path)
     # Cut off top row...
     df = df[1:]
