@@ -14,9 +14,7 @@ load static %} {% load static %} {% block content %}
           <h1>Login to access all Redland reviews</h1>
           {% if user.is_authenticated %}
           <p>Welcome, You are logged in as {{ user.username }}</p>
-          {% else %}
-          <!-- <a href="{% provider_login_url 'google' %}">Login With Google</a> -->
-          {% endif %}
+          {% else %} {% endif %}
         </div>
         <br />
         <form role="form" class="form-horizontal" method="post" action="">
@@ -57,16 +55,6 @@ load static %} {% load static %} {% block content %}
                 <h2 class="notausertag">Not a user?</h2>
 
                 <br> -->
-        <!-- <div class="signupbuttondiv">
-                    <div class="button">
-                        <a href="{% url 'signup' %}">Signup through google facebook or us with just a few
-                            clicks!</a>
-                        <div>
-                            </a>
-                        </div>
-                    </div>
-
-                </div> -->
       </div>
       <div class="col-xs-6 col-md-4"></div>
     </div>
