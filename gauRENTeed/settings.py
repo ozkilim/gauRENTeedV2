@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['shrouded-plateau-92946.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    # 'django.contrib.sites',
     'beta',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,11 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'formtools',
-    # 'django_seed',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.google',
+    'django.contrib.sites'
 ]
 
 MIDDLEWARE = [
