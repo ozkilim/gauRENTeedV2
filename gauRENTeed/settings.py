@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 
 MIDDLEWARE = [
