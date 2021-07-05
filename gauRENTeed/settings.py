@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['shrouded-plateau-92946.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'beta',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'formtools',
     'django.contrib.sites'
+    'beta',
 ]
+
+SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -190,7 +193,6 @@ DATABASES['default'].update(db_from_env)
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-SITE_ID = 1
 
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
