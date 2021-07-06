@@ -176,8 +176,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-
-SITE_ID = 2
+# This mush change for online version to = 2
+SITE_ID = 1
 
 # send to payment page...
 LOGIN_REDIRECT_URL = '/beta'

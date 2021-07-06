@@ -97,7 +97,7 @@
                       <!-- <h4 class="card-title">Find it!</h4> -->
                       <div class=enterFormDiv>
                       <form action={% url 'landing' %} method="post" id="rearchForm">{% csrf_token %}
-                        <input type="text" placeholder="   Enter the address" id='property' name='property'>
+                        <input type="text" placeholder="   Enter the address" id='property' name='property' autocomplete="on">
                         <button type="submit" class="landingButton" form="rearchForm" value="Submit">Search</button>
                       </form>
                     </div>
@@ -111,13 +111,12 @@
               <script>
                 $(function () {
                   $("#property").autocomplete({
-                    source: '{% url 'landing' %}'
+                    source: "{% url 'landing' %}"
                   });
                 });
               </script>
             </div>
           
-
       </div>
       <div class="col"></div>
     </div>
