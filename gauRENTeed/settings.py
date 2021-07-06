@@ -177,7 +177,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 
-SITE_ID = 1
+SITE_ID = 2
 
 # send to payment page...
 LOGIN_REDIRECT_URL = '/beta'
