@@ -41,3 +41,11 @@ def times(number):
         return "Yes"
     else:
         return "No"
+
+
+@register.filter(name='NoInfoSorry')
+def times(number):
+    if number == None:
+        return "Sorry we could not get any further information on this."
+    else:
+        return number

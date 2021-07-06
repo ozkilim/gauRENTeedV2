@@ -60,7 +60,7 @@ input {
 }
 /* Buttons and links */
 button {
-  background: #5469d4;
+  background: #4464F6;
   color: #ffffff;
   border-radius: 0 0 4px 4px;
   border: 0;
@@ -76,9 +76,27 @@ button {
 button:hover {
   filter: contrast(115%);
 }
+
 button:disabled {
   opacity: 0.5;
   cursor: default;
+}
+.signup_button {
+  background: #4464f6;
+  color: #ffffff;
+  border-radius: 0 0 4px 4px;
+  border: 0;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  width: 100%;
+}
+.signup_button:hover {
+  filter: contrast(115%);
 }
 /* spinner/processing state, errors */
 .spinner,
@@ -107,7 +125,7 @@ button:disabled {
 .spinner:before {
   width: 10.4px;
   height: 20.4px;
-  background: #5469d4;
+  background: #4464F6;
   border-radius: 20.4px 0 0 20.4px;
   top: -0.2px;
   left: -0.2px;
@@ -119,7 +137,7 @@ button:disabled {
 .spinner:after {
   width: 10.4px;
   height: 10.2px;
-  background: #5469d4;
+  background: #4464F6;
   border-radius: 0 10.2px 10.2px 0;
   top: -0.1px;
   left: 10.2px;
@@ -299,6 +317,7 @@ align-items: center;
     /* margin: 30px 0 0; */
     /* padding: 10px 0 0; */
     text-align: center;
+    color: white;
 }
 .card .footer .social-links{
     font-size: 18px;
@@ -307,7 +326,8 @@ align-items: center;
     margin: 0 7px;
 }
 .card .footer .btn-simple{
-    margin-top: -6px;
+    /* margin-top: -6px; */
+    color: white;
 }
 .card .header {
     /* padding: 15px 20px; */
@@ -526,15 +546,17 @@ align-items: center;
 
 .stardiv{
   text-align: center;
+  padding-left:20px;
 }
 .stardivleft{
   text-align: left;
+
 
 }
 
 
 #moreInfoButton{
-  background-color: #052DF1;
+  background-color: #4464F6;
   width: 40%;
   margin:auto;
   display:block;
@@ -576,7 +598,7 @@ align-items: center;
 }
 
 #popupButtonsTab:hover{
-  background-color: black;
+  background-color: #a8a8f5;
   color: white;
 
 }
@@ -593,7 +615,9 @@ align-items: center;
   background-color: white;
 }
 .bedim{
-
+  width: 40px;
+  float: left;
+  padding-right: 20px;
 }
 .firstIm{
   width: 160px;
@@ -609,8 +633,7 @@ align-items: center;
 }
 
 #backarrow{
-  background-color: brown;
-;
+  /* background-color: brown; */
 }
 .approvalim{
   float: left;
@@ -658,7 +681,7 @@ align-items: center;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 10px;
-  background-color: #a8a8f5;
+  background-color: #F5D2D3;
   color: white;
 }
 #sellingDIV{
@@ -668,7 +691,6 @@ padding-right: 30px;
 }
 .SubIcon{
   padding-right:10px ;
-
   float: left;
   width: 50px;
 }
@@ -679,8 +701,8 @@ padding-right: 30px;
 #trybutton{
   width: 300px;
   color: white;
-  background: #5469d4;
-  background-color: #5469d4;
+  background: #4464F6;
+  background-color: #4464F6;
   border-radius: 4px;
   display: inline-block;
   margin: 0 auto;
@@ -694,6 +716,24 @@ padding-right: 30px;
   text-align: center;
 
 }
+.bednumdiv{
+
+}
+.fa{
+  width: 20px;
+}
+.fa-star{
+  width: 20px;
+  color: #C4C4C4;
+}
+
+.checked{
+  color:#4464F6
+}
+
+
+
+
 </style>
 
 {% endblock %}
@@ -736,7 +776,7 @@ padding-right: 30px;
   
               <!--Body-->
               <div class="modal-body mb-1">
-                <h2 class="registedheading">Login as existing user</h2>
+                <h2 class="registedheading">Login as anexisting user</h2>
                 <hr class=hr>
                 <form role="form" class="form-horizontal" method="post" action="{% url 'login' %}">{% csrf_token %}
                     <div class="form-group">
@@ -768,11 +808,9 @@ padding-right: 30px;
             </div>
               <hr class=hr>
                   <div class = "row" id="sellingDIV">
-                    
                     <div class = "col-6"> <h3>What do you get?</h3>
                       <div class="whatyouget">
                         <img  class="SubIcon" src={% static "images/search_results/Survey.png" %} />
-
                         <h5>Unlock recent reviews for over 200 properties in Redland</h5>
                       </div>
                       <div class="whatyouget">
@@ -970,12 +1008,8 @@ function closeAllModals() {
     document.body.removeChild(modalsBackdrops[i]);
  }
 }
-
-
               </script>
-
                 </div>
-  
               </div>
               </div>
         </div>
@@ -1077,14 +1111,14 @@ function closeAllModals() {
 
     <div class="stardivleft">
       {% for i in aggregateReview|times %}
-      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star fa-lg checked"></span>
       {% endfor %}
       {% for i in aggregateReview|leftover %}
-      <span class="fa fa-star"></span>
+      <span class="fa fa-lg fa-star"></span>
       {% endfor %}
     </div>
     <h1>{{property.fullAddress}} {{property.postcode}}</h1>
-    <div>
+    <div class="bednumdiv">
       <img class="bedim" src={% static "images/search_results/OccupiedBed.png" %} />
     <h3>{{ review.bedroomNumber }} bedrooms</h3>
   </div>
@@ -1124,7 +1158,9 @@ function closeAllModals() {
         <div class="front">
                     <br>
                     <h3 class="CardTitle">Property Condition</h3>
+                    <br>
                     <hr class=hr1>
+                    <br>
                     <h4 class = "CardTitle2">Find out how well the property was maintained</h4>
                     <div class="stardiv">
                       {% for i in propertyConditionAverage|times %}
@@ -1144,7 +1180,7 @@ function closeAllModals() {
         </div> <!-- end front panel -->
         <div class="back">
           <div class="accordion accordion-flush" id="accordionFlushExample">
-
+            
             {% if review.buildingQuality|exists %}
 
             <div class="accordion-item">
@@ -1162,11 +1198,9 @@ function closeAllModals() {
                 </button>
               </h2>
 
-              {% if review.buildigComment|exists %}
               <div id="flush-collapseOneA" class="accordion-collapse collapse" aria-labelledby="flush-headingOneA" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">{{ review.buildigComment }}</div>
+                <div class="accordion-body">{{ review.buildigComment|NoInfoSorry }}</div>
               </div>
-              {% endif %}
 
             </div>
             {% endif %}
@@ -1186,11 +1220,9 @@ function closeAllModals() {
                   </div>                
                 </button>
               </h2>
-              {% if review.utilitiesComment|exists %}
               <div id="flush-collapseTwoA" class="accordion-collapse collapse" aria-labelledby="flush-headingTwoA" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"> {{ review.utilitiesComment }}</div>
+                <div class="accordion-body"> {{ review.utilitiesComment|NoInfoSorry }}</div>
               </div>
-              {% endif %}
             </div>
             {% endif %}
 
@@ -1209,11 +1241,9 @@ function closeAllModals() {
                   </div>                   
                 </button>
               </h2>
-              {% if review.bedroomQualityComment|exists %}
               <div id="flush-collapseThreeA" class="accordion-collapse collapse" aria-labelledby="flush-headingThreeA" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">{{ review.bedroomQualityComment }}</div>
+                <div class="accordion-body">{{ review.bedroomQualityComment|NoInfoSorry }}</div>
               </div>
-              {% endif %}
             </div>
             {% endif %}
 
@@ -1232,11 +1262,9 @@ function closeAllModals() {
                   </div>                
                 </button>
               </h2>
-              {% if review.moveInHygeneComment|exists %}
               <div id="flush-collapseFourA" class="accordion-collapse collapse" aria-labelledby="flush-headingFourA" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"> {{ review.moveInHygeneComment }}</div>
+                <div class="accordion-body"> {{ review.moveInHygeneComment|NoInfoSorry }}</div>
               </div>
-              {% endif %}
             </div>
             {% endif %}
 
@@ -1255,11 +1283,9 @@ function closeAllModals() {
                   </div>                
                 </button>
               </h2>
-              {% if review.furnishingsComment|exists %}
               <div id="flush-collapseFiveA" class="accordion-collapse collapse" aria-labelledby="flush-headingFiveA" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"> {{ review.furnishingsComment }}</div>
+                <div class="accordion-body"> {{ review.furnishingsComment|NoInfoSorry }}</div>
               </div>
-              {% endif %}
             </div>
             {% endif %}
 
@@ -1283,8 +1309,9 @@ function closeAllModals() {
        <div class="front">
                   <br>
                    <h3 class="CardTitle">Property Manager</h3>
+                   <br>
                    <hr class=hr2>
-
+                   <br>
                    <h4 class = "CardTitle2">Find out how the property manager was rated by tenants</h4>
                    <div class="stardiv">
                     {% for i in propertyManagerAverage|times %}
@@ -1321,11 +1348,9 @@ function closeAllModals() {
                 </div>               
               </button>
              </h2>
-             {% if review.manageResponsivenesComment|exists %}
              <div id="flush-collapseOneB" class="accordion-collapse collapse" aria-labelledby="flush-headingOneB" data-bs-parent="#accordionFlushExample">
-               <div class="accordion-body">{{ review.manageResponsivenesComment}}</div>
+               <div class="accordion-body">{{ review.manageResponsivenesComment|NoInfoSorry}}</div>
              </div>
-             {% endif %}
            </div>
            {% endif %}
 
@@ -1346,11 +1371,9 @@ function closeAllModals() {
                 </div>           
               </button>
              </h2>
-             {% if review.repairQualityComment|exists %}
              <div id="flush-collapseTwoB" class="accordion-collapse collapse" aria-labelledby="flush-headingTwoB" data-bs-parent="#accordionFlushExample">
-               <div class="accordion-body">{{review.repairQualityComment}}</div>
+               <div class="accordion-body">{{review.repairQualityComment|NoInfoSorry}}</div>
              </div>
-             {% endif %}
            </div>
            {% endif %}
 
@@ -1374,7 +1397,6 @@ function closeAllModals() {
                <button class="btn btn-simple" id="backarrow" rel="tooltip" title="" onclick="rotateCard(this)">
                    <i class="fa fa-reply" ></i> Back
                </button>
-               
            </div>
        </div> <!-- end back panel -->
    </div> <!-- end card -->
@@ -1388,8 +1410,9 @@ function closeAllModals() {
         <div class="front">
                     <br>
                     <h3 class="CardTitle">Neiborhood</h3>
+                    <br>
                     <hr class=hr3>
-
+                    <br>
                     <h4 class = "CardTitle2">Find out what people thought about living in the area</h4>
                     <div class="stardiv">
                       {% for i in neiborhoodAverage|times %}
@@ -1426,12 +1449,10 @@ function closeAllModals() {
                   </button>
               </h2>
               
-              {% if review.neighbourhoodDescription|exists %}
               <div id="flush-collapseOneC" class="accordion-collapse collapse" aria-labelledby="flush-headingOneC" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">{{review.neighbourhoodDescription}}
+                <div class="accordion-body">{{review.neighbourhoodDescription|NoInfoSorry}}
                 </div>
               </div>
-              {% endif %}
             </div>
             {% endif %}
 
@@ -1451,12 +1472,10 @@ function closeAllModals() {
                   </div>  
                   </button>
               </h2>
-              {% if review.neighbourhoodSafetyComment|exists %}
               <div id="flush-collapseTwoC" class="accordion-collapse collapse" aria-labelledby="flush-headingTwoC" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">{{review.neighbourhoodSafetyComment}}
+                <div class="accordion-body">{{review.neighbourhoodSafetyComment|NoInfoSorry}}
                 </div>
               </div>
-              {% endif %}
             </div>
             {% endif %}
 
@@ -1480,7 +1499,9 @@ function closeAllModals() {
        <div class="front">
                    <br>
                    <h3 class="CardTitle">Value for money</h3>
+                   <br>
                    <hr class=hr4>
+                   <br>
                    <h4 class = "CardTitle2">Find out how much previous tenants paid</h4>
                    <div class="stardiv">
                      <span class="fa fa-star checked"></span>
@@ -1507,10 +1528,13 @@ function closeAllModals() {
                </button>
              </h2>
              {% if review.rentGoodDeal|exists %}
-
              <div id="flush-collapseOneD" class="accordion-collapse collapse" aria-labelledby="flush-headingOneD" data-bs-parent="#accordionFlushExample">
                <div class="accordion-body">Did previous tenants feel this was good value for money? {{review.rentGoodDeal|true2yes}}</div>
              </div>
+             {% else %}
+             <div id="flush-collapseOneD" class="accordion-collapse collapse" aria-labelledby="flush-headingOneD" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">Sorry we could not get any further information on this.</div>
+            </div>
              {% endif %}
            </div>
 
@@ -1638,9 +1662,20 @@ function closeAllModals() {
 
 
 {% endfor %}
+<br>
+<br>
+<iframe
+width=100%
+height="450"
+style="border:0"
+loading="lazy"
+allowfullscreen
+src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDlVTN-szxnm6ZMM8yWxZuuBIREfD8snjk
+    &q={{property.fullAddress}} {{property.postcode}}">
+</iframe>
 
-</div>        
-
+      
+</div>
 <script>
     jQuery(function(){
        jQuery('.nav-link').click();
