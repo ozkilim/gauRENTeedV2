@@ -137,7 +137,7 @@ border-radius: 15px;
     text-align: center;
 }
 #popupTabs{
-    background-color: #2c3c63;
+    background-color: white;
 }
 @import url('https://fonts.googleapis.com/css?family=Arima+Madurai:100,200,300,400,500,700,800,900');
 body {
@@ -559,10 +559,15 @@ align-items: center;
   font-size: 12px;
 }
 .nav-item{
-  /* background-color: black; */
+  color: white !important;
 }
 .nav-link{
-  /* color: black; */
+  color: black!important;
+  /* background-color: brown; */
+}
+.nav-link:hover{
+  color: white!important;
+  /* background-color: brown; */
 }
 #popupButtonsTab{
   background-color: white;
@@ -584,8 +589,8 @@ align-items: center;
   background-color: white;
   color: black;
 }
-.reviewListTitiles{
-  background-color: yellow;
+#reviewListTitiles{
+  background-color: white;
 }
 .bedim{
 
@@ -612,6 +617,39 @@ align-items: center;
 }
 .approval{
 
+}
+
+.hr1{
+  border: 3px solid #F5D2D3;
+    /* Set the hr color */
+  color: #F5D2D3; /* old IE */
+  background-color: #F5D2D3; /* Modern Browsers */
+  width: 180px;
+  margin: auto;
+}
+.hr2{
+  border: 3px solid #9AB7D3;
+    /* Set the hr color */
+  color: #9AB7D3; /* old IE */
+  background-color: #9AB7D3; /* Modern Browsers */
+  width: 180px;
+  margin: auto;
+}
+.hr3{
+  border: 3px solid #F7E1D3;
+    /* Set the hr color */
+  color: #F7E1D3; /* old IE */
+  background-color: #F7E1D3; /* Modern Browsers */
+  width: 180px;
+  margin: auto;
+}
+.hr4{
+  border: 3px solid #DFCCF1;
+    /* Set the hr color */
+  color: #DFCCF1; /* old IE */
+  background-color: #DFCCF1; /* Modern Browsers */
+  width: 180px;
+  margin: auto;
 }
 </style>
 
@@ -646,6 +684,7 @@ align-items: center;
                 Look for a different property</a>
             </li>
           </ul>
+          
   
           <!-- Tab panels -->
           <div class="tab-content">
@@ -938,7 +977,7 @@ function closeAllModals() {
         areaPerks 
         wouldRecommendProperty -->
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<ul class="nav " id="myTab" role="tablist">
   {% for review in reviews %}
   <li class="nav-item" id = "reviewListTitiles">
     <a class="nav-link" id={{review}} data-toggle="tab" href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
@@ -1003,7 +1042,9 @@ function closeAllModals() {
      <div class="card-container manual-flip">
     <div class="card">
         <div class="front">
+                    <br>
                     <h3 class="CardTitle">Property Condition</h3>
+                    <hr class=hr1>
                     <h4 class = "CardTitle2">Find out how well the property was maintained</h4>
                     <div class="stardiv">
                       {% for i in propertyConditionAverage|times %}
@@ -1027,8 +1068,8 @@ function closeAllModals() {
             {% if review.buildingQuality|exists %}
 
             <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              <h2 class="accordion-header" id="flush-headingOneA">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneA" aria-expanded="false" aria-controls="flush-collapseOne">
                   <h5>Building Quality </h5><h6>(mould, pests cleanliness, damp)</h6>
                   <div class="stardiv">
                     {% for i in review.buildingQuality|times %}
@@ -1042,7 +1083,7 @@ function closeAllModals() {
               </h2>
 
               {% if review.buildigComment|exists %}
-              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div id="flush-collapseOneA" class="accordion-collapse collapse" aria-labelledby="flush-headingOneA" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">{{ review.buildigComment }}</div>
               </div>
               {% endif %}
@@ -1052,8 +1093,8 @@ function closeAllModals() {
 
             {% if review.utilities|exists %}
             <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              <h2 class="accordion-header" id="flush-headingTwoA">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwoA" aria-expanded="false" aria-controls="flush-collapseTwo">
                   <h5>Utilities </h5><h6>(water pressure, heating, insulation)</h6>
                   <div class="stardiv">
                     {% for i in review.utilities|times %}
@@ -1066,7 +1107,7 @@ function closeAllModals() {
                 </button>
               </h2>
               {% if review.utilitiesComment|exists %}
-              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+              <div id="flush-collapseTwoA" class="accordion-collapse collapse" aria-labelledby="flush-headingTwoA" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body"> {{ review.utilitiesComment }}</div>
               </div>
               {% endif %}
@@ -1075,8 +1116,8 @@ function closeAllModals() {
 
             {% if review.bedroomQuality|exists %}
             <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              <h2 class="accordion-header" id="flush-headingThreeA">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThreeA" aria-expanded="false" aria-controls="flush-collapseThree">
                   <h5>Quality of the bedrooms </h5><h6>(size, comfort, privacy) </h6>
                   <div class="stardiv"> 
                     {% for i in review.bedroomQuality|times %}
@@ -1089,7 +1130,7 @@ function closeAllModals() {
                 </button>
               </h2>
               {% if review.bedroomQualityComment|exists %}
-              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div id="flush-collapseThreeA" class="accordion-collapse collapse" aria-labelledby="flush-headingThreeA" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">{{ review.bedroomQualityComment }}</div>
               </div>
               {% endif %}
@@ -1098,8 +1139,8 @@ function closeAllModals() {
 
             {% if review.moveInHygene|exists %}
             <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              <h2 class="accordion-header" id="flush-headingFourA">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFourA" aria-expanded="false" aria-controls="flush-collapseTwo">
                   <h5>Move in hygene </h5>
                   <div class="stardiv">
                     {% for i in review.moveInHygene|times %}
@@ -1112,7 +1153,7 @@ function closeAllModals() {
                 </button>
               </h2>
               {% if review.moveInHygeneComment|exists %}
-              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+              <div id="flush-collapseFourA" class="accordion-collapse collapse" aria-labelledby="flush-headingFourA" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body"> {{ review.moveInHygeneComment }}</div>
               </div>
               {% endif %}
@@ -1121,8 +1162,8 @@ function closeAllModals() {
 
             {% if review.furnishings|exists %}
             <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              <h2 class="accordion-header" id="flush-headingFiveA">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFiveA" aria-expanded="false" aria-controls="flush-collapseTwo">
                   <h5>Furnishings quality</h5>
                   <div class="stardiv">
                     {% for i in review.furnishings|times %}
@@ -1135,7 +1176,7 @@ function closeAllModals() {
                 </button>
               </h2>
               {% if review.furnishingsComment|exists %}
-              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+              <div id="flush-collapseFiveA" class="accordion-collapse collapse" aria-labelledby="flush-headingFiveA" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body"> {{ review.furnishingsComment }}</div>
               </div>
               {% endif %}
@@ -1160,7 +1201,10 @@ function closeAllModals() {
     <div class="card-container manual-flip">
    <div class="card">
        <div class="front">
+                  <br>
                    <h3 class="CardTitle">Property Manager</h3>
+                   <hr class=hr2>
+
                    <h4 class = "CardTitle2">Find out how the property manager was rated by tenants</h4>
                    <div class="stardiv">
                     {% for i in propertyManagerAverage|times %}
@@ -1183,8 +1227,8 @@ function closeAllModals() {
 
           {% if review.manageResponsivenes|exists %}
            <div class="accordion-item">
-             <h2 class="accordion-header" id="flush-headingOne">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+             <h2 class="accordion-header" id="flush-headingOneB">
+               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneB" aria-expanded="false" aria-controls="flush-collapseOne">
                 <h5> Responsiveness of property manager </h5>
                 <div class="stardiv">
 
@@ -1198,7 +1242,7 @@ function closeAllModals() {
               </button>
              </h2>
              {% if review.manageResponsivenesComment|exists %}
-             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+             <div id="flush-collapseOneB" class="accordion-collapse collapse" aria-labelledby="flush-headingOneB" data-bs-parent="#accordionFlushExample">
                <div class="accordion-body">{{ review.manageResponsivenesComment}}</div>
              </div>
              {% endif %}
@@ -1208,8 +1252,8 @@ function closeAllModals() {
 
            {% if review.repairQuality|exists %}
            <div class="accordion-item">
-             <h2 class="accordion-header" id="flush-headingTwo">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+             <h2 class="accordion-header" id="flush-headingTwoB">
+               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwoB" aria-expanded="false" aria-controls="flush-collapseTwo">
                 <h5>Quality of repairs</h5>
                 <div class="stardiv">
 
@@ -1223,7 +1267,7 @@ function closeAllModals() {
               </button>
              </h2>
              {% if review.repairQualityComment|exists %}
-             <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+             <div id="flush-collapseTwoB" class="accordion-collapse collapse" aria-labelledby="flush-headingTwoB" data-bs-parent="#accordionFlushExample">
                <div class="accordion-body">{{review.repairQualityComment}}</div>
              </div>
              {% endif %}
@@ -1232,12 +1276,12 @@ function closeAllModals() {
 
            {% if review.hiddenExpenses|exists %}
            <div class="accordion-item">
-             <h2 class="accordion-header" id="flush-headingThree">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+             <h2 class="accordion-header" id="flush-headingThreeB">
+               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThreeB" aria-expanded="false" aria-controls="flush-collapseThree">
                 Hidden Expenses               
               </button>
              </h2>
-             <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+             <div id="flush-collapseThreeB" class="accordion-collapse collapse" aria-labelledby="flush-headingThreeB" data-bs-parent="#accordionFlushExample">
                <div class="accordion-body">{{ review.hiddenExpenses }}</div>
              </div>
            </div>
@@ -1262,7 +1306,10 @@ function closeAllModals() {
      <div class="card-container manual-flip">
     <div class="card">
         <div class="front">
+                    <br>
                     <h3 class="CardTitle">Neiborhood</h3>
+                    <hr class=hr3>
+
                     <h4 class = "CardTitle2">Find out what people thought about living in the area</h4>
                     <div class="stardiv">
                       {% for i in neiborhoodAverage|times %}
@@ -1285,8 +1332,8 @@ function closeAllModals() {
 
             {% if review.neighbourhoodEnjoyment|exists %}
             <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              <h2 class="accordion-header" id="flush-headingOneC">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneC" aria-expanded="false" aria-controls="flush-collapseOne">
                   <h5>How much did you enjoy living in the area?</h5>
                   <div class="stardiv">
                     {% for i in review.neighbourhoodEnjoyment|times %}
@@ -1300,7 +1347,7 @@ function closeAllModals() {
               </h2>
               
               {% if review.neighbourhoodDescription|exists %}
-              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div id="flush-collapseOneC" class="accordion-collapse collapse" aria-labelledby="flush-headingOneC" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">{{review.neighbourhoodDescription}}
                 </div>
               </div>
@@ -1310,8 +1357,8 @@ function closeAllModals() {
 
             {% if review.neighbourhoodSafety|exists %}
             <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              <h2 class="accordion-header" id="flush-headingTwoC">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwoC" aria-expanded="false" aria-controls="flush-collapseOne">
  
                   <h5>How safe did you feel living in the area?</h5>
                   <div class="stardiv">
@@ -1325,7 +1372,7 @@ function closeAllModals() {
                   </button>
               </h2>
               {% if review.neighbourhoodSafetyComment|exists %}
-              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div id="flush-collapseTwoC" class="accordion-collapse collapse" aria-labelledby="flush-headingTwoC" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">{{review.neighbourhoodSafetyComment}}
                 </div>
               </div>
@@ -1351,7 +1398,9 @@ function closeAllModals() {
     <div class="card-container manual-flip">
    <div class="card">
        <div class="front">
+                   <br>
                    <h3 class="CardTitle">Value for money</h3>
+                   <hr class=hr4>
                    <h4 class = "CardTitle2">Find out how much previous tenants paid</h4>
                    <div class="stardiv">
                      <span class="fa fa-star checked"></span>
@@ -1372,38 +1421,19 @@ function closeAllModals() {
          <div class="accordion accordion-flush" id="accordionFlushExample">
 
            <div class="accordion-item">
-             <h2 class="accordion-header" id="flush-headingOne">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+             <h2 class="accordion-header" id="flush-headingOneD">
+               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneD" aria-expanded="false" aria-controls="flush-collapseOne">
                  Previous tennants paid: £{{review.rentMonthly}} /week
                </button>
              </h2>
              {% if review.rentGoodDeal|exists %}
 
-             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+             <div id="flush-collapseOneD" class="accordion-collapse collapse" aria-labelledby="flush-headingOneD" data-bs-parent="#accordionFlushExample">
                <div class="accordion-body">Did previous tenants feel this was good value for money? {{review.rentGoodDeal|true2yes}}</div>
              </div>
              {% endif %}
            </div>
-           <!-- <div class="accordion-item">
-             <h2 class="accordion-header" id="flush-headingTwo">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                 Accordion Item #2
-               </button>
-             </h2>
-             <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-               <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-             </div>
-           </div>
-           <div class="accordion-item">
-             <h2 class="accordion-header" id="flush-headingThree">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                 Accordion Item #3
-               </button>
-             </h2>
-             <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-               <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-             </div>
-           </div> -->
+
          </div>
          <div class="imdiv1">
            <img class="firstIm" src={% static "images/search_results/saly-28.png" %} />
