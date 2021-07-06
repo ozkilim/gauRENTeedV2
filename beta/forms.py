@@ -35,7 +35,6 @@ class ReviewForm(forms.ModelForm):
         # return cleaned_data
 
 
-
 class PropertyCreationForm(forms.ModelForm):
     class Meta:
 

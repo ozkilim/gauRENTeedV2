@@ -236,8 +236,10 @@ def checkout(request):
         password = request.POST["password"]
         # Pull out all data from first form...
         # Need some front end validation to ensure created object is correct.
-        newUser = CustomUser(username=username, password=password,
+        newUser = CustomUser(username=username,
                              email=email)
+        newUser.set_password(password)
+
         newUser.is_patient = True
         newUser.is_active = True
         newUser.save()

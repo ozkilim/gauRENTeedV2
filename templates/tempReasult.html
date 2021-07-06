@@ -603,7 +603,16 @@ align-items: center;
   /* vertical-align: middle; */
 }
 
+#backarrow{
+  background-color: brown;
+;
+}
+.approvalim{
+  float: left;
+}
+.approval{
 
+}
 </style>
 
 {% endblock %}
@@ -754,8 +763,8 @@ fetch("{% url 'create-checkout-session' %}", {
         console.log(formElement)
         request.send(new FormData(formElement));
         // Show a sucess message
+        setTimeout(() => { console.log("World!"); }, 10000);
         closeAllModals()
-
     });
 
 });
@@ -963,15 +972,26 @@ function closeAllModals() {
     </div>
     <div class="col-6">
       <h3>About the review</h3>
+      <div class="approval" >
+      <img  class="approvalim" src={% static "images/search_results/Approval.png" %} />
       <div>
-        This review is verified {{review.verified|true2yes}}
+        This review is verified 
       </div>
+    </div>
+    <br>
+    <div class="approval">
+      <img class="approvalim" src={% static "images/search_results/Approval.png" %} />
       <div>
-        The reviewer was living at this address when review was collected {{review.livingConfirmation|true2yes}}
+        The reviewer was living at this address when review was collected 
       </div>
+    </div>
+    <br>
+    <div class="approval" >
+      <img class="approvalim" src={% static "images/search_results/Approval.png" %} />
       <div>
-        <h5>The last tennants stayed from {{review.moveIn}} to  {{review.moveOut}}</h5>
+        The last tennants stayed from {{review.moveIn}} to  {{review.moveOut}}
       </div>
+    </div>
     </div>
 
 </div>
@@ -1227,8 +1247,8 @@ function closeAllModals() {
            <img class="firstIm" src={% static "images/search_results/saly-11.png" %} />
          </div>
            <div class="footer">
-               <button class="btn btn-simple" rel="tooltip" title="" onclick="rotateCard(this)">
-                   <i class="fa fa-reply"></i> Back
+               <button class="btn btn-simple" id="backarrow" rel="tooltip" title="" onclick="rotateCard(this)">
+                   <i class="fa fa-reply" ></i> Back
                </button>
                
            </div>
