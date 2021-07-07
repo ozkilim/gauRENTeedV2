@@ -49,3 +49,9 @@ def times(number):
         return "Sorry we could not get any further information on this."
     else:
         return number
+
+
+@register.filter(name='toChart')
+def times(number):
+    if number != 0:
+        return number/10

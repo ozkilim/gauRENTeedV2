@@ -96,14 +96,32 @@ def reasult(request, hashId):
         aggregateReview = sum(allReviewList)/len(allReviewList)
 
         # Calcualate averages for front of cards.
-
         propertyConditionAverage = (
             propertyReviews[0].get("buildingQuality") + propertyReviews[0].get("utilities"))/2
         propertyManagerAverage = (
             propertyReviews[0].get("manageResponsivenes") + propertyReviews[0].get("repairQuality"))/2
         neiborhoodAverage = propertyReviews[0].get("neighbourhoodEnjoyment")
+
+        # CALULATE PROPERTY STATS
+        priceAverage = 500
+        ratingAverage = 3.8
+
+        ratingPerPriceAverage = ratingAverage/priceAverage
+        if propertyReviews[0].get("rentMonthly") != 0:
+            ratingPerPrice = aggregateReview / \
+                (propertyReviews[0].get("rentMonthly"))
+            gaurenteedScore = ratingPerPrice/ratingPerPriceAverage
+            gaurenteedScore = round((gaurenteedScore*100), 2)
+        else:
+            gaurenteedScore = "Unknown"
+        # Need to normalise the score to it outmoces as percent.
+    averageProprent = propertyReviews[0].get("rentMonthly")
+
+    # averagegaurenteedScoreNEDS TO B DONE FOR REAL but not each time the page is loaded..
+    averagegaurenteedScore = 50
+
     context = {'property': property, 'reviews': propertyReviews,
-               'aggregateReview': aggregateReview, "stripe_key": settings.STRIPE_PUBLIC_KEY, "urlsString": urlsString, "propertyConditionAverage": propertyConditionAverage, "propertyManagerAverage": propertyManagerAverage, "neiborhoodAverage": neiborhoodAverage}
+               'aggregateReview': aggregateReview, "stripe_key": settings.STRIPE_PUBLIC_KEY, "urlsString": urlsString, "propertyConditionAverage": propertyConditionAverage, "propertyManagerAverage": propertyManagerAverage, "neiborhoodAverage": neiborhoodAverage, "gaurenteedScore": gaurenteedScore, "priceAverage": priceAverage, "ratingAverage": ratingAverage, "averageProprent": averageProprent, "averagegaurenteedScore": averagegaurenteedScore}
     return render(request, 'tempReasult.html', context)
 
 

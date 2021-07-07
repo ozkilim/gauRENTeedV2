@@ -584,7 +584,7 @@ align-items: center;
   color: white !important;
 }
 .nav-link{
-  color: black!important;
+  color: white!important;
   /* background-color: brown; */
 }
 .nav-link:hover{
@@ -592,23 +592,20 @@ align-items: center;
   /* background-color: brown; */
 }
 #popupButtonsTab{
-  background-color: white;
-  color: black;
+  background-color: #4464F6;
+  /* color: black; */
   border-radius: 0px;
 }
 
 #popupButtonsTab:hover{
-  background-color: #a8a8f5;
-  color: white;
+  background-color: black;
+  color: black;
 
 }
 
-/* #popupButtonsTab.active{
-  background-color: blue;
-} */
 
 .nav-link:hover {
-  background-color: white;
+  background-color: black;
   color: black;
 }
 #reviewListTitiles{
@@ -731,7 +728,155 @@ padding-right: 30px;
   color:#4464F6
 }
 
+.worstBest{
+  float: left;
+}
 
+
+.graph {
+	margin-bottom:1em;
+}
+
+.graph caption {
+	padding-bottom:30px;
+  text-align: center;
+}
+
+.graph tbody th {
+	text-align:right;
+}
+
+@supports (display:grid) {
+
+	@media (min-width:32em) {
+
+		.graph {
+			display:block;
+      width:550px;
+      height:130px;
+		}
+
+		.graph caption {
+			display:block;
+		}
+
+		.graph thead {
+			display:none;
+		}
+
+		.graph tbody {
+			position:relative;
+			display:grid;
+			grid-template-columns:repeat(auto-fit, minmax(2em, 1fr));
+			column-gap:2.5%;
+			align-items:end;
+			height:100%;
+			/* margin:3em 0 1em 2.8em; */
+			padding:0 1em;
+			border-bottom:2px solid rgba(0,0,0,0.5);
+			background:repeating-linear-gradient(
+				180deg,
+				rgba(170,170,170,0.7) 0,
+				rgba(170,170,170,0.7) 1px,
+				transparent 1px,
+				transparent 20%
+			);
+		}
+
+		.graph tbody:before,
+		.graph tbody:after {
+			position:absolute;
+			left:-3.2em;
+			width:2.8em;
+			text-align:right;
+		}
+
+		.graph tbody:before {
+			/* content:"Max Price"; */
+			top:-0.6em;
+		}
+
+		.graph tbody:after {
+			/* content:"Min Price"; */
+			bottom:-0.6em;
+		}
+
+		.graph tr {
+			position:relative;
+			display:block;
+		}
+
+		.graph tr:hover {
+			z-index:999;
+		}
+
+		.graph th,
+		.graph td {
+			display:block;
+			text-align:center;
+		}
+
+		.graph tbody th {
+			position:absolute;
+			top:-1.5em;
+			left:0;
+			width:100%;
+			font-weight:normal;
+			text-align:center;
+      white-space:nowrap;
+			text-indent:0;
+			/* transform:rotate(-45deg); */
+		}
+
+		.graph tbody th:after {
+			content:"";
+		}
+
+		.graph td {
+			width:100%;
+			height:100%;
+			background:#4464F6;
+			border-radius:0.5em 0.5em 0 0;
+			transition:background 0.5s;
+		}
+    #tdredland{
+			background:red;
+    }
+
+		.graph tr:hover td {
+			opacity:0.7;
+		}
+
+		.graph td span {
+			overflow:hidden;
+			position:absolute;
+			left:50%;
+			top:50%;
+			width:0;
+			padding:0.5em 0;
+			margin:-1em 0 0;
+/* 			background:white; */
+/* 			box-shadow:0 0 0.25em rgba(0,0,0,0.6); */
+			font-weight:bold;
+			opacity:0;
+			transition:opacity 0.5s;
+      color:white;
+		}
+
+		.toggleGraph:checked + table td span,
+		.graph tr:hover td span {
+			width:4em;
+			margin-left:-2em; /* 1/2 the declared width */
+			opacity:1;
+		}
+
+	} /* min-width:32em */
+
+} /* grid only */
+
+.statsheader{
+  text-align: center;
+}
 
 
 </style>
@@ -808,7 +953,9 @@ padding-right: 30px;
             </div>
               <hr class=hr>
                   <div class = "row" id="sellingDIV">
-                    <div class = "col-6"> <h3>What do you get?</h3>
+                    <div class = "col-2"></div>
+
+                    <div class = "col-8"> <h3>What do you get?</h3>
                       <div class="whatyouget">
                         <img  class="SubIcon" src={% static "images/search_results/Survey.png" %} />
                         <h5>Unlock recent reviews for over 200 properties in Redland</h5>
@@ -831,15 +978,21 @@ padding-right: 30px;
                         <img  class="SubIcon" src={% static "images/search_results/ReceiveCash.png" %} />
 
                         <h5>Read the example review see what you are getting before you commit. </h5>
-                        <form id="tryform" action="http://127.0.0.1:8000/beta/reasult/f7f02f3b-7644-4d31-8c19-a85d2cfb2434/">
+                        <!-- <form id="tryform" action="http://127.0.0.1:8000/beta/reasult/f7f02f3b-7644-4d31-8c19-a85d2cfb2434/">
                           <input type="submit" value="Check out an example review" id="trybutton" />
-                        </form>
+                        </form> -->
                       </div>
                       <br>
                       
                      
                   </div>
-                    <div class = "col-6">
+                    <div class = "col-2"></div>
+                </div>
+
+                <div class= "row">
+                  <div class = "col-2"></div>
+
+                    <div class = "col-8">
                       <h3>No subscription</h3>
                       <h5>One off 5 payment</h5>
                     
@@ -859,10 +1012,10 @@ padding-right: 30px;
               </form>
               <br>
                     </div>
-                  
-              </div>
+                    <div class = "col-2"></div>
 
-
+                  </div>
+                  <img  class="ExampleRev" src={% static "images/search_results/ExampleRev.png" %} />
            
 <script>
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
@@ -1554,11 +1707,11 @@ function closeAllModals() {
  </div>
 </div>
 
-
 {% if review.goodPlaceForFriends|exists %}
+<hr>
+
 <div class ="row">
   <h2>What was the house like to live in ?</h2>
-
 <!-- Do not display if data is null...  -->
 
   <div class = "col-6">
@@ -1605,7 +1758,9 @@ function closeAllModals() {
         </div>      
     </div>
 <br><br>
-    <div><h2>Best feature of the property:</h2>" {{ review.likedMost }} "</div>
+    <div>
+      <!-- <img class="worstBest" src={% static "images/search_results/OK.png" %} /> -->
+      <h2>Best feature of the property:</h2><h5>" {{ review.likedMost }} "</h5></div>
   </div>
   <div class = "col-6">
     <div class="howItwas">
@@ -1652,7 +1807,10 @@ function closeAllModals() {
     </div>
     <br><br>
 
-    <div><h2>Worst feature of the property: </h2> " {{ review.likedLeast }} "</div>
+    <div>
+      <!-- <img class="worstBest" src={% static "images/search_results/Cancel.png" %} /> -->
+
+      <h2>Worst feature of the property: </h2><h5> " {{ review.likedLeast }} "</h5> </div>
 
   </div>
   </div>
@@ -1662,19 +1820,84 @@ function closeAllModals() {
 
 
 {% endfor %}
-<br>
-<br>
-<iframe
-width=100%
-height="450"
-style="border:0"
-loading="lazy"
-allowfullscreen
-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDlVTN-szxnm6ZMM8yWxZuuBIREfD8snjk
-    &q={{property.fullAddress}} {{property.postcode}}">
-</iframe>
 
-      
+<hr>
+<br>
+<br>
+
+<div class = "row">
+<div class= "col-6">
+<h5 class="statsheader">How does {{property.fullAddress}} {{property.postcode}} comapre to redland?</h5>
+<div>
+  <table class="graph">
+    <caption>Value for money comparason</caption>
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Percent</th>
+      </tr>
+    </thead><tbody>
+      <tr style="height:{{ gaurenteedScore }}%">
+        <th scope="row"> {{property.fullAddress}} {{property.postcode}}  </th>
+        <td><span>{{ gaurenteedScore }}</span></td>
+      </tr>
+      <tr  style="height:{{ averagegaurenteedScore }}%">
+        <th  scope="row">Redland </th>
+        <td id="tdredland"><span>{{ averagegaurenteedScore }}</span></td>
+      </tr>
+  
+    </tbody>
+  </table>
+  </div>
+
+  <br>
+  <br>
+<br>
+<br>
+
+<div>
+<table class="graph">
+	<caption>Monthly rent comparason</caption>
+	<thead>
+		<tr>
+			<th scope="col">Item</th>
+			<th scope="col">Percent</th>
+		</tr>
+	</thead><tbody>
+		<tr style="height:{{ averageProprent|toChart }}%">
+			<th scope="row"> {{property.fullAddress}} {{property.postcode}}  </th>
+			<td><span>£{{ averageProprent }}</span></td>
+		</tr>
+		<tr  style="height:{{ priceAverage|toChart }}%">
+			<th  scope="row">Redland </th>
+			<td id="tdredland"><span>£{{ priceAverage }}</span></td>
+		</tr>
+
+	</tbody>
+</table>
+</div>
+
+
+
+
+
+</div>
+<div class= "col-6">
+  <iframe
+  width=100%
+  height="450"
+  style="border:0"
+  loading="lazy"
+  allowfullscreen
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDlVTN-szxnm6ZMM8yWxZuuBIREfD8snjk
+      &q={{property.fullAddress}} {{property.postcode}}">
+  </iframe>
+
+</div>
+</div>
+
+
+
 </div>
 <script>
     jQuery(function(){
