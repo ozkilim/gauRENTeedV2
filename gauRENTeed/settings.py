@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '6dnm)#uud6@gaxe+fh%ke=a!_rfe-h)e0z^7ty^^imiugzqsk%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['shrouded-plateau-92946.herokuapp.com', '127.0.0.1']
 
@@ -177,7 +177,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 # This mush change for online version to = 2
-SITE_ID = 1
+SITE_ID = 2
 
 # send to payment page...
 LOGIN_REDIRECT_URL = '/beta'
