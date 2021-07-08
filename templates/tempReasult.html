@@ -881,7 +881,9 @@ padding-right: 30px;
   text-align: center;
 }
 
-
+.PoundPayment{
+  text-align: center;
+}
 </style>
 
 {% endblock %}
@@ -904,11 +906,11 @@ padding-right: 30px;
           <ul class="nav nav-tabs" role="tablist" id="popupTabs">
             <li class="nav-item">
               <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="#panel7" role="tab">
-                Login</a>
+                Already user? : Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="#panel8" role="tab">
-                Unlock all the reviews</a>
+                Unlock over 200 Redland reviews</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="{% url 'landing' %}" role="tab">
@@ -924,7 +926,7 @@ padding-right: 30px;
   
               <!--Body-->
               <div class="modal-body mb-1">
-                <h2 class="registedheading">Login as anexisting user</h2>
+                <h2 class="registedheading">Login as an existing user</h2>
                 <hr class=hr>
                 <form role="form" class="form-horizontal" method="post" action="{% url 'login' %}">{% csrf_token %}
                     <div class="form-group">
@@ -952,9 +954,11 @@ padding-right: 30px;
             <div class="tab-pane fade" id="panel8" role="tabpanel">
               <br>
               <div>
-              <h3 class="registedheading">Unlock all the reviews</h3>
+              <h3 class="registedheading">Unlock over 200 Redland reviews</h3>
             </div>
+            <h2 class = "PoundPayment">£10 one off payment</h2>
               <hr class=hr>
+             
                   <div class = "row" id="sellingDIV">
                     <div class = "col-2"></div>
 
@@ -996,8 +1000,7 @@ padding-right: 30px;
                   <div class = "col-2"></div>
 
                     <div class = "col-8">
-                      <h3>No subscription</h3>
-                      <h5>One off 5 payment</h5>
+                     
                     
               <form id="payment-form" class="form-control">{% csrf_token %}
                 <input name = "email" type="text" id="email" placeholder="Email address" class="form-control"/>
@@ -1734,8 +1737,8 @@ function closeAllModals() {
       </div>
     <div class="howItwas"> 
       <h6>I enjoyed cooking in the kitchen</h6>
-      <div class="w3-light-grey w3-round">
-        <div class="w3-container w3-blue w3-round" style="width:{{ review.enjoyedCooking|percent }}%">{{ review.enjoyedCooking|percent }}%
+      <div class="w3-light-grey w3-round" id ="barchart">
+        <div class="w3-container w3-blue w3-round"  style="width:{{ review.enjoyedCooking|percent }}%">{{ review.enjoyedCooking|percent }}%
         </div>
         </div>   
     </div>
