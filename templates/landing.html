@@ -100,11 +100,20 @@
                         <input type="text" placeholder="   Enter the address" id='property' name='property' autocomplete="on">
                         <button type="submit" class="landingButton" id="landingButton" form="rearchForm" value="Submit">Search</button>
                       </form>
+                      <!-- {{ messages.tags }} -->
                       {% if messages %}
-                      <br>
+
+                      <ul class="message">
+                        {% for message in messages %}
+                        <br>
                       <div class="alert alert-danger">
                         <strong>Sorry we do not have reviews for this property. Try another!</strong>
                       </div>
+                        {% endfor %}
+                    </ul>
+
+
+                      
                       {% endif %}
                     </div>
                 </div>

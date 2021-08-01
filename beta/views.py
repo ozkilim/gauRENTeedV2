@@ -45,6 +45,7 @@ def landing(request):
             property = Property.objects.get(fullAddress=fullAddress)
             hashId = property.hashId
             return redirect('reasult', hashId=hashId)
+            messages.error(request)
         except:
             # Make a popup that there was an error
             messages.error(request, "Error")
