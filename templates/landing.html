@@ -98,8 +98,14 @@
                       <div class=enterFormDiv>
                       <form action={% url 'landing' %} method="post" id="rearchForm">{% csrf_token %}
                         <input type="text" placeholder="   Enter the address" id='property' name='property' autocomplete="on">
-                        <button type="submit" class="landingButton" form="rearchForm" value="Submit">Search</button>
+                        <button type="submit" class="landingButton" id="landingButton" form="rearchForm" value="Submit">Search</button>
                       </form>
+                      {% if messages %}
+                      <br>
+                      <div class="alert alert-danger">
+                        <strong>Sorry we do not have reviews for this property. Try another!</strong>
+                      </div>
+                      {% endif %}
                     </div>
                 </div>
           

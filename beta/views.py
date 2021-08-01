@@ -1,4 +1,5 @@
 import pandas as pd
+from django.contrib import messages
 from statistics import mean
 import django
 import sys
@@ -40,9 +41,14 @@ def landing(request):
     if request.method == 'POST':
         # get the searched result and redirect to correct page here
         fullAddress = request.POST.get('property')
-        property = Property.objects.get(fullAddress=fullAddress)
-        hashId = property.hashId
-        return redirect('reasult', hashId=hashId)
+        try:
+            property = Property.objects.get(fullAddress=fullAddress)
+            hashId = property.hashId
+            return redirect('reasult', hashId=hashId)
+        except:
+            # Make a popup that there was an error
+            messages.error(request, "Error")
+            return redirect('landing')
 
     if 'term' in request.GET:
         qs = Property.objects.filter(
@@ -50,9 +56,10 @@ def landing(request):
         fullAddress = []
         for property in qs:
             fullAddress.append(property.fullAddress)
-        # return sorry if the reasult if not found
         if fullAddress == []:
+            # return sorry if the reasult if not found
             fullAddress = ["Sorry we don't have a review of this property yet"]
+            # Set the button in inactive
         return JsonResponse(fullAddress, safe=False)
 
     return render(request, 'landing.html')

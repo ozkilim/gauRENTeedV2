@@ -49,7 +49,7 @@ load static %} {% load static %} {% block content %}
               {% endif %}
             </div>
           </form>
-          {% if form.errors %}
+          {% if loginerror == true %}
           <div class="alert alert-danger">
             <strong>username or password not correct</strong>
           </div>
