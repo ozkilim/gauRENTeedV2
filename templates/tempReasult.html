@@ -884,6 +884,8 @@ padding-right: 30px;
 .PoundPayment{
   text-align: center;
 }
+.ExampleRev{
+align-self: center;}
 </style>
 
 {% endblock %}
@@ -1016,12 +1018,15 @@ padding-right: 30px;
                 <p class="result-message hidden">
                 </p>
               </form>
+
               <br>
+
                     </div>
                     <div class = "col-2"></div>
 
                   </div>
-                  <img  class="ExampleRev" src={% static "images/search_results/ExampleRev.png" %} />
+              <img  class="ExampleRev" src={% static "images/search_results/ExampleRev.png" %} />
+
            
 <script>
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
@@ -1183,11 +1188,7 @@ function closeAllModals() {
   {% for review in reviews %}
   <li class="nav-item" id = "reviewListTitiles" style=" padding-right:5px; ">
 
-    {% if forloop.first %}
-    <a class="nav-link active"  id={{review}} data-toggle="tab" style="background-color:#4464F6;"  href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
-    {% else %}
-    <a class="nav-link"  id={{review}} data-toggle="tab" style="background-color:grey;"  href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
-    {% endif %}
+    <a class="nav-link"  id={{review}} data-toggle="tab" style="background-color:#4464F6;"  href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
 
   </li>
 {% endfor %}
