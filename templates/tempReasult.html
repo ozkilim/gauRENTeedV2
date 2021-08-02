@@ -592,7 +592,7 @@ align-items: center;
 }
 .nav-link:hover{
   color: white!important;
-  /* background-color: brown; */
+  filter: contrast(180%);
 }
 #popupButtonsTab{
   background-color: #4464F6;
@@ -910,10 +910,10 @@ padding-right: 30px;
             </li>
             <li class="nav-item">
               <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="#panel8" role="tab">
-                Unlock over 200 Redland reviews</a>
+                Unlock Redland reviews</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="{% url 'landing' %}" role="tab">
+              <a class="nav-link" id ="popupButtonsTab"  href="{% url 'landing' %}" >
                 Look for a different property</a>
             </li>
           </ul>
@@ -954,7 +954,7 @@ padding-right: 30px;
             <div class="tab-pane fade" id="panel8" role="tabpanel">
               <br>
               <div>
-              <h3 class="registedheading">Unlock over 200 Redland reviews</h3>
+              <h3 class="registedheading">Unlock the review of {{property.fullAddress}} {{property.postcode}} + over 200 others in Redland</h3>
             </div>
             <h2 class = "PoundPayment">£10 one off payment</h2>
               <hr class=hr>
@@ -1179,81 +1179,16 @@ function closeAllModals() {
 
 {% endif %}
 
-
-
-        <!-- verified 
-        property 
-        reviewDate 
-        timeStamp 
-        livingConfirmation 
-        moveIn
-        moveOut
-        bedroomNumber 
-        employmentStatus
-        reviewerName 
-
-
-        buildingQuality !!!
-        buildigComment !!!
-        moveInHygene 
-        moveInHygeneComment 
-        utilities !!!
-        utilitiesComment !!!
-        bedroomQuality !!
-        bedroomQualityComment !!
-
-        furnishings 
-        furnishingsComment 
-
-        manageResponsivenes  !!!
-        manageResponsivenesComment !!!
-        repairQuality  !!!
-        repairQualityComment !!!
-        hiddenExpenses !!!
-
-        wantedToKnowBefore
-        rentMonthly !!!
-        rentGoodDeal !!!
-
-        neighbourhoodDescription !!!
-        neighbourhoodEnjoyment !!!
-
-        neighbourhoodSafety ???
-        neighbourhoodSafetyComment ???
-
-
-        goodPlaceForFriends 
-        goodPlaceForDinnerParties 
-        enjoyedCooking 
-        feltLikeAHome
-        cosyInWinter 
-        windowView 
-
-        neighboursRelationship 
-        study 
-        easyToSleepAtNight
-        feltSafe 
-        landlordRelationship 
-        hotShower 
-
-        likedMost 
-        likedLeast 
-
-        overallRating !!!
-
-        maintenanceMoveIn 
-        whiteGoods 
-        qualityComments 
-        landlordRating 
-        landlordComments
-        areaBenefits 
-        areaPerks 
-        wouldRecommendProperty -->
-
 <ul class="nav " id="myTab" role="tablist">
   {% for review in reviews %}
-  <li class="nav-item" id = "reviewListTitiles">
-    <a class="nav-link" id={{review}} data-toggle="tab" href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
+  <li class="nav-item" id = "reviewListTitiles" style=" padding-right:5px; ">
+
+    {% if forloop.first %}
+    <a class="nav-link active"  id={{review}} data-toggle="tab" style="background-color:#4464F6;"  href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
+    {% else %}
+    <a class="nav-link"  id={{review}} data-toggle="tab" style="background-color:grey;"  href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
+    {% endif %}
+
   </li>
 {% endfor %}
 </ul>
@@ -1568,7 +1503,7 @@ function closeAllModals() {
     <div class="card">
         <div class="front">
                     <br>
-                    <h3 class="CardTitle">Neiborhood</h3>
+                    <h3 class="CardTitle">Neighbourhood</h3>
                     <br>
                     <hr class=hr3>
                     <br>
@@ -1941,6 +1876,15 @@ function rotateCard(btn){
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+
+<script>
+  $(document).ready(function() {
+      $('li').click(function() {
+          $('li.nav-link.active').removeClass("nav-link active");
+          $(this).addClass("nav-link active");
+      });
+  });
+</script>
 {% endblock %}
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
