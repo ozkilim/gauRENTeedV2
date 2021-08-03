@@ -410,7 +410,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         checkout_session = stripe.PaymentIntent.create(
-            amount=1,
+            amount=50,
             currency='gbp',
             payment_method_types=['card']
         )
