@@ -411,7 +411,7 @@ class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         checkout_session = stripe.PaymentIntent.create(
             amount=100,
-            currency='gpb',
+            currency='gbp',
         )
         return JsonResponse({
             'client_secret': checkout_session['client_secret']
