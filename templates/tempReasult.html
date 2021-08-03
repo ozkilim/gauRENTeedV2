@@ -1030,7 +1030,7 @@ align-self: center;}
            
 <script>
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-var stripe = Stripe("pk_test_51IVE74GfxvWHpljQiugUY1xG2FvOnO8l6W64sVuSofMJ5SHsVVlZ5E81bLsC1BwIWptV8BL2U4ZHhesrXOyOKcRH00SdJXIHfx");
+var stripe = Stripe("pk_live_51IVE74GfxvWHpljQUTFxoMaTtoTwyj1vknpyfwFMlsbcLSGJFA5alGO7db4x9Iwd1AHCdwlMkokWJuA4ukG9jlKI00VcRXiv1w");
 document.querySelector("button").disabled = true;
  
 fetch("{% url 'create-checkout-session' %}", {
