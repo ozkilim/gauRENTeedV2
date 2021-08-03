@@ -412,6 +412,7 @@ class CreateCheckoutSessionView(View):
         checkout_session = stripe.PaymentIntent.create(
             amount=100,
             currency='gbp',
+            payment_method_types=['card']
         )
         return JsonResponse({
             'client_secret': checkout_session['client_secret']
