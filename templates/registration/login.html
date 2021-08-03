@@ -43,7 +43,7 @@ load static %} {% load static %} {% block content %}
               <input type="submit" class="signup_button" />
               <h1>{{ urlsString }}</h1>
               {% if urlsString == none %}
-              <input type="hidden" name="next" value="/beta" />
+              <input type="hidden" name="next" value="/" />
               {% else %}
               <input type="hidden" name="next" value="/{{ urlsString }}" />
               {% endif %}

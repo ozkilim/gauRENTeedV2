@@ -87,7 +87,7 @@ def reasult(request, hashId):
     # Later will need to add hashing so users cannot get to the page for free
     property = Property.objects.get(hashId=hashId)
     # So user gets redirected to the review they wanted.
-    urlsString = "beta/reasult/" + str(hashId)
+    urlsString = "reasult/" + str(hashId)
     print(urlsString)
     # Get all properties
     # filter the get reviews for properties
