@@ -184,9 +184,9 @@ LOGIN_REDIRECT_URL = '/beta'
 LOGOUT_REDIRECT_URL = '/beta'
 
 # stipe info
-STRIPE_PUBLIC_KEY = "pk_test_51IVE74GfxvWHpljQiugUY1xG2FvOnO8l6W64sVuSofMJ5SHsVVlZ5E81bLsC1BwIWptV8BL2U4ZHhesrXOyOKcRH00SdJXIHfx"
+STRIPE_PUBLIC_KEY = "pk_live_51IVE74GfxvWHpljQUTFxoMaTtoTwyj1vknpyfwFMlsbcLSGJFA5alGO7db4x9Iwd1AHCdwlMkokWJuA4ukG9jlKI00VcRXiv1w"
 
-STRIPE_SECRET_KEY = "sk_test_51IVE74GfxvWHpljQlqJi6BDKyBunvW9gxnF8NCFAc1RfoNsOmtsJvqaqabz5BDTyMLVSDQoOMDQbX6js4zGWdFHL00w2wzFMXT"
+STRIPE_SECRET_KEY = "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"
 
 STRIPE_WEBHOOK_SECRET = ""
 #  Add configuration for static files storage using whitenoise
