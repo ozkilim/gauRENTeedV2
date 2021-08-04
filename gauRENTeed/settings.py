@@ -179,7 +179,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 # This mush change for online version to = 2
-SITE_ID = 2
+SITE_ID = 3
 
 # send to payment page...
 LOGIN_REDIRECT_URL = '/'
