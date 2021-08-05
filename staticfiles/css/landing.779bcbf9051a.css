@@ -1,0 +1,167 @@
+body {
+  font-family: "Gill Sans" !important;
+  font-style: initial;
+  background-color: #a8a8f5 !important;
+  font-weight: 310;
+}
+.topnav {
+  overflow: hidden;
+  /* color: black !important; */
+  background-color: #a8a8f5 !important;
+}
+.u83_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+
+.card {
+  background-color: #a8a8f5;
+  border-radius: 15px;
+  color: black;
+  border-color: white;
+  color: black;
+}
+
+.ui-autocomplete-input {
+  border-radius: 15px;
+  background-color: white !important;
+  width: 530px;
+  height: 80px;
+  font-size: 25px;
+  vertical-align: middle;
+}
+
+.ui-autocomplete-input:hover {
+  box-shadow: 2px 0 10px -2px #888;
+}
+
+.ui-autocomplete-input::after {
+}
+
+.card:hover {
+  /* background-color: white; */
+  box-shadow: 2px 0 10px -2px #888;
+}
+.landingButton {
+  border-color: #2c3c63;
+  border-radius: 15px;
+  height: 80px;
+  width: 150px;
+  font-size: 40px;
+  background-color: #2c3c63;
+  vertical-align: middle;
+  color: #ffffff;
+}
+
+.landingButton:hover {
+  box-shadow: 2px 0 10px -2px #888;
+}
+.boldLiving {
+  font-weight: bolder;
+  text-decoration: underline;
+  color: rgb(79, 79, 79);
+}
+
+.landingTitle {
+  font-weight: bolder;
+  font-size: 80px;
+  color: white;
+  background-color: #a8a8f5;
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+}
+.subheader {
+  color: white;
+  text-align: center;
+}
+.enterFormDiv {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 685px;
+}
+.logo {
+  padding-left: 30px;
+  max-width: 5% !important;
+}
+#gaurenteedTab {
+  padding-left: 5px !important;
+  /* padding-right: 200px; */
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #4464f6;
+  font-size: 40px;
+}
+.nav-item {
+  display: inline-block;
+  color: white;
+}
+.nav-link {
+  color: white;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  background-color: #2c3c63;
+  color: white;
+}
+.floatRight {
+  float: right;
+  padding-right: 100px;
+}
+
+.ui-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  padding: 4px 0;
+  margin: 0 0 10px 25px;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+}
+
+.ui-menu-item > a.ui-corner-all {
+  display: block;
+  padding: 3px 15px;
+  clear: both;
+  font-weight: normal;
+  line-height: 18px;
+  color: #555555;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.ui-state-hover,
+.ui-state-active {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #4464f6;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  background-image: none;
+}
