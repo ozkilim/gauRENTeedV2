@@ -318,7 +318,8 @@ def seeder(request):
         fullAddress = row[1]
         postcode = row[2]
         # Seed new objcts in db
-        # Check for duplicates
+        # Check for duplicates!!!!
+
         currObj = Property.objects.filter(fullAddress=fullAddress)
         newProperty = Property(fullAddress=fullAddress, postcode=postcode)
         if not currObj:
@@ -326,15 +327,6 @@ def seeder(request):
             newProperty.save()
         else:
             newProperty = currObj[0]
-
-        # Create reveiws for eeach property from the data...
-        # MOST IMPORTANT PART OF SEEDING MAKE REPRODUCABLE!!!!!
-        # Every empty ell becomes a None
-        # for i in range(63):
-        #     if row[i].isnan():
-        #         print("cleaning")
-        #         row[i] = None
-        # CHANEE EMPTY FEILDS TO None... to be savec correctly....
 
         newReview = Review(
             verified=1,
@@ -402,6 +394,7 @@ def seeder(request):
         )
 
         newReview.save()
+    return render(request, 'landing.html')
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
