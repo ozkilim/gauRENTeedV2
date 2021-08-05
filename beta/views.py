@@ -315,6 +315,7 @@ def seeder(request):
     df = df[1:]
     df = df.replace({np.nan: None})
     for index, row in df.iterrows():
+
         fullAddress = row[1]
         postcode = row[2]
         # Seed new objcts in db
