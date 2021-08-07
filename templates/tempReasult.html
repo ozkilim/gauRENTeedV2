@@ -889,6 +889,14 @@ padding-right: 30px;
 }
 .ExampleRev{
 align-self: center;}
+
+
+.ExampleRevtitle{
+  align-self: center;
+  text-align: center;
+
+}
+
 </style>
 
 {% endblock %}
@@ -936,11 +944,11 @@ align-self: center;}
                 <form role="form" class="form-horizontal" method="post" action="{% url 'login' %}">{% csrf_token %}
                     <div class="form-group">
 
-                        <label for="id_username" class="usernametag">USERNAME</label>
-                        <input id="id_username" name="username" type="text" class="username-control-login">
+                        <!-- <label for="id_username" class="usernametag">USERNAME</label> -->
+                        <input id="id_username" placeholder="username" name="username" type="text" class="username-control-login">
 
-                        <label for="id_password" class="passwordtag">PASSWORD</label>
-                        <input id="id_password" name="password" type="password" class="password-control-login">
+                        <!-- <label for="id_password" class="passwordtag">PASSWORD</label> -->
+                        <input id="id_password" placeholder="password" name="password" type="password" class="password-control-login">
                         <br>
                         <input type="submit" class="signup_button"/>
                         <input type="hidden" name="next" value="/{{ urlsString }}" />
@@ -1007,10 +1015,10 @@ align-self: center;}
                 </div>
 
                 <div class= "row">
-                  <div class = "col-2"></div>
 
-                    <div class = "col-8">
-                     
+                    <div class = "col-12">
+                      <h2 class="ExampleRevtitle">Pay for access now</h2>
+
                     
               <form id="payment-form" class="form-control">{% csrf_token %}
                 <input name = "email" type="text" id="email" placeholder="Email address" class="form-control"/>
@@ -1028,11 +1036,9 @@ align-self: center;}
               </form>
 
               <br>
-
                     </div>
-                    <div class = "col-2"></div>
-
                   </div>
+                  <h2 class="ExampleRevtitle">Check out an example review</h2>
               <img  class="ExampleRev" src={% static "images/search_results/examplerev.png" %} />
 
            
