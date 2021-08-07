@@ -11,11 +11,11 @@ load static %} {% load static %} {% block content %}
       id="loginBox"
       style="display: flex; justify-content: center; align-items: center"
     >
-      <h1 style="text-align: center">Login to access all Redland reviews</h1>
+      <h1 style="text-align: center;font-weight: 620;">Login to access all Redland reviews</h1>
       {% if user.is_authenticated %}
       <p>Welcome, You are logged in as {{ user.username }}</p>
       {% else %} {% endif %}
-      <br />
+      
       <form
         role="form"
         class="form-horizontal"

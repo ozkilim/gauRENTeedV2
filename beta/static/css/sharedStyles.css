@@ -107,7 +107,7 @@ input {
   width: 100%;
 }
 .signup_button:hover {
-  filter: contrast(115%);
+  filter: contrast(200%);
 }
 .floatRight {
   float: right;
