@@ -1117,7 +1117,7 @@ var payWithCard = function(stripe, card, clientSecret) {
       }
     })
 
-    .then(function(result) {
+    .then(function() {
         // The payment succeeded!
         console.log("order made")
         orderComplete();
