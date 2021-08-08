@@ -24,10 +24,9 @@ urlpatterns = [
     url('payment_form/checkout', views.checkout, name="checkout_page"),
     path('aboutUs', views.aboutUs, name='aboutUs'),
     path('FormWizardView', views.FormWizardView, name='FormWizardView'),
-    path('seeder', views.seeder, name='seeder'),
+    # path('seeder', views.seeder, name='seeder'),
     path('checkout', views.checkout, name='checkout'),
     path('create-checkout-session', CreateCheckoutSessionView.as_view(),
          name='create-checkout-session')
-
 
 ]
