@@ -1288,6 +1288,9 @@ function closeAllModals() {
                     
         </div> <!-- end front panel -->
         <div class="back">
+          <h4 class="CardTitle">Property Condition</h4>
+          <hr class=hr1>
+
           <div class="accordion accordion-flush" id="accordionFlushExample">
             
             {% if review.buildingQuality|exists %}
@@ -1439,6 +1442,8 @@ function closeAllModals() {
                    
        </div> <!-- end front panel -->
        <div class="back">
+        <h4 class="CardTitle">Property Manager</h4>
+        <hr class=hr2>
          <div class="accordion accordion-flush" id="accordionFlushExample">
 
           {% if review.manageResponsivenes|exists %}
@@ -1540,6 +1545,8 @@ function closeAllModals() {
                     
         </div> <!-- end front panel -->
         <div class="back">
+          <h4 class="CardTitle">Neighbourhood</h4>
+          <hr class=hr3>
           <div class="accordion accordion-flush" id="accordionFlushExample">
 
             {% if review.neighbourhoodEnjoyment|exists %}
@@ -1628,12 +1635,14 @@ function closeAllModals() {
                     
        </div> <!-- end front panel -->
        <div class="back">
+        <h4 class="CardTitle">Value for money</h4>
+        <hr class=hr4>
          <div class="accordion accordion-flush" id="accordionFlushExample">
 
            <div class="accordion-item">
              <h2 class="accordion-header" id="flush-headingOneD">
                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneD" aria-expanded="false" aria-controls="flush-collapseOne">
-                 Previous tennants paid: £{{review.rentMonthly}} per month
+                 <h5>Previous tennants paid: £{{review.rentMonthly}} per month</h5>
                </button>
              </h2>
              {% if review.rentGoodDeal|exists %}
