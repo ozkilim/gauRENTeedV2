@@ -1117,30 +1117,19 @@ var payWithCard = function(stripe, card, clientSecret) {
       }
     })
 
-    console.log(result)
     .then(function(result) {
-        if (result.error) {
-        // Show error to your customer
-        showError(result.error.message);
-        } else {
         // The payment succeeded!
         console.log("order made")
-        orderComplete(result.paymentIntent.id);
+        orderComplete();
         //  If payment and login was sucessfull remove the modal
-
-        }
     });
 };
 /* ------- UI helpers ------- */
 // Shows a success message when the payment is complete
-var orderComplete = function(paymentIntentId) {
+var orderComplete = function() {
     loading(false);
     document
-    .querySelector(".result-message a")
-    .setAttribute(
-        "href",
-        "https://dashboard.stripe.com/test/payments/" + paymentIntentId
-    );
+    .querySelector("Payment complete")
     document.querySelector(".result-message").classList.remove("hidden");
     document.querySelector("button").disabled = true;
 };
