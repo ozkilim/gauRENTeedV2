@@ -263,9 +263,8 @@ align-items: center;
 	width: 100%;
 	/* height: 600px; */
   height: auto;
-  min-height: 500px !important;
+  min-height: 550px !important;
 	border-radius: 4px;
-
 }
 .card .cover{
     height: 105px;
@@ -1263,15 +1262,18 @@ function closeAllModals() {
                     <br>
                     <hr class=hr1>
                     <br>
+                    <br>
                     <h4 class = "CardTitle2">Find out how well the property was maintained</h4>
+                    <br>
                     <div class="stardiv">
                       {% for i in propertyConditionAverage|times %}
-                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star fa-lg checked"></span>
                       {% endfor %}
                       {% for i in propertyConditionAverage|leftover %}
-                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star fa-lg"></span>
                       {% endfor %}
                     </div>
+                    <br>
                     <button class="btn btn-simple" id = "moreInfoButton" onclick="rotateCard(this)">
                        See full review
                   </button>
@@ -1417,15 +1419,18 @@ function closeAllModals() {
                    <br>
                    <hr class=hr2>
                    <br>
+                   <br>
                    <h4 class = "CardTitle2">Find out how the property manager was rated by tenants</h4>
+                   <br>
                    <div class="stardiv">
                     {% for i in propertyManagerAverage|times %}
-                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star fa-lg checked"></span>
                     {% endfor %}
                     {% for i in propertyManagerAverage|leftover %}
-                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star fa-lg"></span>
                     {% endfor %}
                   </div>
+                  <br>
                    <button class="btn btn-simple" id = "moreInfoButton" onclick="rotateCard(this)">
                       See full review
                  </button>
@@ -1520,15 +1525,18 @@ function closeAllModals() {
                     <br>
                     <hr class=hr3>
                     <br>
+                    <br>
                     <h4 class = "CardTitle2">Find out what people thought about living in the area</h4>
+                    <br>
                     <div class="stardiv">
                       {% for i in neiborhoodAverage|times %}
-                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star fa-lg checked"></span>
                       {% endfor %}
                       {% for i in neiborhoodAverage|leftover %}
-                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star fa-lg"></span>
                       {% endfor %}
                     </div>
+                    <br>
                     <button class="btn btn-simple" id = "moreInfoButton" onclick="rotateCard(this)">
                        See full review
                   </button>
@@ -1611,14 +1619,11 @@ function closeAllModals() {
                    <br>
                    <hr class=hr4>
                    <br>
+                   <br>
                    <h4 class = "CardTitle2">Find out how much previous tenants paid</h4>
-                   <div class="stardiv">
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star"></span>
-                     <span class="fa fa-star"></span>
-                   </div>
+                   <br>
+                   
+                   <br>
                    <button class="btn btn-simple" id = "moreInfoButton" onclick="rotateCard(this)">
                       See full review
                  </button>
@@ -1649,7 +1654,7 @@ function closeAllModals() {
              {% endif %}
              <br>
              <span class="badge badge-warning">Disclaimer </span>
-              <p>The prices collected are only as reliable as the data given by past residents. Please check with your agent the upcoming rental price. </p>
+              <p>The prices collected are only as reliable as the data given by past residents. Please check with your agent the upcoming rental price </p>
 
            </div>
 
