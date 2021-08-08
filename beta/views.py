@@ -322,7 +322,8 @@ def seeder(request):
         # Check for duplicates!!!!
 
         currObj = Property.objects.filter(fullAddress=fullAddress)
-        newProperty = Property(fullAddress=fullAddress, postcode=postcode)
+        newProperty = Property(fullAddress=fullAddress, postcode=postcode,redlandScore=row[68]
+)
         if not currObj:
             print('seeding')
             newProperty.save()

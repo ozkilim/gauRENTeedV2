@@ -38,6 +38,8 @@ class Property(models.Model):
 
     hashId = models.UUIDField(default=uuid.uuid4, editable=False)
 
+    redlandScore = models.IntegerField(null=True, blank=True, default=3)
+
     def __str__(self):
         return self.fullAddress
 
@@ -264,6 +266,7 @@ class Review(models.Model):
 
     wouldRecommendProperty = models.BooleanField(default=True, null=True,
                                                  help_text='Would you reccomend this property to others? ')
+
 
     def __str__(self):
         return self.reviewerName + self.property.fullAddress + " review"
