@@ -255,6 +255,7 @@ def payment_form(request):
     return render(request, "payment.html", context)
 
 
+
 def checkout(request):
     if request.method == 'POST':
         email = request.POST["email"]
@@ -420,7 +421,7 @@ class CreateCheckoutSessionView(View):
         checkout_session = stripe.PaymentIntent.create(
             amount=50,
             currency='gbp',
-            payment_method_types=['card']
+            payment_method_types=['card'],
         )
         return JsonResponse({
             'client_secret': checkout_session['client_secret']

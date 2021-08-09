@@ -1137,8 +1137,7 @@ margin-left: -34px !important;
 <script>
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 var stripe = Stripe("pk_live_51IVE74GfxvWHpljQUTFxoMaTtoTwyj1vknpyfwFMlsbcLSGJFA5alGO7db4x9Iwd1AHCdwlMkokWJuA4ukG9jlKI00VcRXiv1w");
-document.querySelector("button").disabled = true;
- 
+document.querySelector("button").disabled = true; 
 fetch("{% url 'create-checkout-session' %}", {
     method: "POST",
     headers: {
@@ -1146,11 +1145,8 @@ fetch("{% url 'create-checkout-session' %}", {
     }                
     })
     .then(function(result) {
-
-    return result.json();
-      
+      return result.json();
     })
-
     .then(function(data) {
     var elements = stripe.elements();
     var style = {
@@ -1181,41 +1177,44 @@ fetch("{% url 'create-checkout-session' %}", {
     var formData = JSON.stringify($("payment-form").serializeArray());
 
     form.addEventListener("submit", function(event) {
-        event.preventDefault();
-        // Complete payment when the submit button is clicked
-        payWithCard(stripe, card, data.client_secret);
-        loading(true);
-        // Send for data back to the server
-        var formElement = document.querySelector("#payment-form");
-        var request = new XMLHttpRequest();
-        request.open("POST", "{% url 'checkout' %}");
-        console.log(formElement)
-        request.send(new FormData(formElement));
-        // Show a sucess message
-        // setTimeout(() => { console.log("World!"); }, 500);
-
+    event.preventDefault();
+    // Complete payment when the submit button is clicked
+    payWithCard(stripe, card, data.client_secret);
+    loading(true);
+    // Send for data back to the server
+    var formElement = document.querySelector("#payment-form");
+    var request = new XMLHttpRequest();
+    request.open("POST", "{% url 'checkout' %}");
+    console.log(formElement)
+    request.send(new FormData(formElement));
     });
-
-});
-                
-
+});         
 // Calls stripe.confirmCardPayment
 // If the card requires authentication Stripe shows a pop-up modal to
 // prompt the user to enter authentication details without leaving your page.
 var payWithCard = function(stripe, card, clientSecret) {
-    loading(true);
+  loading(true);
   stripe
   .confirmCardPayment(clientSecret, {
       payment_method: {
         card: card
       }
     })
-
-    .then(function() {
+    .then(function(result) {
+      if (result.error) {
+        // Show error to your customer
+        showError(result.error.message);
+      } else {
+        // The payment succeeded!
+        orderComplete();
+        setTimeout(alert("Payment complete!"),100000);
+        location.reload()
+      }
         // The payment succeeded!
         console.log("order made")
-        orderComplete();
         //  If payment and login was sucessfull remove the modal
+
+
     });
 };
 /* ------- UI helpers ------- */
@@ -1226,9 +1225,7 @@ var orderComplete = function() {
     .querySelector("Payment complete")
     document.querySelector(".result-message").classList.remove("hidden");
     document.querySelector("button").disabled = true;
-    setTimeout(alert("Payment complete!"),100000);
-        // closeAllModals()
-        location.reload()
+ 
 };
 // Show the customer the error from Stripe if their card fails to charge
 var showError = function(errorMsgText) {
