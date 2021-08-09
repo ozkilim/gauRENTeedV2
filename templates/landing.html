@@ -57,11 +57,11 @@
       </h6>
       <div class="floatRight">
         <h6 class="nav-item">
-          <a class="nav-link" href="{% url 'landing' %}">Find a property</a>
+          <a class="nav-link" href="{% url 'landing' %}" id="findaproperty">Find a property</a>
         </h6>
         <h6 class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link" id="leaveareview"
             href="https://docs.google.com/forms/d/e/1FAIpQLSfEMVLlGoX0YkhiqItTKH_xA2Cqj0jH4XVqLFE_duOY_C3bXA/viewform"
             >Leave a review</a
           >
@@ -70,7 +70,7 @@
         {% if user.is_authenticated %}
         <h6 class="nav-item" style="text-decoration:underline;">logged in as: {{request.user.username}}</h6>
         <h6 class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          <a class="nav-link" id="logoutb" href="{% url 'logout' %}">Logout</a>
         </h6>
         {% else %}
         <h6 class="nav-item">

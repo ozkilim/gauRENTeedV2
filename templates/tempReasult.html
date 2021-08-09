@@ -586,16 +586,43 @@ align-items: center;
   font-size: 12px;
 }
 .nav-item{
-  color: white !important;
+  color: black !important;
 }
+.nav-item:hover{
+  color: black !important;
+}
+
 .nav-link{
-  color: white!important;
-  /* background-color: brown; */
+  color: grey!important;
+  background-color: white !important;
 }
+
+
+
+
+
 .nav-link:hover{
-  color: white!important;
-  filter: contrast(180%);
+  /* filter: contrast(180%); */
+  color: black!important;
 }
+.nav-link.active{
+  font-weight: 400;
+  font-size: larger;
+  color: black!important;
+  background-color: white !important;
+  text-decoration: underline;
+  text-decoration-color: #4464F6;
+  text-decoration-thickness: 2px;
+  box-sizing: border-box;
+}
+
+#reviewListTitiles:hover{
+  color: black!important;
+  text-decoration: underline;
+}
+
+
+
 #popupButtonsTab{
   background-color: #4464F6;
   /* color: black; */
@@ -609,10 +636,28 @@ align-items: center;
 }
 
 
-.nav-link:hover {
+#gaurenteedWord{
+  color: white !important;
+  background-color: #4464F6 !important;
+}
+#findaproperty{
+  color: white !important;
+  background-color: #4464F6 !important;
+}
+#leaveareview{
+  color: white !important;
+  background-color: #4464F6 !important;
+}
+#logoutb{
+  color: white !important;
+  background-color: #4464F6 !important;
+}
+
+
+/* .nav-link:hover {
   background-color: black;
   color: black;
-}
+} */
 #reviewListTitiles{
   background-color: white;
 }
@@ -1185,7 +1230,7 @@ function closeAllModals() {
 
 
 {% endif %}
-
+<br>
 <ul class="nav " id="myTab" role="tablist">
   {% for review in reviews %}
   <li class="nav-item" id = "reviewListTitiles" style=" padding-right:5px; ">
@@ -1202,6 +1247,7 @@ function closeAllModals() {
 <!-- <div class="row" id="RatingsRow">
   <h6>Overall review</h6>
 </div> -->
+<br> 
 <br>
 <div class="row" id="titleRow">
   <div class="col-6">
