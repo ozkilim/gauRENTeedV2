@@ -959,6 +959,7 @@ object-fit: contain'
 margin-left: -34px !important;
 }
 
+
 </style>
 
 {% endblock %}
@@ -980,6 +981,11 @@ margin-left: -34px !important;
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist" id="popupTabs">
             <li class="nav-item">
+              <a class="nav-link"   href="{% url 'landing' %}" >
+                <button type="button" class="btn-close" aria-label="Close" ></button>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="#panel7" role="tab">
                 Already user? : Login</a>
             </li>
@@ -987,13 +993,9 @@ margin-left: -34px !important;
               <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="#panel8" role="tab">
                 Unlock Redland reviews</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" id ="popupButtonsTab"  href="{% url 'landing' %}" >
-                Look for a different property</a>
-            </li>
+            
           </ul>
 
-  
           <!-- Tab panels -->
           <div class="tab-content">
             <!--Panel 7-->
@@ -1079,7 +1081,7 @@ margin-left: -34px !important;
                 <div class= "row">
                   <div class = "col-1"></div>
                 <div class = "col-10">
-                      <h2 class="ExampleRevtitle">Get access now</h2>
+                      <h2 class="ExampleRevtitle">Get full access now</h2>
                       <br>
 
                     
@@ -1088,8 +1090,8 @@ margin-left: -34px !important;
                 <input name = "username" type="text" id="username" placeholder="username" class="form-control"/>
                 <input name = "password" type="text" id="password" placeholder="password" class="form-control"/>
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                  <label class="form-check-label" for="flexSwitchCheckChecked">I am happy to be contacted with paid opportunities for feedback on this product</label>
+                  <input name = "happyToBeContacted" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Guarenteed will offer some paid opportunities. I am happy to be contacted for feedback on this product</label>
                 </div>
 
                 <div id="card-element"></div>

@@ -23,8 +23,7 @@ from django.db import models
 
 # Create your models here.
 class CustomUser(AbstractUser):
-    send_daily_emails = models.BooleanField(default=True)
-
+    happyToBeContacted = models.BooleanField(default=True)
     def __str__(self):
         return self.email
 
