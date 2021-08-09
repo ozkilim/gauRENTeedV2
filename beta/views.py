@@ -258,7 +258,7 @@ def payment_form(request):
 def checkout(request):
     if request.method == 'POST':
         email = request.POST["email"]
-        username = request.POST["username"]
+        username = request.POST["email"]
         password = request.POST["password"]
         happyToBeContacted = request.POST[""]
         # Pull out all data from first form...
