@@ -731,8 +731,8 @@ align-items: center;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 10px;
-  background-color: #F5D2D3;
-  color: white;
+  background-color: white;
+  color: black;
 }
 #sellingDIV{
 border-radius: 20px;
@@ -935,6 +935,7 @@ padding-right: 30px;
 
 .PoundPayment{
   text-align: center;
+  color:#999999;
 }
 .ExampleRev{
 align-self: center;
@@ -1066,11 +1067,12 @@ object-fit: contain'
                   </div>
                     <div class = "col-2"></div>
                 </div>
-
+                  <hr>
                 <div class= "row">
-
-                    <div class = "col-12">
-                      <h2 class="ExampleRevtitle">Pay for access now</h2>
+                  <div class = "col-1"></div>
+                <div class = "col-10">
+                      <h2 class="ExampleRevtitle">Get access now</h2>
+                      <br>
 
                     
               <form id="payment-form" class="form-control">{% csrf_token %}
@@ -1090,8 +1092,13 @@ object-fit: contain'
 
               <br>
                     </div>
+                    <div class = "col-1"></div>
+
                   </div>
+                  <hr>
+                  <br>
                   <h2 class="ExampleRevtitle">Check out an example review</h2>
+                  <br>
               <img  class="ExampleRev" src={% static "images/search_results/examplerev.png" %} />
 
            
