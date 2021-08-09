@@ -652,7 +652,10 @@ align-items: center;
   color: white !important;
   background-color: #4464F6 !important;
 }
-
+#logintb{
+  color: white !important;
+  background-color: #4464F6 !important;
+}
 
 /* .nav-link:hover {
   background-color: black;
@@ -946,7 +949,7 @@ align-self: center;}
 {% endblock %}
 {% block content %}
 <!-- leave the space at the end of the name! -->
-{% if not user.is_authenticated and property.fullAddress != "11 Highbury Villas " %}
+{% if not user.is_authenticated  %}
 
 <!--Modal: Login / Register Form-->
 <!-- <div id="modal" class="modal hide fade in" data-keyboard="false" data-backdrop="static"> -->
