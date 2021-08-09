@@ -1093,6 +1093,7 @@ margin-left: -34px !important;
                   <input name = "happyToBeContacted" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
                   <label class="form-check-label" for="flexSwitchCheckChecked">Guarenteed will offer some paid opportunities. I am happy to be contacted for feedback on this product</label>
                 </div>
+                <input type="hidden" id="hashId" name="hashId" value={{ hashId }}/>
                 <br>
                 <div id="card-element"></div>
                 <button id="submit">
@@ -1103,6 +1104,24 @@ margin-left: -34px !important;
                 <p class="result-message hidden">
                 </p>
               </form>
+
+              {% if form.errors %}
+              <div id="form-error">
+                <p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+                <ul>
+                {% for field in form %}
+                <li>{{ field.errors|striptags }}</li>
+                {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+              <!-- {% if form.errors %}
+              <div class="alert alert-danger">
+
+                  <strong>This email is already signed up</strong>
+              </div>
+              {% endif %} -->
+
               <br>
                     </div>
                     <div class = "col-1"></div>
@@ -1123,12 +1142,15 @@ document.querySelector("button").disabled = true;
 fetch("{% url 'create-checkout-session' %}", {
     method: "POST",
     headers: {
-    'X-CSRFToken': csrftoken
+    'X-CSRFToken': csrftoken,
     }                
     })
     .then(function(result) {
+
     return result.json();
+      
     })
+
     .then(function(data) {
     var elements = stripe.elements();
     var style = {
@@ -1162,8 +1184,7 @@ fetch("{% url 'create-checkout-session' %}", {
         event.preventDefault();
         // Complete payment when the submit button is clicked
         payWithCard(stripe, card, data.client_secret);
-
-
+        loading(true);
         // Send for data back to the server
         var formElement = document.querySelector("#payment-form");
         var request = new XMLHttpRequest();
@@ -1171,8 +1192,8 @@ fetch("{% url 'create-checkout-session' %}", {
         console.log(formElement)
         request.send(new FormData(formElement));
         // Show a sucess message
-        setTimeout(() => { console.log("World!"); }, 10000);
-        closeAllModals()
+        // setTimeout(() => { console.log("World!"); }, 500);
+
     });
 
 });
@@ -1205,6 +1226,9 @@ var orderComplete = function() {
     .querySelector("Payment complete")
     document.querySelector(".result-message").classList.remove("hidden");
     document.querySelector("button").disabled = true;
+    setTimeout(alert("Payment complete!"),100000);
+        // closeAllModals()
+        location.reload()
 };
 // Show the customer the error from Stripe if their card fails to charge
 var showError = function(errorMsgText) {

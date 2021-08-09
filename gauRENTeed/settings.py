@@ -226,11 +226,7 @@ STRIPE_SECRET_KEY = 'sk_test_51IVE74GfxvWHpljQlqJi6BDKyBunvW9gxnF8NCFAc1RfoNsOmt
 # stipe info for live site
 # STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
 # STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
-
-
- 
-
-
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 
 STRIPE_WEBHOOK_SECRET = ""
@@ -251,7 +247,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'guarenteedteam@gmail.com'
 
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-
+EMAIL_HOST_PASSWORD = 'guarenteed/team123'
 EMAIL_USE_TLS = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'

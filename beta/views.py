@@ -129,7 +129,7 @@ def reasult(request, hashId):
     averagegaurenteedScore = 50
 
     context = {'property': property, 'reviews': propertyReviews,
-               'aggregateReview': aggregateReview, "stripe_key": settings.STRIPE_PUBLIC_KEY, "urlsString": urlsString, "propertyConditionAverage": propertyConditionAverage, "propertyManagerAverage": propertyManagerAverage, "neiborhoodAverage": neiborhoodAverage, "gaurenteedScore": gaurenteedScore, "priceAverage": priceAverage, "ratingAverage": ratingAverage, "averageProprent": averageProprent, "averagegaurenteedScore": averagegaurenteedScore}
+               'aggregateReview': aggregateReview, "stripe_key": settings.STRIPE_PUBLIC_KEY, "urlsString": urlsString, "propertyConditionAverage": propertyConditionAverage, "propertyManagerAverage": propertyManagerAverage, "neiborhoodAverage": neiborhoodAverage, "gaurenteedScore": gaurenteedScore, "priceAverage": priceAverage, "ratingAverage": ratingAverage, "averageProprent": averageProprent, "averagegaurenteedScore": averagegaurenteedScore,"hashId":hashId}
     return render(request, 'tempReasult.html', context)
 
 
@@ -260,14 +260,13 @@ def checkout(request):
         email = request.POST["email"]
         username = request.POST["email"]
         password = request.POST["password"]
-
+        hashId = request.POST["hashId"]
+        ## Wrap in try catch as non checked box does not post anything
         try:
             happyToBeContacted = request.POST["happyToBeContacted"]
             happyToBeContacted = True
         except:
             happyToBeContacted = False
-
-        print(happyToBeContacted)
         # Pull out all data from first form...
         # Need some front end validation to ensure created object is correct.
         newUser = CustomUser(username=username,
@@ -286,10 +285,10 @@ def checkout(request):
         try:
             send_mail(
                 subject="Thaks for signing up to gauRENTeed!",
-                message="We hope you will benefit from some inside information during your housing hunt! For your safekeeping: Your username is: {} and passowrd is: {}".format(
+                message="We hope you will benefit from some inside information during your housing hunt! For your safekeeping: Your login email is: {} and passowrd is: {}".format(
                     username, password),
                 recipient_list=[email],
-                from_email="ozsamkilim@gmail.com"
+                from_email="guarenteedteam@gmail.com"
             )
         except Exception as err:
             exception_type = type(err).__name__
@@ -297,9 +296,15 @@ def checkout(request):
             print("failed to send email")
         # Return to the page the user wanted....
         # TO THE LOACTION THE USER WANTED
+        
         return JsonResponse({
             'sucess': "sucess"
         })
+        ## Refresh to current URL.
+        # hashId = hashId[:-1]
+        # print("returning")
+        # return redirect('reasult', hashId=hashId)
+
 
 
 class FormWizardView(SessionWizardView):
