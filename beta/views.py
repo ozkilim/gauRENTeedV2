@@ -260,7 +260,14 @@ def checkout(request):
         email = request.POST["email"]
         username = request.POST["email"]
         password = request.POST["password"]
-        happyToBeContacted = request.POST[""]
+
+        try:
+            happyToBeContacted = request.POST["happyToBeContacted"]
+            happyToBeContacted = True
+        except:
+            happyToBeContacted = False
+
+        print(happyToBeContacted)
         # Pull out all data from first form...
         # Need some front end validation to ensure created object is correct.
         newUser = CustomUser(username=username,
