@@ -958,7 +958,10 @@ object-fit: contain'
 .form-check-input{
 margin-left: -34px !important;
 }
-
+.bestworst{
+  width: 60px;
+  float: right;
+}
 
 </style>
 
@@ -1829,7 +1832,10 @@ function closeAllModals() {
     </div>
 <br><br>
     <div>
-      <h2>Best feature of the property:</h2><h5>" {{ review.likedMost }} "</h5></div>
+      <img class="bestworst" src={% static "images/search_results/GoldMedal.png" %} />
+      <h2>Best feature of the property:</h2><h5>" {{ review.likedMost }} "</h5>    
+    </div>
+
   </div>
   <div class = "col-6">
     <div class="howItwas">
@@ -1884,8 +1890,9 @@ function closeAllModals() {
 
     <div>
       <!-- <img class="worstBest" src={% static "images/search_results/Cancel.png" %} /> -->
-
-      <h2>Worst feature of the property: </h2><h5> " {{ review.likedLeast }} "</h5> </div>
+      <img class="bestworst" src={% static "images/search_results/HighPriority.png" %} />
+      <h2>Worst feature of the property: </h2><h5> " {{ review.likedLeast }} "</h5>
+    </div>
 
   </div>
   </div>
