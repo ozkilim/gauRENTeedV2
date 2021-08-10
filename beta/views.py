@@ -110,23 +110,23 @@ def reasult(request, hashId):
             propertyReviews[0].get("manageResponsivenes") + propertyReviews[0].get("repairQuality"))/2
         neiborhoodAverage = propertyReviews[0].get("neighbourhoodEnjoyment")
 
-        # CALULATE PROPERTY STATS
-        priceAverage = 500
-        ratingAverage = 3.8
-
-        ratingPerPriceAverage = ratingAverage/priceAverage
+        # CALULATED PROPERTY STATS
+        priceAverage = 572
+        priceRange = 30 ## Check
+        ratingAverage = 3.69
+        boostingNumber = 8900
+        averagegaurenteedScore = ratingAverage/priceAverage
+        averagegaurenteedScore = round((averagegaurenteedScore*boostingNumber), 2)
         if propertyReviews[0].get("rentMonthly") != 0:
-            ratingPerPrice = aggregateReview / \
+            gaurenteedScore = aggregateReview / \
                 (propertyReviews[0].get("rentMonthly"))
-            gaurenteedScore = ratingPerPrice/ratingPerPriceAverage
-            gaurenteedScore = round((gaurenteedScore*100), 2)
+            gaurenteedScore = round((gaurenteedScore*boostingNumber), 2)
         else:
             gaurenteedScore = "Unknown"
         # Need to normalise the score to it outmoces as percent.
     averageProprent = propertyReviews[0].get("rentMonthly")
 
     # averagegaurenteedScoreNEDS TO B DONE FOR REAL but not each time the page is loaded..
-    averagegaurenteedScore = 50
 
     context = {'property': property, 'reviews': propertyReviews,
                'aggregateReview': aggregateReview, "stripe_key": settings.STRIPE_PUBLIC_KEY, "urlsString": urlsString, "propertyConditionAverage": propertyConditionAverage, "propertyManagerAverage": propertyManagerAverage, "neiborhoodAverage": neiborhoodAverage, "gaurenteedScore": gaurenteedScore, "priceAverage": priceAverage, "ratingAverage": ratingAverage, "averageProprent": averageProprent, "averagegaurenteedScore": averagegaurenteedScore,"hashId":hashId}
