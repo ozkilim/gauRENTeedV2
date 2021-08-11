@@ -17,7 +17,8 @@ body {
   font-weight: 400;
   font-family: "Gill Sans" !important;
   font-style: initial;
-  background-color: white;
+  background-color: 
+  #FAFAFA;
   /* font-weight: 310; */
 }
 
@@ -33,15 +34,17 @@ body {
 }
 .nav-item {
   display: inline-block;
-  color: white;
+  color: 
+  #FAFAFA;
 }
 .nav-link {
-  color: white;
+  color: 
+  #FAFAFA;
   border-radius: 10px;
 }
 
 .nav-link:hover {
-  background-color: #2c3c63;
+  background-color: #4464F6;
 }
 
 .logo {
@@ -50,7 +53,8 @@ body {
 }
 .loginbutton {
   background-color: orange;
-  color: white;
+  color: 
+  #FAFAFA;
   display: inline-block;
   border-radius: 10px;
   border-bottom: orange;
@@ -89,11 +93,12 @@ input {
   height: 44px;
   font-size: 16px;
   width: 100%;
-  background: white;
+  background: 
+  #FAFAFA;
 }
 .signup_button {
   background: #4464f6;
-  color: #ffffff;
+  color: #FAFAFA;
   border-radius: 0 0 4px 4px;
   border: 0;
   padding: 12px 16px;

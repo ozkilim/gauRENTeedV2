@@ -17,8 +17,7 @@ body {
   font-weight: 400;
   font-family: "Gill Sans" !important;
   font-style: initial;
-  background-color: 
-  #FAFAFA;
+  background-color: white;
   /* font-weight: 310; */
 }
 
@@ -34,12 +33,10 @@ body {
 }
 .nav-item {
   display: inline-block;
-  color: 
-  #FAFAFA;
+  color: white;
 }
 .nav-link {
-  color: 
-  #FAFAFA;
+  color: white;
   border-radius: 10px;
 }
 
@@ -53,8 +50,7 @@ body {
 }
 .loginbutton {
   background-color: orange;
-  color: 
-  #FAFAFA;
+  color: white;
   display: inline-block;
   border-radius: 10px;
   border-bottom: orange;
@@ -93,12 +89,11 @@ input {
   height: 44px;
   font-size: 16px;
   width: 100%;
-  background: 
-  #FAFAFA;
+  background: white;
 }
 .signup_button {
   background: #4464f6;
-  color: #FAFAFA;
+  color: #ffffff;
   border-radius: 0 0 4px 4px;
   border: 0;
   padding: 12px 16px;
