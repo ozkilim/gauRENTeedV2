@@ -1,5 +1,4 @@
 {% load static %}
-{% load analytics %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,6 +27,15 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2CYGLGME"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GF2CYGLGME');
+    </script>
 
     <script type="text/javascript">
       $axure.utils.getTransparentGifPath = function () {
@@ -58,7 +66,7 @@
       </h6>
       <div class="floatRight">
         <h6 class="nav-item">
-          <a  class="nav-link" href="{% url 'landing' %}" id="findaproperty">Find a property</a>
+          <a id="findaproperty" class="nav-link" href="{% url 'landing' %}" >Find a property</a>
         </h6>
         <h6 class="nav-item">
           <a
@@ -138,7 +146,7 @@
     <!-- make this sent to bottom of page.. -->
   </body>
 </html>
-{% analytics "UA-204678735-1" %}
+
 
 
 

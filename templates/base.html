@@ -1,8 +1,8 @@
 {% load static %}
-{% load analytics %}
 <!DOCTYPE html>
 <html>
   <head>
+
     <link rel="icon" href="{% static "images/landing/logoPurple.png" %}">
 
     <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}"> -->
@@ -14,6 +14,15 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2CYGLGME"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GF2CYGLGME');
+    </script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -96,4 +105,3 @@
     <!-- make this sent to bottom of page.. -->
   </body>
 </html>
-{% analytics "UA-204678735-1" %}
