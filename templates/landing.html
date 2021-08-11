@@ -1,4 +1,5 @@
 {% load static %}
+{% load analytics %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,18 +40,6 @@
         return "resources/reload.html";
       };
     </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2CYGLGME"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GF2CYGLGME');
-</script>
-
-
     <link
       rel="stylesheet"
       type="text/css"
@@ -149,6 +138,7 @@
     <!-- make this sent to bottom of page.. -->
   </body>
 </html>
+{% analytics "UA-204678735-1" %}
 
 
 
