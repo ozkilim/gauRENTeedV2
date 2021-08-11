@@ -78,7 +78,7 @@ INSTALLED_APPS = [
     'django_seed',
     'django.contrib.sites',
     'formtools',
-    # 'front_end_validators',
+    'google_analytics',
 ]
 
 VALIDATORS_FILE = os.path.join(BASE_DIR, 'beta/validators.py')
