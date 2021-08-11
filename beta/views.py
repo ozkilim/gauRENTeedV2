@@ -262,6 +262,9 @@ def checkout(request):
         username = request.POST["email"]
         password = request.POST["password"]
         hashId = request.POST["hashId"]
+        # Apply discount
+        # discountcode = request.POST["discountcode"]
+        # if discountcode == "ourcode":
         ## Wrap in try catch as non checked box does not post anything
         try:
             happyToBeContacted = request.POST["happyToBeContacted"]
@@ -418,8 +421,19 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
+        # Here add discount
+        price = 50
+        ## get the value sent over
+        inDiscountCode = request.body
+        inDiscountCode = inDiscountCode.decode("utf-8")
+        if inDiscountCode == "ourcode":
+            #discount applied!
+            price = 40 
+            print("discountapplied")
+
+        print(price)    
         checkout_session = stripe.PaymentIntent.create(
-            amount=50,
+            amount=price,
             currency='gbp',
             payment_method_types=['card'],
         )
