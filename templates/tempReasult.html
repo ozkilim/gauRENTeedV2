@@ -8,6 +8,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/searchreasult.css' %}">
 <script src="https://js.stripe.com/v3/"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+
+
 <style>
 
 *:not(.fa){
@@ -989,7 +991,7 @@ margin-left: -34px !important;
 
 
 
-input.discount:invalid ~ #correctcode {
+/* input.discount:invalid ~ #correctcode {
   visibility: hidden; 
 }
 
@@ -1000,12 +1002,14 @@ input.discount:valid {
 
 input.discount:valid ~ #correctcode {
   visibility: visible;
-}
+} */
 
-input.discount:focus {
-    outline-width: 0;
-    outline:none;
-}
+#correctcode {
+  visibility: hidden; 
+} 
+/* #password{
+  /* -webkit-text-security: disc; */
+/* } */
 
 
 </style>
@@ -1132,22 +1136,29 @@ input.discount:focus {
                       <h2 class="ExampleRevtitle">Get full access now</h2>
                       <br>
 
-                        <input placeholder="Enter discount code to save 20%" name ="discountcode" id="choose" class="discount" name="i_like" required pattern="ourcode"  > 
-                        <span id="correctcode" class="badge badge-success">Correct code! 20% discount applied.</span>
-                        <br>
+                        
               <form id="payment-form" class="form-control">{% csrf_token %}
-                <input name = "email" type="text" id="email" placeholder="Email address" class="form-control" required="true"/>
-                <input name = "password" type="text" id="password" placeholder="password" class="form-control" required="true"/>
+                <input name = "email" type="email" id="email" placeholder="Email address" class="form-control" required="true"/>
+                <input name = "password" minlength="5" id="password" placeholder="password ( characters minimum )" class="form-control" required="true"/>
                 <!-- <input name = "discount" type="text" id="discount" placeholder="discount code" class="form-control"/> -->
                 <!-- <label for="choose">Would you prefer a banana or a cherry?</label> -->
 
                 <br>
+                <div class="row">
+                <div class="col-6">
                 
                 <div class="form-check form-switch">
                   <input name = "happyToBeContacted" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
                   <label class="form-check-label" for="flexSwitchCheckChecked">Guarenteed will offer some paid opportunities. I am happy to be contacted for feedback on this product</label>
                 </div>
-              
+              </div>
+              <div class="col-6">
+
+                <input placeholder="Enter discount code to save 20%" name ="discountcode" id="choose" class="discount" name="i_like"    > 
+                        <span id="correctcode" class="badge badge-success">Correct code! 20% discount applied.</span>
+                <br>
+              </div>
+              </div>
 
                 <input type="hidden" id="hashId" name="hashId" value={{ hashId }}/>
                 <br>
@@ -1190,15 +1201,33 @@ input.discount:focus {
                   <h2 class="ExampleRevtitle">Check out an example review</h2>
                   <br>
               <img  class="ExampleRev" src={% static "images/search_results/examplerev.png" %} />
-           
+
+<!-- <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css"> -->
 <script>
+// // ES6 Modules or TypeScript
+// import Swal from 'sweetalert2'
+// CommonJS
+// const Swal = require('sweetalert2')
+
+$('#choose').on("input", function() {
+
+    if((document.getElementById("choose").value == "code1")||(document.getElementById("choose").value == "code2")||(document.getElementById("choose").value == "code3"))
+    {
+      document.getElementById("correctcode").style.visibility = "visible";
+    }
+    else{
+      document.getElementById("correctcode").style.visibility = "hidden";
+      document.getElementById("choose").style.outline = "none";
+    }
+});
 
 
 var discountcode = document.getElementById('choose').value
 
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-var stripe = Stripe("pk_live_51IVE74GfxvWHpljQUTFxoMaTtoTwyj1vknpyfwFMlsbcLSGJFA5alGO7db4x9Iwd1AHCdwlMkokWJuA4ukG9jlKI00VcRXiv1w");
-// var stripe = Stripe("pk_test_51IVE74GfxvWHpljQiugUY1xG2FvOnO8l6W64sVuSofMJ5SHsVVlZ5E81bLsC1BwIWptV8BL2U4ZHhesrXOyOKcRH00SdJXIHfx");
+// var stripe = Stripe("pk_live_51IVE74GfxvWHpljQUTFxoMaTtoTwyj1vknpyfwFMlsbcLSGJFA5alGO7db4x9Iwd1AHCdwlMkokWJuA4ukG9jlKI00VcRXiv1w");
+var stripe = Stripe("pk_test_51IVE74GfxvWHpljQiugUY1xG2FvOnO8l6W64sVuSofMJ5SHsVVlZ5E81bLsC1BwIWptV8BL2U4ZHhesrXOyOKcRH00SdJXIHfx");
 
 document.querySelector("button").disabled = true; 
 // fetch("{% url 'create-checkout-session' %}", {
@@ -1288,6 +1317,8 @@ var payWithCard = function(stripe, card, clientSecret) {
       } else {
         // The payment succeeded!
         orderComplete();
+        // Swal("Good job!", "You clicked the button!", "success")
+
         setTimeout(alert("Payment complete!"),100000);
         location.reload()
       }
@@ -2259,6 +2290,8 @@ function rotateCard(btn){
       });
   });
 </script>
+
+<script src="@@path/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
 {% endblock %}
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

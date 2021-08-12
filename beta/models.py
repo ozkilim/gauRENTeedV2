@@ -24,6 +24,8 @@ from django.db import models
 # Create your models here.
 class CustomUser(AbstractUser):
     happyToBeContacted = models.BooleanField(default=True)
+    dicountcode = models.CharField(
+        unique=False, max_length=2000, default="", blank=True)
     def __str__(self):
         return self.email
 

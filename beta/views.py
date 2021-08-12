@@ -263,8 +263,7 @@ def checkout(request):
         password = request.POST["password"]
         hashId = request.POST["hashId"]
         # Apply discount
-        # discountcode = request.POST["discountcode"]
-        # if discountcode == "ourcode":
+        discountcode = request.POST["discountcode"]
         ## Wrap in try catch as non checked box does not post anything
         try:
             happyToBeContacted = request.POST["happyToBeContacted"]
@@ -274,7 +273,7 @@ def checkout(request):
         # Pull out all data from first form...
         # Need some front end validation to ensure created object is correct.
         newUser = CustomUser(username=username,
-                             email=email,happyToBeContacted=happyToBeContacted)
+                             email=email,happyToBeContacted=happyToBeContacted,dicountcode=discountcode)
         newUser.set_password(password)
 
         newUser.is_patient = True
@@ -304,10 +303,7 @@ def checkout(request):
         return JsonResponse({
             'sucess': "sucess"
         })
-        ## Refresh to current URL.
-        # hashId = hashId[:-1]
-        # print("returning")
-        # return redirect('reasult', hashId=hashId)
+
 
 
 
@@ -426,12 +422,13 @@ class CreateCheckoutSessionView(View):
         ## get the value sent over
         inDiscountCode = request.body
         inDiscountCode = inDiscountCode.decode("utf-8")
-        if inDiscountCode == "ourcode":
+        if inDiscountCode == "code1" or inDiscountCode == "code2" or inDiscountCode == "code2":
             #discount applied!
             price = 40 
             print("discountapplied")
 
-        print(price)    
+
+
         checkout_session = stripe.PaymentIntent.create(
             amount=price,
             currency='gbp',
