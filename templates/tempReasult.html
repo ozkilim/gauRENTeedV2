@@ -1452,7 +1452,7 @@ function closeAllModals() {
     <div class="approval" >
       <img class="approvalim" src={% static "images/search_results/Approval.png" %} />
       <div>
-        This tennant stayed from {{review.moveIn}} to  {{review.moveOut}}
+        This tenant stayed from {{review.moveIn}} to  {{review.moveOut}}
       </div>
     </div>
     </div>
@@ -1502,7 +1502,7 @@ function closeAllModals() {
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingOneA">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneA" aria-expanded="false" aria-controls="flush-collapseOne">
-                  <h5>Building Quality (mould, pests cleanliness, damp)</h5>
+                  <h5>Building Quality (mould, pests, cleanliness, damp)</h5>
                   <div class="stardiv">
                     {% for i in review.buildingQuality|times %}
                     <span class="fa fa-star checked"></span>
@@ -1546,7 +1546,7 @@ function closeAllModals() {
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingThreeA">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThreeA" aria-expanded="false" aria-controls="flush-collapseThree">
-                  <h5>Quality of the bedrooms (size, comfort, privacy) </h5>
+                  <h5>Quality of bedrooms (size, comfort, privacy) </h5>
                   <div class="stardiv"> 
                     {% for i in review.bedroomQuality|times %}
                     <span class="fa fa-star checked"></span>
@@ -1567,7 +1567,7 @@ function closeAllModals() {
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingFourA">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFourA" aria-expanded="false" aria-controls="flush-collapseTwo">
-                  <h5>Move in hygene </h5>
+                  <h5>Move in hygiene </h5>
                   <div class="stardiv">
                     {% for i in review.moveInHygene|times %}
                     <span class="fa fa-star checked"></span>
@@ -2175,10 +2175,10 @@ function closeAllModals() {
 
 <div class = "row">
 <div class= "col-6">
-<h5 class="statsheader">How does {{property.fullAddress}} {{property.postcode}} comapre to the rest of redland?</h5>
+<h5 class="statsheader">How does {{property.fullAddress}} {{property.postcode}} compare to the rest of redland?</h5>
 <div>
   <table class="graph">
-    <caption>Value for money comparason</caption>
+    <caption>Value for money comparison</caption>
     <thead>
       <tr>
         <th scope="col">Item</th>
