@@ -46,7 +46,7 @@ def times(number):
 @register.filter(name='NoInfoSorry')
 def times(number):
     if number == None:
-        return "Sorry we could not get any further information on this."
+        return "Sorry, no further information was provided in this review."
     else:
         return number
 

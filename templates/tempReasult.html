@@ -827,7 +827,7 @@ padding-right: 30px;
 
 		.graph {
 			display:block;
-      width:550px;
+      width:100%;
       height:130px;
 		}
 
@@ -986,32 +986,21 @@ margin-left: -34px !important;
   padding-top:20px;
   width: 30px;
 }
-#whatlikedbox{
-}
-
-
-
-/* input.discount:invalid ~ #correctcode {
-  visibility: hidden; 
-}
-
-input.discount:valid {
-  box-shadow: 0 0 5px 1px green;
-}
-
-
-input.discount:valid ~ #correctcode {
-  visibility: visible;
-} */
 
 #correctcode {
   visibility: hidden; 
 } 
-/* #password{
-  /* -webkit-text-security: disc; */
-/* } */
 
+/* .fa-star{
+  font-size: 10px;
+} */
+.fa {
+  display:inline !important;
+}
+h5{
+  font-size: 13px;
 
+}
 </style>
 
 {% endblock %}
@@ -1409,6 +1398,7 @@ function closeAllModals() {
 
 <div class="tab-content" id="nav-tabContent">
 {% for review in reviews %}
+
 <div class="tab-pane" id={{review.id}} role="tabpanel" aria-labelledby={{review.id}}>
 <!-- <div class="row" id="RatingsRow">
   <h6>Overall review</h6>
@@ -2167,7 +2157,31 @@ function closeAllModals() {
 {% endif %}
 </div>
 
+<script>
+  // var redlandScore = document.getElementById("redlandrankingscore").value
 
+  
+    var redlandScore = $('#redlandrankingscore').map(function(){
+    return $(this).text();
+  }).get().join(',');
+
+  var redlandScoreNum = Number(redlandScore)
+  console.log(redlandScoreNum)
+  if(0<redlandScoreNum && redlandScoreNum<51)
+  {
+    console.log("hereeee1")
+    document.getElementById("redlandrankingscore").style.backgroundColor = "green";
+
+  } else if (50<redlandScoreNum && redlandScoreNum<151) {
+    console.log("hereeee2")
+
+    document.getElementById("redlandrankingscore").style.backgroundColor = "orange";
+  }
+  else{
+    console.log("hereeee")
+    document.getElementById("redlandrankingscore").style.backgroundColor = "red";
+  }
+</script>
 {% endfor %}
 
 <hr>
@@ -2176,7 +2190,7 @@ function closeAllModals() {
 
 <div class = "row">
 <div class= "col-6">
-<h5 class="statsheader">How does {{property.fullAddress}} {{property.postcode}} compare to the rest of redland?</h5>
+<h4 class="statsheader">How does {{property.fullAddress}} {{property.postcode}} compare to the rest of redland?</h4>
 <div>
   <table class="graph">
     <caption>Value for money comparison</caption>
@@ -2246,7 +2260,6 @@ function closeAllModals() {
 
 <script>
     // var redlandScore = document.getElementById("redlandrankingscore").value
-
       var redlandScore = $('#redlandrankingscore').map(function(){
       return $(this).text();
     }).get().join(',');
@@ -2265,7 +2278,6 @@ function closeAllModals() {
     }
     else{
       console.log("hereeee")
-
       document.getElementById("redlandrankingscore").style.backgroundColor = "red";
     }
 </script>
