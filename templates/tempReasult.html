@@ -1205,6 +1205,8 @@ input.discount:valid ~ #correctcode {
 <!-- <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
 <link rel="stylesheet" href="sweetalert2.min.css"> -->
 <script>
+
+  
 // // ES6 Modules or TypeScript
 // import Swal from 'sweetalert2'
 // CommonJS
@@ -1429,9 +1431,8 @@ function closeAllModals() {
     <h3>{{ review.bedroomNumber }} bedrooms</h3>
   </div>
   <div class="bednumdiv">
-    <h2>Redland ranking: <span class="badge badge-success">{{ property.redlandScore }}</span></h2>
+    <h2>Redland ranking: <span class="badge badge-success" id="redlandrankingscore">{{ property.redlandScore }}</span></h2>
 </div>
-
     </div>
     <div class="col-6" id="titleRow">
       <h3>About the review</h3>
@@ -2242,13 +2243,37 @@ function closeAllModals() {
 
 
 </div>
+
+<script>
+    // var redlandScore = document.getElementById("redlandrankingscore").value
+
+      var redlandScore = $('#redlandrankingscore').map(function(){
+      return $(this).text();
+    }).get().join(',');
+
+    var redlandScoreNum = Number(redlandScore)
+    console.log(redlandScoreNum)
+    if(0<redlandScoreNum && redlandScoreNum<51)
+    {
+      console.log("hereeee1")
+      document.getElementById("redlandrankingscore").style.backgroundColor = "green";
+
+    } else if (50<redlandScoreNum && redlandScoreNum<151) {
+      console.log("hereeee2")
+
+      document.getElementById("redlandrankingscore").style.backgroundColor = "orange";
+    }
+    else{
+      console.log("hereeee")
+
+      document.getElementById("redlandrankingscore").style.backgroundColor = "red";
+    }
+</script>
 <script>
     jQuery(function(){
        jQuery('.nav-link').click();
     });
 </script>
-
-
 
 <script>
     $(document).ready(function(){
@@ -2257,8 +2282,7 @@ function closeAllModals() {
     });
 
 
-
-    </script>
+</script>
 <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
 <script>
   $().ready(function(){
