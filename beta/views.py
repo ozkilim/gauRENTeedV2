@@ -422,7 +422,10 @@ class CreateCheckoutSessionView(View):
         ## get the value sent over
         inDiscountCode = request.body
         inDiscountCode = inDiscountCode.decode("utf-8")
-        if inDiscountCode == "code1" or inDiscountCode == "code2" or inDiscountCode == "code2":
+        print(inDiscountCode)
+        # CHECK HEREEE!
+        # If discount code was entered apply th discount.
+        if inDiscountCode:
             #discount applied!
             price = 40 
             print("discountapplied")

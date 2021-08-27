@@ -1201,9 +1201,62 @@ h5{
 // CommonJS
 // const Swal = require('sweetalert2')
 
+const discountCodeList = ["redland1001",
+"redland1002",
+"redland1003",
+"redland1004",
+"redland1005",
+"redland1006",
+"redland1007",
+"redland1008",
+"redland1009",
+"redland1010",
+"redland1011",
+"redland1012",
+"redland1013",
+"redland1014",
+"redland1015",
+"redland1016",
+"redland1017",
+"redland1018",
+"redland1019",
+"redland1020",
+"redland1021",
+"redland1022",
+"redland1023",
+"redland1024",
+"redland1025",
+"redland1026",
+"redland1027",
+"redland1028",
+"redland1029",
+"redland1030",
+"redland1031",
+"redland1032",
+"redland1033",
+"redland1034",
+"redland1035",
+"redland1036",
+"redland1037",
+"redland1038",
+"redland1039",
+"redland1040",
+"redland1041",
+"redland1042",
+"redland1043",
+"redland1044",
+"redland1045",
+"redland1046",
+"redland1047",
+"redland1048",
+"redland1049",
+"redland1050",
+"redland1051"]
+
+
 $('#choose').on("input", function() {
 
-    if((document.getElementById("choose").value == "code1")||(document.getElementById("choose").value == "code2")||(document.getElementById("choose").value == "code3"))
+    if(discountCodeList.includes(document.getElementById("choose").value))
     {
       document.getElementById("correctcode").style.visibility = "visible";
     }
