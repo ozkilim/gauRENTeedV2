@@ -1,14 +1,25 @@
+
 body {
   font-family: "Gill Sans" !important;
   font-style: initial;
-  background-color: #a8a8f5 !important;
   font-weight: 310;
+  background-image: url("../images/landing/badhouse.png"); 
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+
 .topnav {
   overflow: hidden;
   /* color: black !important; */
-  background-color: #a8a8f5 !important;
+  background:transparent !important;
+
 }
+
+.navbar-inner {
+  background:transparent;
+}
+
 .u83_img {
   display: block;
   margin-left: auto;

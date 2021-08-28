@@ -1,9 +1,11 @@
 body {
   font-family: "Gill Sans" !important;
   font-style: initial;
-  background-color: #a8a8f5 !important;
   font-weight: 310;
+  background-image: url("/statc/landing/badhouse.png"); 
 }
+
+
 .topnav {
   overflow: hidden;
   /* color: black !important; */

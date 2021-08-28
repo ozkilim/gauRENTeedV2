@@ -3,23 +3,16 @@ body {
   font-family: "Gill Sans" !important;
   font-style: initial;
   font-weight: 310;
-  background-image: url("../images/landing/badhouse.png"); 
+  background-image: url("../images/landing/badhouse.379886320601.png"); 
   background-repeat: no-repeat;
-  background-size: cover;
 }
 
 
 .topnav {
   overflow: hidden;
   /* color: black !important; */
-  background:transparent !important;
-
+  background-color: #a8a8f5 !important;
 }
-
-.navbar-inner {
-  background:transparent;
-}
-
 .u83_img {
   display: block;
   margin-left: auto;
