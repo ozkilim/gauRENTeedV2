@@ -3,15 +3,16 @@ body {
   font-family: "Gill Sans" !important;
   font-style: initial;
   font-weight: 310;
-  overflow: hidden;
-  display: block;
  
 }
 #tophalf{
-  background-image: url("../images/landing/badhouse.png"); 
+  background-image: url("../images/landing/badhouse.379886320601.png"); 
   background-repeat: no-repeat;
-  background-size: 100%;
-  overflow: hidden;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 
@@ -19,6 +20,7 @@ body {
   overflow: hidden;
   /* color: black !important; */
   background:transparent !important;
+
 }
 #landingObjcts{
   text-align: center;

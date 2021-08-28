@@ -4,21 +4,21 @@ body {
   font-style: initial;
   font-weight: 310;
   overflow: hidden;
-  display: block;
  
 }
 #tophalf{
-  background-image: url("../images/landing/badhouse.png"); 
+  background-image: url("../images/landing/badhouse.379886320601.png"); 
   background-repeat: no-repeat;
-  background-size: 100%;
-  overflow: hidden;
+  background-size: contain;
 }
+
 
 
 .topnav {
   overflow: hidden;
   /* color: black !important; */
   background:transparent !important;
+
 }
 #landingObjcts{
   text-align: center;
