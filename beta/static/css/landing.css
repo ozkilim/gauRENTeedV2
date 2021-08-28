@@ -38,8 +38,8 @@ body {
   border-radius: 15px;
   background-color: 
   #FAFAFA !important;
-  width: 530px;
-  height: 80px;
+  width: 400px;
+  height: 60px;
   font-size: 25px;
   vertical-align: middle;
 }
@@ -58,9 +58,9 @@ body {
 .landingButton {
   border-color: #2c3c63;
   border-radius: 15px;
-  height: 80px;
-  width: 150px;
-  font-size: 40px;
+  height: 60px;
+  width: 220px;
+  font-size: 30px;
   background-color: #2c3c63;
   vertical-align: middle;
   color: #FAFAFA;

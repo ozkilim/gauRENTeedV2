@@ -3,7 +3,7 @@ body {
   font-family: "Gill Sans" !important;
   font-style: initial;
   font-weight: 310;
-  background-image: url("../images/landing/badhouse.png"); 
+  background-image: url("../images/landing/badhouse.379886320601.png"); 
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -38,7 +38,7 @@ body {
   border-radius: 15px;
   background-color: 
   #FAFAFA !important;
-  width: 400px;
+  width: 530px;
   height: 60px;
   font-size: 25px;
   vertical-align: middle;
@@ -59,8 +59,8 @@ body {
   border-color: #2c3c63;
   border-radius: 15px;
   height: 60px;
-  width: 220px;
-  font-size: 30px;
+  width: 100%;
+  font-size: 40px;
   background-color: #2c3c63;
   vertical-align: middle;
   color: #FAFAFA;

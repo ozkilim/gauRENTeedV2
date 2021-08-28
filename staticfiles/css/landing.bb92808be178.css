@@ -3,7 +3,7 @@ body {
   font-family: "Gill Sans" !important;
   font-style: initial;
   font-weight: 310;
-  background-image: url("../images/landing/badhouse.png"); 
+  background-image: url("../images/landing/badhouse.379886320601.png"); 
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -60,7 +60,7 @@ body {
   border-radius: 15px;
   height: 60px;
   width: 220px;
-  font-size: 30px;
+  font-size: 40px;
   background-color: #2c3c63;
   vertical-align: middle;
   color: #FAFAFA;
