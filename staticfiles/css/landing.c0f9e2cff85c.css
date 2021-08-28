@@ -6,7 +6,7 @@ body {
  
 }
 #tophalf{
-  background-image: url("../images/landing/badhouse.png"); 
+  background-image: url("../images/landing/badhouse.379886320601.png"); 
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -101,8 +101,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 685px;
-  padding-top: 300px;
-  padding-bottom: 330px;
 }
 .logo {
   padding-left: 30px;
