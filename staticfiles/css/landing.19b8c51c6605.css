@@ -7,7 +7,7 @@ body {
  
 }
 #tophalf{
-  background-image: url("../images/landing/badhouse.png"); 
+  background-image: url("../images/landing/badhouse.379886320601.png"); 
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -100,8 +100,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 685px;
-  padding-top: 25%;
-  padding-bottom: 10%;
+  padding-top: 30%;
+  padding-bottom: 330px;
 }
 .logo {
   padding-left: 30px;
@@ -194,16 +194,5 @@ body {
   text-align: center;
   color: #FAFAFA;
   justify-content: center;
-}
 
-#benefits{
-  text-align: center;
-  justify-content: center;
-}
-
-hr{
-  height: 2px;
-  background-color:#FAFAFA;
-  border: 0;
-  width: 60%;
 }
