@@ -999,6 +999,19 @@ h5{
   font-size: 13px;
 
 }
+
+.redlandrankingscore{
+  display:inline-block;
+  padding:.25em .4em;
+  font-size:75%;
+  font-weight:700;
+  line-height:1;
+  text-align:center;
+  white-space:nowrap;
+  vertical-align:baseline;
+  border-radius:.25rem;
+  color:white
+}
 </style>
 
 {% endblock %}
@@ -1441,7 +1454,7 @@ function closeAllModals() {
   {% for review in reviews %}
   <li class="nav-item" id = "reviewListTitiles" style=" padding-right:5px; ">
 
-    <a class="nav-link"  id={{review}} data-toggle="tab" style="background-color:#4464F6;"  href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
+    <a  class="nav-link"  id={{review}} data-toggle="tab" style="background-color:#4464F6;"  href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
 
   </li>
 {% endfor %}
@@ -1472,7 +1485,7 @@ function closeAllModals() {
     <h3>{{ review.bedroomNumber }} bedrooms</h3>
   </div>
   <div class="bednumdiv">
-    <h2>Redland ranking: <span class="badge badge-success" id="redlandrankingscore">{{ property.redlandScore }}</span></h2>
+    <h2>Redland ranking: <span id="redlandrankingscore" class="redlandrankingscore" >{{ property.redlandScore }}</span></h2>
 </div>
     </div>
     <div class="col-6" id="titleRow">
@@ -2210,27 +2223,44 @@ function closeAllModals() {
 <script>
   // var redlandScore = document.getElementById("redlandrankingscore").value
 
-  
     var redlandScore = $('#redlandrankingscore').map(function(){
     return $(this).text();
   }).get().join(',');
 
   var redlandScoreNum = Number(redlandScore)
   console.log(redlandScoreNum)
+  console.log(document.getElementsByClassName("badge"))
   if(0<redlandScoreNum && redlandScoreNum<51)
   {
     console.log("hereeee1")
-    document.getElementById("redlandrankingscore").style.backgroundColor = "green";
+    document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "green";
+    document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "green";
+    document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "green";
+    document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "green";
+    document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "green";
+
 
   } else if (50<redlandScoreNum && redlandScoreNum<151) {
     console.log("hereeee2")
 
-    document.getElementById("redlandrankingscore").style.backgroundColor = "orange";
+    document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "orange";
+    document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "orange";
+    document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "orange";
+    document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "orange";
+    document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "orange";
   }
   else{
     console.log("hereeee")
-    document.getElementById("redlandrankingscore").style.backgroundColor = "red";
+    document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "red";
+    document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "red";
+    document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "red";
+    document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "red";
+    document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "red";
+
   }
+
+
+
 </script>
 {% endfor %}
 
@@ -2321,17 +2351,14 @@ function closeAllModals() {
     console.log(redlandScoreNum)
     if(0<redlandScoreNum && redlandScoreNum<51)
     {
-      console.log("hereeee1")
-      document.getElementById("redlandrankingscore").style.backgroundColor = "green";
+      document.getElementsByClassName("redlandrankingscore").style.backgroundColor = "green";
 
     } else if (50<redlandScoreNum && redlandScoreNum<151) {
-      console.log("hereeee2")
 
-      document.getElementById("redlandrankingscore").style.backgroundColor = "orange";
+      document.getElementsByClassName("redlandrankingscore").style.backgroundColor = "orange";
     }
     else{
-      console.log("hereeee")
-      document.getElementById("redlandrankingscore").style.backgroundColor = "red";
+      document.getElementsByClassName("redlandrankingscore").style.backgroundColor = "red";
     }
 </script>
 <script>
