@@ -1006,13 +1006,13 @@ h5{
 {% endblock %}
 {% block content %}
 <!-- leave the space at the end of the name! -->
-{% if not user.is_authenticated and "{{property.fullAddress}}" != "16 Cowper Road" %}
+{% if not user.is_authenticated and property.fullAddress != "10 Downing Street" %}
 
 <!--Modal: Login / Register Form-->
 <!-- <div id="modal" class="modal hide fade in" data-keyboard="false" data-backdrop="static"> -->
 
 <div class="modal hide fade in" id="loginPayModal"  data-keyboard="false" data-backdrop="static">
-  <h1>"{{property.fullAddress}}"</h1>
+  <h1>{{property.fullAddress}}</h1>
 
 <!-- <div class="modal fade in" id="loginPayModal" data-target="loginPayModal" data-toggle="modal" data-backdrop="static" data-keyboard="false"> -->
     <div class="modal-dialog" role="document" style="max-width:80%;" >
@@ -2306,8 +2306,6 @@ function closeAllModals() {
 
 </div>
 </div>
-
-
 
 </div>
 <br>
