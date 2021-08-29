@@ -1006,12 +1006,13 @@ h5{
 {% endblock %}
 {% block content %}
 <!-- leave the space at the end of the name! -->
-{% if (not user.is_authenticated() or ({{property.fullAddress}} != "10 Downing Street") %}
+{% if not user.is_authenticated and "{{property.fullAddress}}" != "16 Cowper Road" %}
 
 <!--Modal: Login / Register Form-->
 <!-- <div id="modal" class="modal hide fade in" data-keyboard="false" data-backdrop="static"> -->
 
 <div class="modal hide fade in" id="loginPayModal"  data-keyboard="false" data-backdrop="static">
+  <h1>"{{property.fullAddress}}"</h1>
 
 <!-- <div class="modal fade in" id="loginPayModal" data-target="loginPayModal" data-toggle="modal" data-backdrop="static" data-keyboard="false"> -->
     <div class="modal-dialog" role="document" style="max-width:80%;" >
@@ -1067,7 +1068,7 @@ h5{
                 {% endif %}
                 <div class="alert">
                   <strong
-                    >Experiencing problems? Contact us at : guarentedteam@gmail.com
+                    >Experiencing problems? Contact us at : guarenteedteam@gmail.com
                   </strong>
                 </div>
               
@@ -2309,7 +2310,12 @@ function closeAllModals() {
 
 
 </div>
+<br>
+<br>
+<br>
 
+<div class="container" id="ff-compose"></div>
+<script async defer src="https://formfacade.com/include/113473150208696465024/form/1FAIpQLSfvuEf6i-mxK4sRkQlCCMVx0U0ID3-9l_Ykf9EuAR9Tr8HeuA/bootstrap.js?div=ff-compose"></script>
 <script>
     // var redlandScore = document.getElementById("redlandrankingscore").value
       var redlandScore = $('#redlandrankingscore').map(function(){

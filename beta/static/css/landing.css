@@ -109,7 +109,6 @@ body {
 }
 #gaurenteedTab {
   padding-left: 5px !important;
-  /* padding-right: 200px; */
 }
 
 .topnav {
@@ -134,8 +133,9 @@ body {
   #FAFAFA;
 }
 .floatRight {
-  float: right;
-  padding-right: 100px;
+  float: right !important;
+  padding-right: 100px; 
+  padding-left: 200px;
 }
 
 .ui-autocomplete {

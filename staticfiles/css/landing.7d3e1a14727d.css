@@ -7,7 +7,7 @@ body {
  
 }
 #tophalf{
-  background-image: url("../images/landing/badhouse.png"); 
+  background-image: url("../images/landing/badhouse.379886320601.png"); 
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -134,8 +134,9 @@ body {
 }
 .floatRight {
   float: right !important;
-  padding-right: 100px; 
-  padding-left: 200px;
+  /* padding-right: 100px; */
+  /* padding-left: 50%; */
+
 }
 
 .ui-autocomplete {
