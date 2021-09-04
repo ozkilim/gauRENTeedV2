@@ -1015,7 +1015,15 @@ h5{
 .w3-blue{
   border: 1px solid black;
   border-radius: 4px;
+  animation: load 4s linear 1s;
+  animation-fill-mode: forwards;
+  width: 0%;
 }
+
+@keyframes load {
+    from { width: 0%; background-color: red;}
+}
+
 </style>
 
 {% endblock %}
