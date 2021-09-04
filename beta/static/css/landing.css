@@ -115,6 +115,7 @@ body {
   overflow: hidden;
   background-color: #4464f6;
   font-size: 40px;
+  width:100%;
 }
 .nav-item {
   display: inline-block;
