@@ -55,3 +55,19 @@ def times(number):
 def times(number):
     if number != 0:
         return number/10
+
+
+@register.filter(name='percentcol')
+def times(number):
+    if number == 5:
+        return "#2dc937"
+    if number == 4:
+        return "#99c140"
+    if number == 3:
+        return "#e7b416"
+    if number == 2:
+        return "#db7b2b"
+    if number == 1:
+        return "#cc3232"
+
+
