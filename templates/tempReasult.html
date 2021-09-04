@@ -1015,7 +1015,6 @@ h5{
 .w3-blue{
   border: 1px solid black;
   border-radius: 4px;
-
 }
 </style>
 
@@ -1144,7 +1143,7 @@ h5{
                         
               <form id="payment-form" class="form-control">{% csrf_token %}
                 <input name = "email" type="email" id="email" placeholder="Email address" class="form-control" required="true"/>
-                <input name = "password" minlength="5" id="password" placeholder="password ( characters minimum )" class="form-control" required="true"/>
+                <input name = "password" minlength="5" id="password" placeholder="Password (5 characters minimum)" class="form-control" required="true"/>
                 <!-- <input name = "discount" type="text" id="discount" placeholder="discount code" class="form-control"/> -->
                 <!-- <label for="choose">Would you prefer a banana or a cherry?</label> -->
 
@@ -1154,12 +1153,12 @@ h5{
                 
                 <div class="form-check form-switch">
                   <input name = "happyToBeContacted" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                  <label class="form-check-label" for="flexSwitchCheckChecked">Guarenteed will offer some paid opportunities. I am happy to be contacted for feedback on this product</label>
+                  <label class="form-check-label" for="flexSwitchCheckChecked">I am happy to be contacted for feedback purposes and/or the advertisement of paid opportunities in the future.</label>
                 </div>
               </div>
               <div class="col-6">
 
-                <input placeholder="Enter discount code to save 20%" name ="discountcode" id="choose" class="discount" name="i_like"    > 
+                <input placeholder="Enter discount code" name ="discountcode" id="choose" class="discount" name="i_like"    > 
                         <span id="correctcode" class="badge badge-success">Correct code! 20% discount applied.</span>
                 <br>
               </div>
@@ -1173,7 +1172,7 @@ h5{
                   <span id="button-text">Unlock all the reviews</span>
                 </button>
                 <br>
-                <h6>Experiencing problems? Contact us at : guarentedteam@gmail.com</h6>
+                <h6>Experiencing problems? Contact us at : guarenteedteam@gmail.com</h6>
                 <p id="card-error" role="alert"></p>
                 <p class="result-message hidden">
                 </p>
@@ -1627,7 +1626,7 @@ function closeAllModals() {
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingFourA">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFourA" aria-expanded="false" aria-controls="flush-collapseTwo">
-                  <h5>Move in hygiene </h5>
+                  <h5>Property Cleanliness </h5>
                   <div class="stardiv">
                     {% for i in review.moveInHygene|times %}
                     <span class="fa fa-star checked"></span>
@@ -1689,7 +1688,7 @@ function closeAllModals() {
                    <hr class=hr2>
                    <br>
                    <br>
-                   <h4 class = "CardTitle2">How was the property managed?</h4>
+                   <h4 class = "CardTitle2">How well was the property managed?</h4>
                    <br>
                    <div class="stardiv">
                     {% for i in propertyManagerAverage|times %}
@@ -2278,7 +2277,7 @@ function closeAllModals() {
 <h4 class="statsheader">How does {{property.fullAddress}} {{property.postcode}} compare to the rest of redland?</h4>
 <div>
   <table class="graph">
-    <caption>Value for money comparison</caption>
+    <caption>Value for money comparison. This calculated by the property overall rating divided by the rent cost.</caption>
     <thead>
       <tr>
         <th scope="col">Item</th>
