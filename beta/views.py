@@ -418,7 +418,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         # Here add discount
-        price = 50
+        price = 1500
         ## get the value sent over
         inDiscountCode = request.body
         inDiscountCode = inDiscountCode.decode("utf-8")
@@ -427,10 +427,8 @@ class CreateCheckoutSessionView(View):
         # If discount code was entered apply th discount.
         if inDiscountCode:
             #discount applied!
-            price = 40 
+            price = 1000 
             print("discountapplied")
-
-
 
         checkout_session = stripe.PaymentIntent.create(
             amount=price,
