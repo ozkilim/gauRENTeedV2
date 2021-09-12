@@ -98,12 +98,12 @@
       <br>
       <br>
         <h1 class="landingTitle" style="padding-left: 50px; padding-right: 50px;">Avoid living with regret next year.</h1>
-        <h2 class="subheader" style="padding-left: 50px; padding-right: 50px;">See what you can’t see in a house viewing. Read over 200 detailed reviews of Redland properties.</h2>
+        <h3 class="subheader" style="padding-left: 50px; padding-right: 50px;">See what you can’t see in a house viewing. Read over 200 detailed reviews of Redland properties.</h2>
           
                       <!-- <h4 class="card-title">Find it!</h4> -->
                       <div class=enterFormDiv>
                       <form action={% url 'landing' %} method="post" id="rearchForm">{% csrf_token %}
-                        <input type="text" placeholder="   Enter the address" id='property' name='property' autocomplete="on">
+                        <input type="text" placeholder="   Enter the address of property you want to view" id='property' name='property' autocomplete="on" style="font-size: 18px;">
                         <button type="submit" class="landingButton" id="landingButton" form="rearchForm" value="Submit">Step Inside</button>
                       </form>
                       <!-- {{ messages.tags }} -->
@@ -138,35 +138,37 @@
 
     <br>
     <div class="row" id="benefits">
-      <div class="col-3">
-        <img  class="" src={% static "images/search_results/Survey.png" %} />
-        <h5>Based on verified reviews from over 600 current Bristol students</h5>
+      <div class="col">
+        <img  class="iconlanding" src={% static "images/search_results/Survey.png" %} />
+        <h6>Based on verified reviews from over 600 current Bristol students</h6>
 
       </div>
-      <div class="col-3">
-        <img  class="" src={% static "images/search_results/Search.png" %} />
-        <h5>See where your potential next home ranks in Redland </h5>
+      <div class="col">
+        <img  class="iconlanding" src={% static "images/search_results/Search.png" %} />
+        <h6>See where your potential next home ranks in Redland </h6>
 
       </div>
-      <div class="col-3">
-        <img  class="" src={% static "images/search_results/StackofMoney.png" %} />
+      <div class="col">
+        <img  class="iconlanding" src={% static "images/search_results/StackofMoney.png" %} />
 
-        <h5>Avoid the properties with hidden fees and dodgy landlords </h5>
+        <h6>Avoid the properties with hidden fees and dodgy landlords </h6>
 
       </div>
-      <div class="col-3">
-        <img  class="" src={% static "images/search_results/HomePage.png" %} />
-        <h5>Find out what it’s actually like to live in your potential next home</h5>
+      <div class="col">
+        <img  class="iconlanding" src={% static "images/search_results/HomePage.png" %} />
+        <h6>Find out what it’s actually like to live in your potential next home</h6>
+
+      </div>
+      <div class="col">
+        <img  class="iconlanding" src={% static "images/search_results/Handshake-2.png" %} />
+        <h6>Cost only a few £s when split between your housemates</h6>
 
       </div>
     </div>
     <div class="row" id="aboutguarenteed">
-      <h1 style="padding-top: 30px; padding-bottom: 30px;">About GuaRENTeed</h1>
-
+      <h3 style="padding-top: 30px; padding-bottom: 30px;">About GuaRENTeed</h1>
       <br>
-      <!-- <hr> -->
-
-      <h4 style="padding-bottom: 30px; padding-left: 50px; padding-right: 50px;">
+      <h5 style="padding-bottom: 30px; padding-left: 50px; padding-right: 50px;">
         Our aim is to address the imbalance of power between landlords and tenants.
         <br><br> Too often, tenants in the private rental market are forced to make snap decisions based on incomplete information, fundamentally favouring landlords and estate agents who, in a 5 minute house viewing, can - literally and metaphorically - paper over the cracks. . 
 

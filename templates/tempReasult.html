@@ -759,7 +759,7 @@ padding-right: 30px;
 .SubIcon{
   padding-right:10px ;
   float: left;
-  width: 50px;
+  width: 40px;
 }
 .whatyouget{
   padding-top: 20px;
@@ -1019,6 +1019,9 @@ h5{
   animation-fill-mode: forwards;
   width: 0%;
 }
+.whatyougettext{
+  font-size: 15px;
+}
 
 @keyframes load {
     from { width: 0%; background-color: red;}
@@ -1103,38 +1106,36 @@ h5{
               <h3 class="registedheading">Unlock the review of {{property.fullAddress}} {{property.postcode}} + over 200 others in Redland</h3>
             </div>
               <hr class=hr>
-             <br>
                   <div class = "row" id="sellingDIV">
                     <div class = "col-2"></div>
 
                     <div class = "col-8"> <h3>What do you get?</h3>
                       <div class="whatyouget">
                         <img  class="SubIcon" src={% static "images/search_results/Survey.png" %} />
-                        <h4>Unlock recent reviews for over 200 properties in Redland</h4>
+                        <h4 class="whatyougettext">Unlock recent reviews for over 200 properties in Redland</h4>
                       </div>
                       <div class="whatyouget">
                         <img  class="SubIcon" src={% static "images/search_results/HomePage.png" %} />
-                        <h4>Find out from recent tenants what it is really like to live in the place before you sign it</h4>
+                        <h4 class="whatyougettext">Find out from recent tenants what it is really like to live in the place before you sign it</h4>
                       </div>
                       <div class="whatyouget">
                         <img  class="SubIcon" src={% static "images/search_results/Search.png" %} />
 
-                        <h4>Find the best and avoid the worst properties</h4>
+                        <h4 class="whatyougettext">Find the best and avoid the worst properties</h4>
                       </div>
                       <div class="whatyouget">
                         <img  class="SubIcon" src={% static "images/search_results/StackofMoney.png" %} />
 
-                        <h4>Find out what previous tennants paid for their house</h4>
+                        <h4 class="whatyougettext">Find out what previous tennants paid for their house</h4>
                       </div>
                       <div class="whatyouget">
                         <img  class="SubIcon" src={% static "images/search_results/ReceiveCash.png" %} />
 
-                        <h4>Read the example review see what you are getting before you commit. </h4>
+                        <h4 class="whatyougettext">Read the example review see what you are getting before you commit. </h4>
                         <!-- <form id="tryform" action="http://127.0.0.1:8000/beta/reasult/f7f02f3b-7644-4d31-8c19-a85d2cfb2434/">
                           <input type="submit" value="Check out an example review" id="trybutton" />
                         </form> -->
                       </div>
-                      <br>
                       
                      
                   </div>
@@ -1144,7 +1145,7 @@ h5{
                 <div class= "row">
                   <div class = "col-1"></div>
                 <div class = "col-10">
-                      <h2 class="ExampleRevtitle">Get full access now</h2>
+                      <h2 class="ExampleRevtitle">Get full access now to all reviews</h2>
                       <h2 class = "PoundPayment">£15 one off payment</h2>
                       <br>
 
