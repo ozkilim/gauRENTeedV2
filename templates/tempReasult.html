@@ -1463,25 +1463,7 @@ function closeAllModals() {
 
 
 {% endif %}
-<br>
-<ul class="nav " id="myTab" role="tablist">
-  {% for review in reviews %}
-  <li class="nav-item" id = "reviewListTitiles" style=" padding-right:5px; ">
 
-    <a  class="nav-link"  id={{review}} data-toggle="tab" style="background-color:#4464F6;"  href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
-
-  </li>
-{% endfor %}
-</ul>
-
-<div class="tab-content" id="nav-tabContent">
-{% for review in reviews %}
-
-<div class="tab-pane" id={{review.id}} role="tabpanel" aria-labelledby={{review.id}}>
-<!-- <div class="row" id="RatingsRow">
-  <h6>Overall review</h6>
-</div> -->
-<br> 
 <br>
 <div class="row" >
   <div class="col-6" id="titleRow">
@@ -1494,10 +1476,7 @@ function closeAllModals() {
       {% endfor %}
     </div>
     <h1>{{property.fullAddress}} {{property.postcode}}</h1>
-    <div class="bednumdiv">
-      <img class="bedim" src={% static "images/search_results/OccupiedBed.png" %} />
-    <h3>{{ review.bedroomNumber }} bedrooms</h3>
-  </div>
+    
   <div class="bednumdiv">
     <h2>Redland ranking: <span id="redlandrankingscore" class="redlandrankingscore" >{{ property.redlandScore }}</span> out of 250</h2>
 </div>
@@ -1518,17 +1497,43 @@ function closeAllModals() {
       </div>
     </div>
     <br>
-    <div class="approval" >
-      <img class="approvalim" src={% static "images/search_results/Approval.png" %} />
-      <div>
-        This tenant stayed from {{review.moveIn}} to  {{review.moveOut}}
-      </div>
+
+   
+
     </div>
-    </div>
+</div>
+<br>
+
+
+<ul class="nav " id="myTab" role="tablist">
+  {% for review in reviews %}
+  <li class="nav-item" id = "reviewListTitiles" style=" padding-right:5px; ">
+
+    <a  class="nav-link"  id={{review}} data-toggle="tab" style="background-color:#4464F6;"  href=#{{review.id}} role="tab" aria-controls={{review.id}} aria-selected="true">Review from : {{review.moveIn}}</a>
+  </li>
+{% endfor %}
+</ul>
+
+<div class="tab-content" id="nav-tabContent">
+{% for review in reviews %}
+
+
+
+<div class="tab-pane" id={{review.id}} role="tabpanel" aria-labelledby={{review.id}}>
+<!-- <div class="row" id="RatingsRow">
+  <h6>Overall review</h6>
+</div> -->
+<br>
+<div class="row">
+  <div class="col"> <div class="approval" >
+    <h5>
+      This tenant stayed from {{review.moveIn}} to {{review.moveOut}}. The property had {{ review.bedroomNumber }} bedrooms at the time. 
+    </h5>
+  </div></div>
+  
 
 </div>
-
-<br>
+<br> 
 
  <div class="row" >
   <div class="col-6"> 
