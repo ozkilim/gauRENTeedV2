@@ -1352,14 +1352,30 @@ document.querySelector("button").disabled = true;
     body:discountcode,                
     })
     .then(function(result) {
+
       return result.json();
     })
     .then(function(data) {
 
-
-    // Complete payment when the submit button is clicked
-    payWithCard(stripe, card, data.client_secret);
-    loading(true);
+    var formElement = document.querySelector("#payment-form");
+    var request = new XMLHttpRequest();
+    request.open("POST", "{% url 'checkout' %}");
+    request.send(new FormData(formElement));
+    // get response to see if the back end passed and user could be created
+    request.onreadystatechange = function() {
+    if (request.readyState === 4) {
+      var sendback = JSON.parse(request.response);
+      console.log(sendback.response);
+      if (sendback.response === 200) {
+      // Complete payment when the submit button is clicked
+      payWithCard(stripe, card, data.client_secret);
+      loading(true);
+    }
+    else{
+      showError("An account with this email already exists! Check your emails for your password")
+    }
+    }
+      }
     
     });
 });         
@@ -1380,12 +1396,6 @@ var payWithCard = function(stripe, card, clientSecret) {
         showError(result.error.message);
       } else {
         // Send for data back to the server
-        var formElement = document.querySelector("#payment-form");
-        var request = new XMLHttpRequest();
-        request.open("POST", "{% url 'checkout' %}");
-        console.log(formElement)
-        request.send(new FormData(formElement));
-
         // The payment succeeded!
         orderComplete();
         // Swal("Good job!", "You clicked the button!", "success")
@@ -1396,7 +1406,6 @@ var payWithCard = function(stripe, card, clientSecret) {
         // The payment succeeded!
         console.log("order made")
         //  If payment and login was sucessfull remove the modal
-
 
     });
 };
@@ -1417,7 +1426,7 @@ var showError = function(errorMsgText) {
     errorMsg.textContent = errorMsgText;
     setTimeout(function() {
     errorMsg.textContent = "";
-    }, 4000);
+    }, 10000);
 };
 // Show a spinner on payment submission
 var loading = function(isLoading) {

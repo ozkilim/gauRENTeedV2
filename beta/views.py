@@ -289,7 +289,7 @@ def checkout(request):
             # Throw error message on front end that user exists
             print("user already exists!")
             return JsonResponse({
-            'userExists': "userExists"
+            'response': 400
              })
         # Sed email back to this email automatically with their deails so they do not forget
         try:
@@ -308,7 +308,7 @@ def checkout(request):
         # TO THE LOACTION THE USER WANTED
         
         return JsonResponse({
-            'sucess': "sucess"
+            'response': 200
         })
 
 
@@ -435,8 +435,6 @@ class CreateCheckoutSessionView(View):
         if inDiscountCode:
             #discount applied!
             price = 1000 
-            print("discountapplied")
-
         checkout_session = stripe.PaymentIntent.create(
             amount=price,
             currency='gbp',
