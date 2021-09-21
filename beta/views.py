@@ -256,6 +256,29 @@ def payment_form(request):
 
 
 
+
+
+def checkIfNewUser(request):
+    #Check if this user exists already
+    if request.method == 'POST':
+        email = request.POST["email"]
+        username = request.POST["email"]
+        try:
+            user = CustomUser.objects.get(username=username,email=email)
+            print(user)
+            print(" exists alreadyyyyy")
+            return JsonResponse({
+            'response': 400
+             })
+        except:
+            print("User does not exist")
+            # Return success message.
+            return JsonResponse({
+            'response': 200
+            })
+            
+
+
 def checkout(request):
     if request.method == 'POST':
         email = request.POST["email"]
@@ -274,6 +297,7 @@ def checkout(request):
         # Need some front end validation to ensure created object is correct.
         # Need to check if user exists. If not throw an error message and do not take payment
         try:
+
             newUser = CustomUser(username=username,
                                 email=email,happyToBeContacted=happyToBeContacted,dicountcode=discountcode)
             newUser.set_password(password)
@@ -282,7 +306,6 @@ def checkout(request):
             newUser.is_active = True
             newUser.save()
             # Log this user in
-            # user = authenticate(request, username=username, password=password)
             auth_login(request, newUser,
                     backend='django.contrib.auth.backends.ModelBackend')
         except:
@@ -304,9 +327,7 @@ def checkout(request):
             exception_type = type(err).__name__
             print(exception_type)
             print("failed to send email")
-        # Return to the page the user wanted....
-        # TO THE LOACTION THE USER WANTED
-        
+        # Return success message.
         return JsonResponse({
             'response': 200
         })

@@ -1295,8 +1295,8 @@ $('#choose').on("input", function() {
 var discountcode = document.getElementById('choose').value
 
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-var stripe = Stripe("pk_live_51IVE74GfxvWHpljQUTFxoMaTtoTwyj1vknpyfwFMlsbcLSGJFA5alGO7db4x9Iwd1AHCdwlMkokWJuA4ukG9jlKI00VcRXiv1w");
-// var stripe = Stripe("pk_test_51IVE74GfxvWHpljQiugUY1xG2FvOnO8l6W64sVuSofMJ5SHsVVlZ5E81bLsC1BwIWptV8BL2U4ZHhesrXOyOKcRH00SdJXIHfx");
+// var stripe = Stripe("pk_live_51IVE74GfxvWHpljQUTFxoMaTtoTwyj1vknpyfwFMlsbcLSGJFA5alGO7db4x9Iwd1AHCdwlMkokWJuA4ukG9jlKI00VcRXiv1w");
+var stripe = Stripe("pk_test_51IVE74GfxvWHpljQiugUY1xG2FvOnO8l6W64sVuSofMJ5SHsVVlZ5E81bLsC1BwIWptV8BL2U4ZHhesrXOyOKcRH00SdJXIHfx");
 
 document.querySelector("button").disabled = true; 
 // fetch("{% url 'create-checkout-session' %}", {
@@ -1359,21 +1359,20 @@ document.querySelector("button").disabled = true;
 
     var formElement = document.querySelector("#payment-form");
     var request = new XMLHttpRequest();
-    request.open("POST", "{% url 'checkout' %}");
-    request.send(new FormData(formElement));
+    request.open("POST", "{% url 'checkIfNewUser' %}");
+    request.send(new FormData(formElement));  
     // get response to see if the back end passed and user could be created
     request.onreadystatechange = function() {
     if (request.readyState === 4) {
       var sendback = JSON.parse(request.response);
-      console.log(sendback.response);
       if (sendback.response === 200) {
       // Complete payment when the submit button is clicked
       payWithCard(stripe, card, data.client_secret);
       loading(true);
-    }
-    else{
-      showError("An account with this email already exists! Check your emails for your password")
-    }
+      }
+      else{
+        showError("An account with this email already exists! Check your emails for your password")
+      }
     }
       }
     
@@ -1383,6 +1382,7 @@ document.querySelector("button").disabled = true;
 // If the card requires authentication Stripe shows a pop-up modal to
 // prompt the user to enter authentication details without leaving your page.
 var payWithCard = function(stripe, card, clientSecret) {
+
   loading(true);
   stripe
   .confirmCardPayment(clientSecret, {
@@ -1395,17 +1395,22 @@ var payWithCard = function(stripe, card, clientSecret) {
         // Show error to your customer
         showError(result.error.message);
       } else {
-        // Send for data back to the server
-        // The payment succeeded!
-        orderComplete();
-        // Swal("Good job!", "You clicked the button!", "success")
-
-        setTimeout(alert("Payment complete!"),100000);
-        location.reload()
+          // If card  passes  add the new user to the database
+          var formElement = document.querySelector("#payment-form");
+          var request = new XMLHttpRequest();
+          request.open("POST", "{% url 'checkout' %}");
+          request.send(new FormData(formElement));
+          // Send for data back to the server and wait for it to execute
+          request.onreadystatechange = function() {
+          if (request.readyState === 4) {
+              // The payment succeeded!
+              orderComplete();
+              // Swal("Good job!", "You clicked the button!", "success")
+              setTimeout(alert("Payment complete!"),100000);
+              location.reload()
+          }
+        }
       }
-        // The payment succeeded!
-        console.log("order made")
-        //  If payment and login was sucessfull remove the modal
 
     });
 };

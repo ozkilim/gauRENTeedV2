@@ -26,6 +26,7 @@ urlpatterns = [
     path('FormWizardView', views.FormWizardView, name='FormWizardView'),
     # path('seeder', views.seeder, name='seeder'),
     path('checkout', views.checkout, name='checkout'),
+    path('checkIfNewUser', views.checkIfNewUser, name='checkIfNewUser'),
     path('create-checkout-session', CreateCheckoutSessionView.as_view(),
          name='create-checkout-session')
 ]
