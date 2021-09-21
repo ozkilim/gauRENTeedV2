@@ -272,18 +272,25 @@ def checkout(request):
             happyToBeContacted = False
         # Pull out all data from first form...
         # Need some front end validation to ensure created object is correct.
-        newUser = CustomUser(username=username,
-                             email=email,happyToBeContacted=happyToBeContacted,dicountcode=discountcode)
-        newUser.set_password(password)
+        # Need to check if user exists. If not throw an error message and do not take payment
+        try:
+            newUser = CustomUser(username=username,
+                                email=email,happyToBeContacted=happyToBeContacted,dicountcode=discountcode)
+            newUser.set_password(password)
 
-        newUser.is_patient = True
-        newUser.is_active = True
-        newUser.save()
-        # Log this user in
-        # user = authenticate(request, username=username, password=password)
-        auth_login(request, newUser,
-                   backend='django.contrib.auth.backends.ModelBackend')
-
+            newUser.is_patient = True
+            newUser.is_active = True
+            newUser.save()
+            # Log this user in
+            # user = authenticate(request, username=username, password=password)
+            auth_login(request, newUser,
+                    backend='django.contrib.auth.backends.ModelBackend')
+        except:
+            # Throw error message on front end that user exists
+            print("user already exists!")
+            return JsonResponse({
+            'userExists': "userExists"
+             })
         # Sed email back to this email automatically with their deails so they do not forget
         try:
             send_mail(
