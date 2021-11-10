@@ -28,5 +28,7 @@ urlpatterns = [
     path('checkout', views.checkout, name='checkout'),
     path('checkIfNewUser', views.checkIfNewUser, name='checkIfNewUser'),
     path('create-checkout-session', CreateCheckoutSessionView.as_view(),
-         name='create-checkout-session')
+         name='create-checkout-session'),
+    path('fullListing', views.fullListing, name='fullListing'),
+
 ]

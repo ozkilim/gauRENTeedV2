@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+<style>
+#sorttable_sortfwdind{
+
+}
+
+table {
+  display: grid;
+  border-collapse: collapse;
+  min-width: 100%;
+  grid-template-columns: 
+    minmax(150px, 2fr)
+    minmax(150px, 0.5fr)
+    minmax(150px, 0.5fr)
+    minmax(150px, 0.5fr)
+    minmax(150px, 0.5fr)
+    minmax(150px, 2fr)
+
+}
+
+thead,
+tbody,
+tr {
+  display: contents;
+}
+
+th,
+td {
+  /* padding: 15px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th {
+  /* position: sticky; */
+  top: 0;
+  background: #4464F6;
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.1rem;
+  color: white;
+}
+
+th:last-child {
+  border: 0;
+}
+
+td {
+  /* padding-top: 10px; */
+  /* padding-bottom: 10px; */
+  color: #808080;
+}
+
+tr:nth-child(even) td {
+  background: #f8f6ff;
+}
+
+</style>
+
+<h1>Filter through our reviews</h1>
+<h3>Click on the header to sort the table</h3>
+<hr>
+<table class="sortable">
+  <tr>
+    <th>Property address</th>
+    <th>Postcode</th>
+    <th>Room number</th>
+    <th>Overall score</th>
+    <th>Monthly rent</th>
+    <th>Guarenteed value for money Score</th>
+  </tr>
+
+
+  {% for property in properties %}
+  <link >
+
+
+  <tr class="item">
+    <td>  <a href="http://127.0.0.1:8000/reasult/{{property.hashId}}">{{property.fullAddress}}</a>
+        </td>
+    <td>{{property.postcode}}</td>
+    <td>{{property.bedroomNumber}}</td>
+    <td>{{property.overallRating}}</td>
+    <td>£{{property.rentMonthly}}</td>
+    <td id="" class="" >{{ property.redlandScore }}</td>
+  </tr>
+
+  {% endfor %}
+
+
+
+</table>
+
+
+<script>
+
+      var redlandScore = $('#redlandrankingscore').map(function(){
+      return $(this).text();
+    }).get().join(',');
+  
+    var redlandScoreNum = Number(redlandScore)
+    if(0<redlandScoreNum && redlandScoreNum<51)
+    {
+      document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "green";
+      document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "green";
+      document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "green";
+      document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "green";
+      document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "green";
+  
+  
+    } else if (50<redlandScoreNum && redlandScoreNum<151) {
+  
+      document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "orange";
+      document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "orange";
+      document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "orange";
+      document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "orange";
+      document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "orange";
+    }
+    else{
+      document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "red";
+      document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "red";
+      document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "red";
+      document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "red";
+      document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "red";
+  
+    }
+  
+  
+  
+  </script>
+{% endblock %}

@@ -464,3 +464,29 @@ class CreateCheckoutSessionView(View):
         return JsonResponse({
             'client_secret': checkout_session['client_secret']
         })
+
+
+# Make login required
+@ login_exempt
+def fullListing(request):
+    # Return all data to populate full listing table that is searchable
+    # Get all reviews from db
+    # Get house number for each house from FIRST review.
+    # for each property get its first review house number , price ect...
+
+    extended_properties = []
+    properties = Property.objects.all()
+    
+    for property in properties:
+        propertyReviews = Review.objects.filter(
+            property=property, verified=True).order_by('reviewDate').values()
+
+        firstReview = propertyReviews[0]
+        # Add data to the property object before sending it through. Create an extended properties object containing extra meta data to be unpacked in jinja
+        property.bedroomNumber = firstReview['bedroomNumber']
+        property.rentMonthly = firstReview['rentMonthly']
+        property.overallRating = firstReview['overallRating']
+        extended_properties.append(property)
+
+    context = {'properties':extended_properties}
+    return render(request, 'fullListing.html',context)
