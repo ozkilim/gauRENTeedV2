@@ -16,6 +16,7 @@ table {
     minmax(150px, 0.5fr)
     minmax(150px, 0.5fr)
     minmax(150px, 0.5fr)
+    minmax(150px, 0.5fr)
     minmax(150px, 2fr)
 
 }
@@ -58,42 +59,61 @@ tr:nth-child(even) td {
   background: #f8f6ff;
 }
 
+#blurry-text {
+  color: transparent;
+   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
 </style>
 
-<h1>Filter through our reviews</h1>
+<h1>Redland houseing league table</h1>
 <h3>Click on the header to sort the table</h3>
 <hr>
 <table class="sortable">
   <tr>
     <th>Property address</th>
-    <th>Postcode</th>
-    <th>Room number</th>
+    <th>Number of bedrooms</th>
     <th>Overall score</th>
+    <th>Property condition</th>
+    <th>property manager</th>
     <th>Monthly rent</th>
     <th>Guarenteed value for money Score</th>
   </tr>
 
+  {% if not user.is_authenticated  %}
 
   {% for property in properties %}
   <link >
-
-
   <tr class="item">
     <td>  <a href="https://www.guarenteed.org/reasult/{{property.hashId}}">{{property.fullAddress}}</a>
         </td>
-    <td>{{property.postcode}}</td>
-    <td>{{property.bedroomNumber}}</td>
-    <td>{{property.overallRating}}</td>
-    <td>£{{property.rentMonthly}}</td>
-    <td id="" class="" >{{ property.redlandScore }}</td>
+    <td id=blurry-text >{{property.bedroomNumber}}</td>
+    <td id=blurry-text>{{property.overallRating}}/5</td>
+    <td id=blurry-text>{{property.propertyCondition}}/5</td>
+    <td id=blurry-text>{{property.propertyManager}}/5</td>
+    <td id=blurry-text>£{{property.rentMonthly}}</td>
+    <td id="blurry-text" class="" >{{ property.redlandScore }}</td>
   </tr>
-
   {% endfor %}
 
+  {% else %}
 
+  {% for property in properties %}
+  <link >
+  <tr class="item">
+    <td>  <a href="https://www.guarenteed.org/reasult/{{property.hashId}}">{{property.fullAddress}}</a>
+        </td>
+    <td  >{{property.bedroomNumber}}</td>
+    <td >{{property.overallRating}}/5</td>
+    <td >{{property.propertyCondition}}/5</td>
+    <td >{{property.propertyManager}}/5</td>
+    <td >£{{property.rentMonthly}}</td>
+    <td  class="" >{{ property.redlandScore }}</td>
+  </tr>
+  {% endfor %}
+
+  {% endif %}
 
 </table>
-
 
 <script>
 

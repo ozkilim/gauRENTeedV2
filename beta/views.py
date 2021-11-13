@@ -486,6 +486,10 @@ def fullListing(request):
         property.bedroomNumber = firstReview['bedroomNumber']
         property.rentMonthly = firstReview['rentMonthly']
         property.overallRating = firstReview['overallRating']
+        
+        property.propertyCondition = firstReview['buildingQuality']
+        property.propertyManager = firstReview['manageResponsivenes']
+
         extended_properties.append(property)
 
     context = {'properties':extended_properties}
