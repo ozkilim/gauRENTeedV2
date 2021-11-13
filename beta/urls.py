@@ -7,7 +7,9 @@ from beta.views import (
 )
 
 urlpatterns = [
-    path('', views.landing, name='landing'),
+    path('houseSearch', views.landing, name='landing'),
+    path('', views.landingSimple, name='landingSimple'),
+
     path('reasult/<str:hashId>/', views.reasult, name='reasult'),
     # path('search', views.search, name='search'),
     path('searchReasult', views.searchReasult, name='searchReasult'),

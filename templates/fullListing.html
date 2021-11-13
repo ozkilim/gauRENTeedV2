@@ -1,9 +1,165 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 <style>
 #sorttable_sortfwdind{
 
+}
+
+
+*:not(.fa){
+  font-family: "Gill Sans" !important;
+}
+
+body {
+	font-size: 14px;
+	background-color: #ffffff;
+  font-family: "Gill Sans" !important;
+}
+form {
+  width: 100%;
+  min-width: 100%;
+  align-self: center;
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 7px;
+  padding: 40px;
+}
+input {
+  border-radius: 6px;
+  margin-bottom: 6px;
+  padding: 12px;
+  border: 1px solid rgba(50, 50, 93, 0.1);
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  background: #FAFAFA;
+}
+.result-message {
+  line-height: 22px;
+  font-size: 16px;
+}
+.result-message a {
+  color: #4464F6;
+  font-weight: 600;
+  text-decoration: none;
+}
+.hidden {
+  display: none;
+}
+#card-error {
+  color: #FAFAFA;
+  text-align: left;
+  font-size: 20px;
+  line-height: 17px;
+  margin-top: 12px;
+  background-color: red;
+}
+#card-element {
+  border-radius: 4px 4px 0 0 ;
+  padding: 12px;
+  border: 1px solid rgba(50, 50, 93, 0.1);
+  height: 44px;
+  width: 100%;
+  background: 
+#FAFAFA;
+}
+#payment-request-button {
+  margin-bottom: 32px;
+}
+/* Buttons and links */
+button {
+  background:#4464F6;
+  color: #ffffff;
+  border-radius: 0 0 4px 4px;
+  border: 0;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  width: 100%;
+}
+button:hover {
+  filter: contrast(115%);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.signup_button:hover {
+  filter: contrast(115%);
+}
+/* spinner/processing state, errors */
+.spinner,
+.spinner:before,
+.spinner:after {
+  border-radius: 50%;
+}
+.spinner {
+  color: #ffffff;
+  font-size: 22px;
+  text-indent: -99999px;
+  margin: 0px auto;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  box-shadow: inset 0 0 0 2px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.spinner:before,
+.spinner:after {
+  position: absolute;
+  content: "";
+}
+.spinner:before {
+  width: 10.4px;
+  height: 20.4px;
+  background: #4464F6;
+  border-radius: 20.4px 0 0 20.4px;
+  top: -0.2px;
+  left: -0.2px;
+  -webkit-transform-origin: 10.4px 10.2px;
+  transform-origin: 10.4px 10.2px;
+  -webkit-animation: loading 2s infinite ease 1.5s;
+  animation: loading 2s infinite ease 1.5s;
+}
+.spinner:after {
+  width: 10.4px;
+  height: 10.2px;
+  background: #4464F6;
+  border-radius: 0 10.2px 10.2px 0;
+  top: -0.1px;
+  left: 10.2px;
+  -webkit-transform-origin: 0px 10.2px;
+  transform-origin: 0px 10.2px;
+  -webkit-animation: loading 2s infinite ease;
+  animation: loading 2s infinite ease;
+}
+#loginPayModal{
+}
+#loginPayModalblock{
+border-radius: 15px;
+}
+.sellingProduct{
+    text-align: center;
+}
+#popupTabs{
+    background-color: #FAFAFA;
+}
+@import url('https://fonts.googleapis.com/css?family=Arima+Madurai:100,200,300,400,500,700,800,900');
+
+.btn:hover,
+.btn:focus,
+.btn:active{
+    outline: 0 !important;
 }
 
 table {
@@ -12,12 +168,123 @@ table {
   min-width: 100%;
   grid-template-columns: 
     minmax(150px, 2fr)
+    minmax(150px, 1.5fr)
+    minmax(150px, 0.3fr)
     minmax(150px, 0.5fr)
     minmax(150px, 0.5fr)
-    minmax(150px, 0.5fr)
-    minmax(150px, 0.5fr)
-    minmax(150px, 0.5fr)
+    minmax(150px, 0.3fr)
     minmax(150px, 2fr)
+}
+
+.btn-simple:hover,
+.btn-simple:focus{
+    background-color: transparent;
+    box-shadow: none;
+    opacity: 1;
+}
+.btn-simple i{
+    font-size: 16px;
+}
+
+.navbar-brand-logo{
+    padding: 0;
+}
+.navbar-brand-logo .logo{
+    border: 1px solid #333333;
+    border-radius: 50%;
+    float: left;
+    overflow: hidden;
+    width: 60px;
+}
+.navbar .navbar-brand-logo .brand{
+    color: #FFFFFF;
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 60px;
+}
+.navbar-default .navbar-brand-logo .brand{
+    color: #555;
+}
+
+
+#popupButtonsTab{
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+}
+
+#popupButtonsTab:hover{
+  background-color: white;
+  color: 4464F6;
+
+}
+
+
+.registedheading{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background-color: 
+#FAFAFA;
+  color: black;
+}
+#sellingDIV{
+border-radius: 20px;
+padding-left: 30px;
+padding-right: 30px;
+}
+.SubIcon{
+  padding-right:10px ;
+  float: left;
+  width: 40px;
+}
+.whatyouget{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  vertical-align: middle;
+}
+
+#trybutton{
+  width: 300px;
+  color: 
+#FAFAFA;
+  background: #4464F6;
+  background-color: #4464F6;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 600;
+}
+#tryform{
+  border:none;
+  padding:0px;
+	box-shadow: none;
+  text-align: center;
+
+}
+
+.PoundPayment{
+  text-align: center;
+  color:#999999;
+}
+.ExampleRev{
+align-self: center;
+height: 100%; 
+width: 100%; 
+object-fit: contain'
+}
+
+
+.ExampleRevtitle{
+  align-self: center;
+  text-align: center;
 
 }
 
@@ -43,6 +310,7 @@ th {
   font-weight: normal;
   font-size: 1.1rem;
   color: white;
+
 }
 
 th:last-child {
@@ -63,10 +331,31 @@ tr:nth-child(even) td {
   color: transparent;
    text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
+
+.footer {
+  bottom: 5rem;
+  position: sticky;
+}
+
+#signupbutton{
+  border-color: #4464f6;
+  border-radius: 15px;
+  height: 80px;
+  font-size: 30px;
+  background-color: #4464f6;
+  vertical-align: middle;
+  color: #FAFAFA;
+  position:relative;
+}
+.headertitle{
+
+  text-align: center;
+
+}
 </style>
 
-<h1>Redland houseing league table</h1>
-<h3>Click on the header to sort the table</h3>
+<h1 class="headertitle">Redland houseing league table</h1>
+<h3 class="headertitle">Click on the header to sort the table</h3>
 <hr>
 <table class="sortable">
   <tr>
@@ -76,13 +365,11 @@ tr:nth-child(even) td {
     <th>Property condition</th>
     <th>property manager</th>
     <th>Monthly rent</th>
-    <th>Guarenteed value for money Score</th>
+    <th>Guarenteed value for money</th>
   </tr>
 
   {% if not user.is_authenticated  %}
-
   {% for property in properties %}
-  <link >
   <tr class="item">
     <td>  <a href="https://www.guarenteed.org/reasult/{{property.hashId}}">{{property.fullAddress}}</a>
         </td>
@@ -93,8 +380,455 @@ tr:nth-child(even) td {
     <td id=blurry-text>£{{property.rentMonthly}}</td>
     <td id="blurry-text" class="" >{{ property.redlandScore }}</td>
   </tr>
-  {% endfor %}
 
+  {% endfor %}
+  </table>
+
+  <footer class="footer"><button onclick="modalpopup()" id=signupbutton>Sign up to see this information and much more now!</button>
+  </footer>
+
+
+  <!--Modal: Login / Register Form-->
+  <!-- <div id="modal" class="modal hide fade in" data-keyboard="false" data-backdrop="static"> -->
+  
+  <div class="modal hide fade in" id="loginPayModal"  data-keyboard="false" data-backdrop="static">
+  
+  <!-- <div class="modal fade in" id="loginPayModal" data-target="loginPayModal" data-toggle="modal" data-backdrop="static" data-keyboard="false"> -->
+      <div class="modal-dialog" role="document" style="max-width:80%;" >
+        <!--Content-->
+        <div class="modal-content" id="loginPayModalblock">
+          <!--Modal cascading tabs-->
+          <div class="modal-c-tabs">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist" id="popupTabs">
+              <li class="nav-item">
+                <a class="nav-link"   href="{% url 'fullListing' %}" >
+                  <button type="button" class="btn-close" aria-label="Close" ></button>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="#panel7" role="tab">
+                  Already user? : Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id ="popupButtonsTab" data-toggle="tab" href="#panel8" role="tab">
+                  Unlock Redland reviews</a>
+              </li>
+            </ul>
+  
+            <!-- Tab panels -->
+            <div class="tab-content">
+              <!--Panel 7-->
+              <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+    
+                <!--Body-->
+                <div class="modal-body mb-1">
+                  <h2 class="registedheading">Login as an existing user</h2>
+                  <hr class=hr>
+                  <form role="form" class="form-horizontal" method="post" action="{% url 'login' %}">{% csrf_token %}
+                      <div class="form-group">
+  
+                          <!-- <label for="id_username" class="usernametag">USERNAME</label> -->
+                          <input id="id_username" placeholder="email address" name="username" type="text" class="username-control-login">
+  
+                          <!-- <label for="id_password" class="passwordtag">PASSWORD</label> -->
+                          <input id="id_password" placeholder="password" name="password" type="password" class="password-control-login">
+                          <br>
+                          <input type="submit" class="signup_button"/>
+                          <input type="hidden" name="next" value="/{{ urlsString }}" />
+                      </div>
+  
+                  </form>
+                  {% if form.errors %}
+                  <div class="alert alert-danger">
+                      <strong>username or password not correct</strong>
+                  </div>
+                  {% endif %}
+                  <div class="alert">
+                    <strong
+                      >Forgotten your password or experiencing problems? Contact us at : guarenteedteam@gmail.com
+                    </strong>
+                  </div>
+                
+              </div>
+          </div>
+   
+              <div class="tab-pane fade" id="panel8" role="tabpanel">
+                <br>
+                <div>
+                <h3 class="registedheading">Unlock Over 200 in depth Redland housing reviews</h3>
+              </div>
+                <hr class=hr>
+                    <div class = "row" id="sellingDIV">
+                      <div class = "col-2"></div>
+  
+                      <div class = "col-8"> <h3>What do you get?</h3>
+                        <div class="whatyouget">
+                          <img  class="SubIcon" src={% static "images/search_results/Survey.png" %} />
+                          <h4 class="whatyougettext">Unlock recent reviews for over 200 properties in Redland</h4>
+                        </div>
+                        <div class="whatyouget">
+                          <img  class="SubIcon" src={% static "images/search_results/HomePage.png" %} />
+                          <h4 class="whatyougettext">Find out from recent tenants what it is really like to live in the place before you sign it</h4>
+                        </div>
+                        <div class="whatyouget">
+                          <img  class="SubIcon" src={% static "images/search_results/Search.png" %} />
+  
+                          <h4 class="whatyougettext">Find the best and avoid the worst properties</h4>
+                        </div>
+                        <div class="whatyouget">
+                          <img  class="SubIcon" src={% static "images/search_results/StackofMoney.png" %} />
+  
+                          <h4 class="whatyougettext">Find out what previous tennants paid for their house</h4>
+                        </div>
+                        <div class="whatyouget">
+                          <img  class="SubIcon" src={% static "images/search_results/ReceiveCash.png" %} />
+  
+                          <h4 class="whatyougettext">Read the example review see what you are getting before you commit. </h4>
+                          <!-- <form id="tryform" action="http://127.0.0.1:8000/beta/reasult/f7f02f3b-7644-4d31-8c19-a85d2cfb2434/">
+                            <input type="submit" value="Check out an example review" id="trybutton" />
+                          </form> -->
+                        </div>
+                        
+                       
+                    </div>
+                      <div class = "col-2"></div>
+                  </div>
+                    <hr>
+                  <div class= "row">
+                    <div class = "col-1"></div>
+                  <div class = "col-10">
+                        <h2 class="ExampleRevtitle">Get a year of full access now to all reviews</h2>
+                        <h2 class = "PoundPayment">£15 one off payment</h2>
+                        <br>
+  
+                          
+                <form id="payment-form" class="form-control">{% csrf_token %}
+                  <input name = "email" type="email" id="email" placeholder="Email address" class="form-control" required="true"/>
+                  <input name = "password" minlength="5" id="password" placeholder="Password (5 characters minimum)" class="form-control" required="true"/>
+                  <!-- <input name = "discount" type="text" id="discount" placeholder="discount code" class="form-control"/> -->
+                  <!-- <label for="choose">Would you prefer a banana or a cherry?</label> -->
+  
+                  <br>
+                  <div class="row">
+                  <div class="col-6">
+                  
+                  <div class="form-check form-switch">
+                    <input name = "happyToBeContacted" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">I am happy to be contacted for feedback purposes and/or the advertisement of paid opportunities in the future.</label>
+                  </div>
+                </div>
+                <div class="col-6">
+  
+                  <input placeholder="Enter discount code" name ="discountcode" id="choose" class="discount" name="i_like"    > 
+                          <span id="correctcode" class="badge badge-success">Correct code! 20% discount applied.</span>
+                  <br>
+                </div>
+                </div>
+  
+                  <input type="hidden" id="hashId" name="hashId" value={{ hashId }}/>
+                  <br>
+                  <div id="card-element"></div>
+                  <button id="submit">
+                    <div class="spinner hidden" id="spinner"></div>
+                    <span id="button-text">Unlock all the reviews</span>
+                  </button>
+                  <br>
+                  <h6>Experiencing problems? Contact us at : guarenteedteam@gmail.com</h6>
+                  <p id="card-error" role="alert"></p>
+                  <p class="result-message hidden">
+                  </p>
+                </form>
+  
+                {% if form.errors %}
+                <div id="form-error">
+                  <p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+                  <ul>
+                  {% for field in form %}
+                  <li>{{ field.errors|striptags }}</li>
+                  {% endfor %}
+                  </ul>
+                </div>
+                {% endif %}
+                <!-- {% if form.errors %}
+                <div class="alert alert-danger">
+  
+                    <strong>This email is already signed up</strong>
+                </div>
+                {% endif %} -->
+  
+                <br>
+                      </div>
+                      <div class = "col-1"></div>
+  
+                    </div>
+                    <hr>
+                    <br>
+                    <h2 class="ExampleRevtitle">Check out an example review below </h2> 
+                    <br>
+                <img  class="ExampleRev" src={% static "images/search_results/ex1.png" %} />
+                <img  class="ExampleRev" src={% static "images/search_results/ex2.png" %} />
+  
+  <!-- <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css"> -->
+  <script>
+  
+    
+  // // ES6 Modules or TypeScript
+  // import Swal from 'sweetalert2'
+  // CommonJS
+  // const Swal = require('sweetalert2')
+  
+  const discountCodeList = ["redland1001",
+  "redland1002",
+  "redland1003",
+  "redland1004",
+  "redland1005",
+  "redland1006",
+  "redland1007",
+  "redland1008",
+  "redland1009",
+  "redland1010",
+  "redland1011",
+  "redland1012",
+  "redland1013",
+  "redland1014",
+  "redland1015",
+  "redland1016",
+  "redland1017",
+  "redland1018",
+  "redland1019",
+  "redland1020",
+  "redland1021",
+  "redland1022",
+  "redland1023",
+  "redland1024",
+  "redland1025",
+  "redland1026",
+  "redland1027",
+  "redland1028",
+  "redland1029",
+  "redland1030",
+  "redland1031",
+  "redland1032",
+  "redland1033",
+  "redland1034",
+  "redland1035",
+  "redland1036",
+  "redland1037",
+  "redland1038",
+  "redland1039",
+  "redland1040",
+  "redland1041",
+  "redland1042",
+  "redland1043",
+  "redland1044",
+  "redland1045",
+  "redland1046",
+  "redland1047",
+  "redland1048",
+  "redland1049",
+  "redland1050",
+  "redland1051"]
+  
+  
+  $('#choose').on("input", function() {
+  
+      if(discountCodeList.includes(document.getElementById("choose").value))
+      {
+        document.getElementById("correctcode").style.visibility = "visible";
+      }
+      else{
+        document.getElementById("correctcode").style.visibility = "hidden";
+        document.getElementById("choose").style.outline = "none";
+      }
+  });
+  
+  
+  var discountcode = document.getElementById('choose').value
+  
+  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+  var stripe = Stripe("pk_live_51IVE74GfxvWHpljQUTFxoMaTtoTwyj1vknpyfwFMlsbcLSGJFA5alGO7db4x9Iwd1AHCdwlMkokWJuA4ukG9jlKI00VcRXiv1w");
+  // var stripe = Stripe("pk_test_51IVE74GfxvWHpljQiugUY1xG2FvOnO8l6W64sVuSofMJ5SHsVVlZ5E81bLsC1BwIWptV8BL2U4ZHhesrXOyOKcRH00SdJXIHfx");
+  
+  document.querySelector("button").disabled = true; 
+  // fetch("{% url 'create-checkout-session' %}", {
+  //     method: "POST",
+  //     headers: {
+  //     'X-CSRFToken': csrftoken,
+  //     },
+  //     body:discountcode,                
+  //     })
+  //     .then(function(result) {
+  //       return result.json();
+  //     })
+  //     .then(function(data) {
+      var elements = stripe.elements();
+      var style = {
+          base: {
+          color: "#32325d",
+          fontFamily: 'Arial, sans-serif',
+          fontSmoothing: "antialiased",
+          fontSize: "16px",
+          "::placeholder": {
+              color: "#32325d"
+          }
+          },
+          invalid: {
+          fontFamily: 'Arial, sans-serif',
+          color: "#fa755a",
+          iconColor: "#fa755a"
+          }
+      };
+      var card = elements.create("card", { style: style });
+      // Stripe injects an iframe into the DOM
+      card.mount("#card-element");
+      card.on("change", function (event) {
+          // Disable the Pay button if there are no card details in the Element
+          document.querySelector("button").disabled = event.empty;
+          document.querySelector("#card-error").textContent = event.error ? event.error.message : "";
+      });
+      var form = document.getElementById("payment-form");
+      var formData = JSON.stringify($("payment-form").serializeArray());
+  
+      form.addEventListener("submit", function(event) {
+  
+      event.preventDefault();
+  
+      var discountcode = document.getElementById('choose').value
+      
+      fetch("{% url 'create-checkout-session' %}", {
+      method: "POST",
+      headers: {
+      'X-CSRFToken': csrftoken,
+      },
+      body:discountcode,                
+      })
+      .then(function(result) {
+  
+        return result.json();
+      })
+      .then(function(data) {
+  
+      var formElement = document.querySelector("#payment-form");
+      var request = new XMLHttpRequest();
+      request.open("POST", "{% url 'checkIfNewUser' %}");
+      request.send(new FormData(formElement));  
+      // get response to see if the back end passed and user could be created
+      request.onreadystatechange = function() {
+      if (request.readyState === 4) {
+        var sendback = JSON.parse(request.response);
+        if (sendback.response === 200) {
+        // Complete payment when the submit button is clicked
+        payWithCard(stripe, card, data.client_secret);
+        loading(true);
+        }
+        else{
+          showError("An account with this email already exists! Check your emails for your password")
+        }
+      }
+        }
+      
+      });
+  });         
+  // Calls stripe.confirmCardPayment
+  // If the card requires authentication Stripe shows a pop-up modal to
+  // prompt the user to enter authentication details without leaving your page.
+  var payWithCard = function(stripe, card, clientSecret) {
+  
+    loading(true);
+    stripe
+    .confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card
+        }
+      })
+      .then(function(result) {
+        if (result.error) {
+          // Show error to your customer
+          showError(result.error.message);
+        } else {
+            // If card  passes  add the new user to the database
+            var formElement = document.querySelector("#payment-form");
+            var request = new XMLHttpRequest();
+            request.open("POST", "{% url 'checkout' %}");
+            request.send(new FormData(formElement));
+            // Send for data back to the server and wait for it to execute
+            request.onreadystatechange = function() {
+            if (request.readyState === 4) {
+                // The payment succeeded!
+                orderComplete();
+                // Swal("Good job!", "You clicked the button!", "success")
+                setTimeout(alert("Payment complete!"),100000);
+                location.reload()
+            }
+          }
+        }
+  
+      });
+  };
+  /* ------- UI helpers ------- */
+  // Shows a success message when the payment is complete
+  var orderComplete = function() {
+      loading(false);
+      document
+      .querySelector("Payment complete")
+      document.querySelector(".result-message").classList.remove("hidden");
+      document.querySelector("button").disabled = true;
+   
+  };
+  // Show the customer the error from Stripe if their card fails to charge
+  var showError = function(errorMsgText) {
+      loading(false);
+      var errorMsg = document.querySelector("#card-error");
+      errorMsg.textContent = errorMsgText;
+      setTimeout(function() {
+      errorMsg.textContent = "";
+      }, 10000);
+  };
+  // Show a spinner on payment submission
+  var loading = function(isLoading) {
+      if (isLoading) {
+      // Disable the button and show a spinner
+      document.querySelector("button").disabled = true;
+      document.querySelector("#spinner").classList.remove("hidden");
+      document.querySelector("#button-text").classList.add("hidden");
+      } else {
+      document.querySelector("button").disabled = false;
+      document.querySelector("#spinner").classList.add("hidden");
+      document.querySelector("#button-text").classList.remove("hidden");
+      }
+  };
+  
+  function closeAllModals() {
+      // get modals
+      const modals = document.getElementsByClassName('modal');
+  
+      // on every modal change state like in hidden modal
+      for(let i=0; i<modals.length; i++) {
+      modals[i].classList.remove('show');
+      modals[i].setAttribute('aria-hidden', 'true');
+      modals[i].setAttribute('style', 'display: none');
+      }
+  
+      // get modal backdrops
+      const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
+  
+      // remove every modal backdrop
+      for(let i=0; i<modalsBackdrops.length; i++) {
+      document.body.removeChild(modalsBackdrops[i]);
+   }
+  }
+                </script>
+                  </div>
+                </div>
+                </div>
+          </div>
+  </div>
+  </div>
+  
+  
+  
   {% else %}
 
   {% for property in properties %}
@@ -148,7 +882,16 @@ tr:nth-child(even) td {
   
     }
   
-  
-  
   </script>
+
+  <script>
+    function modalpopup() {
+        $('#loginPayModal').modal({backdrop: 'static', keyboard: false})  
+        $("#loginPayModal").modal('show');
+    }   
+    // Display second page of tab
+    jQuery(function(){
+       jQuery('.nav-link').click();
+    });
+</script>
 {% endblock %}

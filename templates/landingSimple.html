@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="{% static "images/landing/keyIcon.png" %}">
+
+    <title>search</title>
+    <meta charset="utf-8"/>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2CYGLGME"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GF2CYGLGME');
+    </script>
+
+
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function () {
+        return "resources/images/transparent.gif";
+      };
+      $axure.utils.getOtherPath = function () {
+        return "resources/Other.html";
+      };
+      $axure.utils.getReloadPath = function () {
+        return "resources/reload.html";
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/landing.css' %}"/>
+
+      <!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '429001025326375'); 
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+  <img height="1" width="1" 
+  src="https://www.facebook.com/tr?id=429001025326375&ev=PageView
+  &noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+  
+<style>
+    .seebesthouses{
+        color: white;
+        text-align: center;
+    }
+
+    .landingButton{
+        width: 100%;
+        background-color: white !important;
+    }
+</style>
+
+
+  </head>
+
+  <body>
+    <div class="row" id="tophalf">
+
+    <div class="topnav">
+      <a href="{% url 'landing' %}">
+        <img class="logo" src={% static "images/landing/keyIcon.png" %} />
+      </a>
+      <h6 class="nav-item" id="gaurenteedTab">
+        <a class="nav-link" href="{% url 'landing' %}" id="gaurenteedWord"
+          >GuaRENTeed</a
+        >
+      </h6>
+      <div class="floatRight">
+        <h6 class="nav-item">
+          <a id="findaproperty" class="nav-link" href="{% url 'landing' %}" >Find a property</a>
+        </h6>
+        <h6 class="nav-item">
+          <a id="findaproperty" class="nav-link" href="https://www.guarenteed.org/reasult/9f1aa856-ba7e-4fb4-a93e-e1c1d018789c/" >Example review</a>
+        </h6>
+        <h6 class="nav-item">
+          <a
+          id="leaveareview" class="nav-link" 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfEMVLlGoX0YkhiqItTKH_xA2Cqj0jH4XVqLFE_duOY_C3bXA/viewform"
+            >Leave a review</a
+          >
+        </h6>
+
+        {% if user.is_authenticated %}
+        <h6 class="nav-item" style="text-decoration:underline;">logged in as: {{request.user.username}}</h6>
+        <h6 class="nav-item">
+          <a class="nav-link" id="logoutb" href="{% url 'logout' %}">Logout</a>
+        </h6>
+        {% else %}
+        <h6 class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </h6>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- paage rendered here -->
+      <br>
+      <br>
+        <h1 class="landingTitle" style="padding-left: 50px; padding-right: 50px;">Avoid living with regret next year.</h1>
+        <h3 class="subheader" style="padding-left: 50px; padding-right: 50px;">See what you can’t see in a house viewing. Read over 200 detailed reviews of Redland properties.</h2>
+          
+                      <div class=enterFormDiv>
+                        <h2 class="seebesthouses">See best houses in Redland by bedroom size</h2>
+                        <button type="submit" class="landingButton" id="landingButton" form="rearchForm" value="Submit"><a href="https://www.guarenteed.org/fullListing">See best houses</a>
+                        </button>
+                      
+                    </div>
+                
+        
+              <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+              <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+              
+              <script>
+                $(function () {
+                  $("#property").autocomplete({
+                    source: "{% url 'landing' %}"
+                  });
+                });
+              </script>
+              <br>
+              <br>
+              <br>
+    </div>
+
+    <br>
+    <div class="row" id="benefits">
+      <div class="col">
+        <img  class="iconlanding" src={% static "images/search_results/Survey.png" %} />
+        <h6>Based on verified reviews from over 600 current Bristol students</h6>
+
+      </div>
+      <div class="col">
+        <img  class="iconlanding" src={% static "images/search_results/Search.png" %} />
+        <h6>See where your potential next home ranks in Redland </h6>
+
+      </div>
+      <div class="col">
+        <img  class="iconlanding" src={% static "images/search_results/StackofMoney.png" %} />
+
+        <h6>Avoid the properties with hidden fees and dodgy landlords </h6>
+
+      </div>
+      <div class="col">
+        <img  class="iconlanding" src={% static "images/search_results/HomePage.png" %} />
+        <h6>Find out what it’s actually like to live in your potential next home</h6>
+
+      </div>
+      <div class="col">
+        <img  class="iconlanding" src={% static "images/search_results/Handshake-2.png" %} />
+        <h6>Cost only a few £s when split between your housemates</h6>
+
+      </div>
+    </div>
+    <div class="row" id="aboutguarenteed">
+      <h3 style="padding-top: 30px; padding-bottom: 30px;">About GuaRENTeed</h1>
+      <br>
+      <h5 style="padding-bottom: 30px; padding-left: 50px; padding-right: 50px;">
+        After having successive bad experiences with rental properties across both Bristol and London we decided to set up GuaRENTeed to address imbalance of power between tenants and landlords. 
+      <br><br>
+        We have one aim, to provide tenants with the information they need to make informed decisions about rental properties. Too often, tenants are forced to make snap decisions about properties as landlords and estate agents who, in a 5 minute house viewing, can - literally and metaphorically - paper over the cracks.
+        <br><br>
+
+        After having successive bad experiences with rental properties across both Bristol and London we decided to set up GuaRENTeed to  shift this balance of power.
+        <br><br>
+
+        Please note this service is in its pilot stage so please be patient with any technical or design issues. All our reviews are based on information provided to us by former tenants. We are not responsible for the accuracy, content or completeness, reliability of any information provided to us. If you have any issue with anything that has been written then please get in touch with us our email. 
+
+        </h5>
+
+        </h4>
+        <div class="col-3">
+          <img class="" src={% static "images/landing/Ellipse3.png" %} />
+          <hr>
+          <h5>Oli Richardson</h5>
+
+        </div>
+        <div class="col-3">
+          <img class="" src={% static "images/landing/Ellipse2.png" %} />
+          <hr>
+
+          <h5>Matt Segal</h5>
+
+        </div>
+        <div class="col-3">
+          <img class="" src={% static "images/landing/Ellipse4.png" %} />
+          <hr>
+
+          <h5>Oz Kilim</h5>
+
+        </div>
+        <div class="col-3">
+          <img class="" src={% static "images/landing/Ellipse1.png" %} />
+          <hr>
+
+          <h5>Michael Amery</h5>
+          
+        </div>
+      <br>
+<br>
+<br>
+    </div>
+    <div class="row">
+      <div class="col-12" style="padding-top: 30px; padding-bottom: 30px;">
+        <div class="container" id="ff-compose"></div>
+        <script async defer src="https://formfacade.com/include/113473150208696465024/form/1FAIpQLSfyoFeufk2XhzhynKztng4FQbXVUbGFhqeOifFAnietHZiksg/bootstrap.js?div=ff-compose"></script>
+      </div>
+    </div>
+    <!-- make this sent to bottom of page.. -->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

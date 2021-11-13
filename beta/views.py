@@ -65,6 +65,11 @@ def landing(request):
 
     return render(request, 'landing.html')
 
+def landingSimple(request):
+
+
+    return render(request, 'landingSimple.html')
+
 
 def propertyList(request):
     # Get all properties in daatabase.
