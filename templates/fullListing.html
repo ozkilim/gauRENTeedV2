@@ -394,7 +394,7 @@ tr:nth-child(even) td {
 }
 </style>
 
-<h1 class="headertitle">Redland houseing league table</h1>
+<h1 class="headertitle">Redland housing league table</h1>
 <h3 class="headertitle">Click on the header to sort the table</h3>
 <hr>
 <table class="sortable">
@@ -410,6 +410,10 @@ tr:nth-child(even) td {
 
   {% if not user.is_authenticated  %}
   {% for property in properties %}
+
+
+  {% if property.fullAddress != "9 Lansdown Road "  %}
+
   <tr class="item">
     <td>  <a href="https://www.guarenteed.org/reasult/{{property.hashId}}">{{property.fullAddress}}</a>
         </td>
@@ -421,7 +425,23 @@ tr:nth-child(even) td {
     <td id="blurry-text" class="" >{{ property.redlandScore }}</td>
   </tr>
 
+  {% else %}
+  <tr class="item">
+    <td>  <a href="https://www.guarenteed.org/reasult/{{property.hashId}}">{{property.fullAddress}}</a>
+        </td>
+    <td >{{property.bedroomNumber}}</td>
+    <td >{{property.overallRating}}/5</td>
+    <td >{{property.propertyCondition}}/5</td>
+    <td >{{property.propertyManager}}/5</td>
+    <td >£{{property.rentMonthly}}</td>
+    <td  class="" >{{ property.redlandScore }}</td>
+  </tr>
+  {% endif %}
+
+
   {% endfor %}
+
+
   </table>
 
   <footer class="footer"><button onclick="modalpopup()" id=signupbutton>Sign up to see this information and much more now!</button>
@@ -538,7 +558,7 @@ tr:nth-child(even) td {
                   <div class= "row">
                     <div class = "col-1"></div>
                   <div class = "col-10">
-                        <h2 class="ExampleRevtitle">Get a year of full access now to all reviews</h2>
+                        <h2 class="ExampleRevtitle">Get full lifetime access now to all reviews</h2>
                         <h2 class = "PoundPayment">£15 one off payment</h2>
                         <br>
   
