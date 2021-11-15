@@ -88,6 +88,20 @@
     a{
         color: white !important;
     }
+    .onlyninty{
+        text-align: center;
+        font-size: 16px;
+    }
+    #nintybox{
+        height: 46px;
+        width: 160px;
+        position: relative;
+        left: 40%;
+    }
+    .clock{
+        width: 20px;
+        float: left;
+    }
 
 </style>
 
@@ -139,15 +153,22 @@
       <br>
         <h1 class="landingTitle" style="padding-left: 50px; padding-right: 50px;">Where will your next house rank?</h1>
         <h2 class="subheader" style="padding-left: 50px; padding-right: 50px;">Explore best and avoid worst ranked houses in Redland</h2>
-
+                    <br>
+                    <br>
+                    <br>
                       <div class=enterFormDiv>
 
-                        <h2 class="seebesthouses">See best houses in Redland by bedroom size</h2>
+                        <h3 class="seebesthouses">See best houses in Redland by bedroom size</h3>
                         <button type="submit" class="landingButton" id="landingButton" form="rearchForm" value="Submit"><a href="{% url 'fullListing' %}">See best houses</a>
                         </button>
-                      
+                        <br>
+                        <br>
+                        <div class="alert alert-danger" id="nintybox">
+                            <img class="clock" src={% static "images/landing/clock.png" %} />
+
+                            <h3 class='onlyninty'>Only 90 left</h3>
+                          </div>
                     </div>
-                
         
               <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
               <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
