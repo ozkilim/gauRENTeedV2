@@ -373,8 +373,9 @@ tr:nth-child(even) td {
 }
 
 .footer {
-  bottom: 5rem;
+  bottom: 0rem;
   position: sticky;
+  background-color: white;
 }
 
 #signupbutton{
@@ -386,20 +387,42 @@ tr:nth-child(even) td {
   vertical-align: middle;
   color: #FAFAFA;
   position:relative;
+  width: 60%;
+  margin: 20px auto; 
+  display: block;
 }
 .headertitle{
-  text-align: center;
 }
 
 .signups{
   color: white;
   text-align: center;
   }
+  .signupcapped{
+    color: black;
+    font-size: 13px;
+  }
+
+  .onlyninty{
+      padding-left: 30px;
+      font-size: 16px;
+    }
+    #nintybox{
+      margin: 20px auto; 
+      display: block;
+      height: 65px;
+      width: 80%;
+      position: relative;
+    }
+    .clock{
+        width: 20px;
+        float: left;
+    }
 
 </style>
 
-<h1 class="headertitle">Redland housing league table</h1>
-<h3 class="headertitle">Click on the header to sort the table</h3>
+<h2 class="headertitle">Redland housing league table</h2>
+<h5 class="headertitle">We have ranked all the properties based on scores students in 2021 gave about their house. Click column headers to sort the table.</h5>
 <hr>
 <table class="sortable">
   <tr>
@@ -409,10 +432,11 @@ tr:nth-child(even) td {
     <th>Property condition</th>
     <th>property manager</th>
     <th>Monthly rent</th>
-    <th>Guarenteed value for money</th>
+    <th>Redland ranking</th>
   </tr>
 
   {% if not user.is_authenticated  %}
+  <h6>Sign up to the site to see all scores and detailed reviews.</h6>
   {% for property in properties %}
 
 
@@ -445,10 +469,23 @@ tr:nth-child(even) td {
 
   {% endfor %}
 
-
   </table>
 
-  <footer class="footer"><button onclick="modalpopup()" id=signupbutton>Sign up to see this information and much more now!</button>
+  <footer class="footer">
+    <br>
+    <hr>
+    <div class="alert alert-danger" id="nintybox">
+      <img class="clock" src={% static "images/landing/clock.png" %} />
+
+      <h3 class='onlyninty'>Only 90 left</h3>
+      <h5 class='signupcapped'>Sign ups capped due to limited number of houses we ranked and reviewed for this pilot. Sign up before you miss out on the best ranked houses</h5>
+
+    </div>
+
+    <button onclick="modalpopup()" id=signupbutton>Sign up to reveal reviews and rankings</button>
+    <br>
+    <h6>Note: All our reviews are from students. We don't work with estate agents or lettings agents so we cannot guarantee that all these properties are still available or on the market. The earlier you sign up to our site the higher likelihood you can get the best places before they go.</h6>
+    <br>
   </footer>
 
 
@@ -914,40 +951,44 @@ tr:nth-child(even) td {
 
 </table>
 
-<script>
 
-      var redlandScore = $('#redlandrankingscore').map(function(){
-      return $(this).text();
-    }).get().join(',');
-  
-    var redlandScoreNum = Number(redlandScore)
-    if(0<redlandScoreNum && redlandScoreNum<51)
-    {
-      document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "green";
-      document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "green";
-      document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "green";
-      document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "green";
-      document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "green";
-  
-  
-    } else if (50<redlandScoreNum && redlandScoreNum<151) {
-  
-      document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "orange";
-      document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "orange";
-      document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "orange";
-      document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "orange";
-      document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "orange";
-    }
-    else{
-      document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "red";
-      document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "red";
-      document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "red";
-      document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "red";
-      document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "red";
-  
-    }
-  
-  </script>
+<script>
+  // var redlandScore = document.getElementById("redlandrankingscore").value
+
+    var redlandScore = $('#redlandrankingscore').map(function(){
+    return $(this).text();
+  }).get().join(',');
+
+  var redlandScoreNum = Number(redlandScore)
+  if(0<redlandScoreNum && redlandScoreNum<51)
+  {
+    document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "green";
+    document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "green";
+    document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "green";
+    document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "green";
+    document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "green";
+
+
+  } else if (50<redlandScoreNum && redlandScoreNum<151) {
+
+    document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "orange";
+    document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "orange";
+    document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "orange";
+    document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "orange";
+    document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "orange";
+  }
+  else{
+    document.getElementsByClassName("redlandrankingscore")[0].style.backgroundColor = "red";
+    document.getElementsByClassName("redlandrankingscore")[1].style.backgroundColor = "red";
+    document.getElementsByClassName("redlandrankingscore")[2].style.backgroundColor = "red";
+    document.getElementsByClassName("redlandrankingscore")[3].style.backgroundColor = "red";
+    document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "red";
+
+  }
+
+
+</script>
+
 
   <script>
     function modalpopup() {
