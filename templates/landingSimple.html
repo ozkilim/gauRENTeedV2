@@ -74,6 +74,9 @@
   </noscript>
   <!-- End Facebook Pixel Code -->
   
+  
+
+
 <style>
     .seebesthouses{
         color: white;
@@ -101,6 +104,20 @@
     .clock{
         width: 20px;
         float: left;
+    }
+    .sand{
+        width: 50px;
+        float: left;
+    }
+    p{
+        font-size: 40px;
+    }
+    #pilotends{
+        height: 80px;
+        width: 600px;
+        align-self: center;
+        position: absolute;
+        left: 25%;
     }
 
 </style>
@@ -147,15 +164,20 @@
         {% endif %}
       </div>
     </div>
+ 
 
     <!-- page rendered here -->
+
       <br>
       <br>
         <h1 class="landingTitle" style="padding-left: 50px; padding-right: 50px;">Where will your next house rank?</h1>
         <h2 class="subheader" style="padding-left: 50px; padding-right: 50px;">Explore best and avoid worst ranked houses in Redland</h2>
+   
+        
                     <br>
                     <br>
                     <br>
+
                       <div class=enterFormDiv>
 
                         <h3 class="seebesthouses">See best houses in Redland by bedroom size</h3>
@@ -168,25 +190,32 @@
 
                             <h3 class='onlyninty'>Only 90 left</h3>
                           </div>
+                          <br>
+                         
                     </div>
         
-              <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-              <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
               
-              <script>
-                $(function () {
-                  $("#property").autocomplete({
-                    source: "{% url 'landing' %}"
-                  });
-                });
-              </script>
+
               <br>
               <br>
               <br>
     </div>
 
     <br>
+    <br>
+    <div class ="row">
+        <div class="alert alert-danger" id="pilotends">
+            <img class="sand" src={% static "images/landing/sand.png" %} />
+            <p id="demo"></p>
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    <br>
     <div class="row" id="benefits">
+       
+
       <div class="col">
         <img  class="iconlanding" src={% static "images/search_results/Survey.png" %} />
         <h6>Based on verified reviews from over 600 current Bristol students</h6>
@@ -274,7 +303,36 @@
 
 
 
-
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Jan 1, 2022 12:00:00").getTime();
+    
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+    
+      // Get today's date and time
+      var now = new Date().getTime();
+    
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+    
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+      // Display the result in the element with id="demo"
+      document.getElementById("demo").innerHTML = "Sign up ends:  " + days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+    
+      // If the count down is finished, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+    </script>
 
 
 
