@@ -418,6 +418,27 @@ tr:nth-child(even) td {
         width: 20px;
         float: left;
     }
+.signup {
+
+  border-color: #4464f6;
+  border-radius: 15px;
+  height: 80px;
+  font-size: 30px;
+  background-color: #4464f6;
+  vertical-align: middle;
+  color: #FAFAFA;
+  position:relative;
+  width: 60%;
+  margin: 20px auto; 
+  display: block;
+  text-align: center;
+  padding-top: 12px;
+}
+.signup:hover {
+  filter: contrast(180%);
+
+
+}
 
 </style>
 
@@ -482,7 +503,7 @@ tr:nth-child(even) td {
 
     </div>
 
-    <a onclick="modalpopup()" id=signupbutton>Sign up to reveal reviews and rankings</a>
+    <a class="signup" onclick="modalpopup()" id=signupbutton>Sign up to reveal reviews and rankings</a>
     <br>
     <h6>Note: All our reviews are from students. We don't work with estate agents or lettings agents so we cannot guarantee that all these properties are still available or on the market. The earlier you sign up to our site the higher likelihood you can get the best places before they go.</h6>
     <br>
@@ -985,7 +1006,6 @@ tr:nth-child(even) td {
     document.getElementsByClassName("redlandrankingscore")[4].style.backgroundColor = "red";
 
   }
-
 
 </script>
 
