@@ -442,6 +442,9 @@ tr:nth-child(even) td {
 #correctcode {
   visibility: hidden; 
 } 
+#correctcode2 {
+  visibility: hidden; 
+} 
 </style>
 
 <h2 class="headertitle">Redland housing league table</h2>
@@ -647,6 +650,8 @@ tr:nth-child(even) td {
   
                   <input placeholder="Enter discount code" name ="discountcode" id="choose" class="discount" name="i_like"    > 
                           <span id="correctcode" class="badge badge-success">Correct code! 33% discount applied.</span>
+                          <span id="correctcode2" class="badge badge-success">Correct code! Only £5 sign up now</span>
+
                   <br>
                 </div>
                 </div>
@@ -705,7 +710,6 @@ tr:nth-child(even) td {
   // const Swal = require('sweetalert2')
   
   const discountCodeList = [
-  "redlandFinalOffer",
   "redland1001",
   "redland1002",
   "redland1003",
@@ -765,8 +769,14 @@ tr:nth-child(even) td {
       {
         document.getElementById("correctcode").style.visibility = "visible";
       }
+      else if (document.getElementById("choose").value === "redlandFinalOffer")
+      {
+        document.getElementById("correctcode2").style.visibility = "visible";
+      }
       else{
         document.getElementById("correctcode").style.visibility = "hidden";
+        document.getElementById("correctcode2").style.visibility = "hidden";
+
         document.getElementById("choose").style.outline = "none";
       }
   });

@@ -989,6 +989,9 @@ margin-left: -34px !important;
 #correctcode {
   visibility: hidden; 
 } 
+#correctcode2 {
+  visibility: hidden; 
+} 
 
 /* .fa-star{
   font-size: 10px;
@@ -1170,6 +1173,8 @@ h5{
 
                 <input placeholder="Enter discount code" name ="discountcode" id="choose" class="discount" name="i_like"    > 
                         <span id="correctcode" class="badge badge-success">Correct code! 33% discount applied.</span>
+                        <span id="correctcode2" class="badge badge-success">Correct code! Only £5 sign up now</span>
+
                 <br>
               </div>
               </div>
@@ -1228,7 +1233,6 @@ h5{
 // const Swal = require('sweetalert2')
 
 const discountCodeList = [
-"redlandFinalOffer",
 "redland1001",
 "redland1002",
 "redland1003",
@@ -1288,8 +1292,13 @@ $('#choose').on("input", function() {
     {
       document.getElementById("correctcode").style.visibility = "visible";
     }
+    else if (document.getElementById("choose").value === "redlandFinalOffer")
+    {
+      document.getElementById("correctcode2").style.visibility = "visible";
+    }
     else{
       document.getElementById("correctcode").style.visibility = "hidden";
+      document.getElementById("correctcode2").style.visibility = "hidden";
       document.getElementById("choose").style.outline = "none";
     }
 });

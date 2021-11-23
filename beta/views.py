@@ -260,9 +260,6 @@ def payment_form(request):
     return render(request, "payment.html", context)
 
 
-
-
-
 def checkIfNewUser(request):
     #Check if this user exists already
     if request.method == 'POST':
