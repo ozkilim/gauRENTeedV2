@@ -458,8 +458,12 @@ class CreateCheckoutSessionView(View):
         print(inDiscountCode)
         # CHECK HEREEE!
         # If discount code was entered apply th discount.
-        if inDiscountCode:
-            #discount applied!
+        if inDiscountCode == "redlandFinalOffer":
+            # 10 pound discount
+            print("big discountapplied!")
+            price = 5000 
+        if inDiscountCode and inDiscountCode != "redlandFinalOffer":
+            print("small discountapplied!")
             price = 1000 
         checkout_session = stripe.PaymentIntent.create(
             amount=price,
