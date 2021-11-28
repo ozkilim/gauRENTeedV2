@@ -458,7 +458,7 @@ class CreateCheckoutSessionView(View):
         if inDiscountCode == "redlandFinalOffer":
             # 10 pound discount
             print("big discountapplied!")
-            price = 5000 
+            price = 500 
         if inDiscountCode and inDiscountCode != "redlandFinalOffer":
             print("small discountapplied!")
             price = 1000 
