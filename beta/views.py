@@ -14,7 +14,7 @@ from beta.models import Property, Review, ReviewProduct
 from beta.forms import ReviewForm, CustomUserCreationForm, CustomUser, PropertyCreationForm
 # Create your views here.
 from gauRENTeed import settings
-from django.http import HttpResponse
+from django.http import HttpResponse, response
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from gauRENTeed.middleware.login_exempt import login_exempt
 from beta.tokens import account_activation_token
@@ -34,7 +34,7 @@ from django.http import JsonResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.views import View
-
+import csv
 
 def landing(request):
 
@@ -500,3 +500,15 @@ def fullListing(request):
 
     context = {'properties':extended_properties}
     return render(request, 'fullListing.html',context)
+
+
+def export(request):
+    response = HttpResponse(content_type = 'text/csv')
+
+    writer = csv.writer(response)
+    
+    for member in CustomUser.objects.all().values_list():
+        writer.writerow(member)
+        
+    response['Content-Disposition'] = 'attachment;' 'users.csv'
+    return response

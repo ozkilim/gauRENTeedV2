@@ -32,5 +32,6 @@ urlpatterns = [
     path('create-checkout-session', CreateCheckoutSessionView.as_view(),
          name='create-checkout-session'),
     path('fullListing', views.fullListing, name='fullListing'),
+    path('export', views.export, name='export'),
 
 ]
